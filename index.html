@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主日學老師教學輔助平台 | 2026 Q3 & Q4 備課神器</title>
+  <meta name="description" content="專為兒童主日學老師量身打造的教學輔助平台，涵蓋2026年第三季與第四季全26課。結合校長、傳道人、牧師、教育與心理學專家智慧，內建投影模式、計時器、金句記憶小工具、分齡問答與列印學習單。">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body class="theme-warm">
+
+  <!-- Top App Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-area">
+        <span class="cross-icon">✝</span>
+        <div>
+          <h1 class="brand-title">主日學老師教學輔助平台</h1>
+          <p class="brand-sub">SS Teacher's Cockpit · 2026 Q3 & Q4 全26課 專家備課神器</p>
+        </div>
+      </div>
+
+      <!-- Quarter Switcher -->
+      <div class="quarter-switcher" id="quarterSwitcher">
+        <button class="quarter-btn active" data-quarter="2026-Q3">2026 第三季 (以斯帖·啟示錄)</button>
+        <button class="quarter-btn" data-quarter="2026-Q4">2026 第四季 (申命記·腓立比書)</button>
+      </div>
+
+      <!-- Tools & Settings Toolbar -->
+      <div class="header-tools">
+        <!-- Live Search -->
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="搜尋課名、經文、主題、詩歌..." autocomplete="off">
+          <button id="clearSearchBtn" class="clear-search-btn" title="清除搜尋">✕</button>
+          <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+        </div>
+
+        <!-- Utility Buttons -->
+        <button id="timerToggleBtn" class="tool-btn" title="課堂計時器">⏱️ 計時器</button>
+        <button id="presentModeBtn" class="tool-btn highlight" title="切換投影演講大螢幕模式">🖥️ 投影模式</button>
+        <button id="printBtn" class="tool-btn" title="列印學習單與備課單">🖨️ 列印/匯出</button>
+        <div class="font-controls">
+          <button id="fontDownBtn" class="icon-btn" title="縮小文字">A-</button>
+          <button id="fontUpBtn" class="icon-btn" title="放大文字">A+</button>
+        </div>
+        <button id="themeToggleBtn" class="icon-btn" title="切換主題風格">🌓</button>
+      </div>
+    </div>
+
+    <!-- Lesson Fast Selector Rail -->
+    <nav class="lesson-rail" id="lessonRail">
+      <!-- Generated via JS -->
+    </nav>
+  </header>
+
+  <!-- Main App Layout -->
+  <main class="main-container" id="mainContainer">
+
+    <!-- Left / Top Lesson Header Card -->
+    <section class="lesson-hero-card" id="lessonHero">
+      <div class="hero-top-meta">
+        <span class="badge badge-quarter" id="heroQuarter">2026-Q3</span>
+        <span class="badge badge-num" id="heroNum">第 1 課</span>
+        <span class="badge badge-scripture" id="heroScripture">以斯帖記一至四章</span>
+      </div>
+
+      <h2 class="hero-title" id="heroTitle">金杖下的灰姑娘</h2>
+      <h3 class="hero-subtitle" id="heroSubtitle">上帝所預備的逆轉時刻</h3>
+
+      <!-- Memory Verse Box with Gym Interaction -->
+      <div class="memory-verse-box">
+        <div class="verse-header">
+          <span class="verse-label">📖 本課背誦金句</span>
+          <div class="verse-gym-controls">
+            <span class="gym-tip">💡 點擊字詞可單獨隱藏：</span>
+            <button class="gym-btn active" data-mode="full">完整</button>
+            <button class="gym-btn" data-mode="partial">挖空 30%</button>
+            <button class="gym-btn" data-mode="hard">遮蔽 60%</button>
+            <button class="gym-btn" data-mode="all">全遮考驗</button>
+          </div>
+        </div>
+        <div class="verse-content" id="verseDisplay">
+          <!-- Dynamically populated with interactive word tokens -->
+        </div>
+        <div class="verse-citation" id="verseCitation">以弗所書 2 章 10 節</div>
+      </div>
+    </section>
+
+    <!-- Module Navigation Tabs -->
+    <nav class="module-tabs" id="moduleTabs">
+      <button class="tab-btn active" data-target="tab-expert">🌟 專家團隊錦囊</button>
+      <button class="tab-btn" data-target="tab-story">📖 沉浸式聖經故事</button>
+      <button class="tab-btn" data-target="tab-games-songs">🎵 詩歌敬拜 & 🎮 破冰遊戲</button>
+      <button class="tab-btn" data-target="tab-truth-app">💡 核心真理 & 🌱 生活應用</button>
+      <button class="tab-btn" data-target="tab-crafts">✂️ 小手動動手工 DIY</button>
+      <button class="tab-btn" data-target="tab-questions">🙋 分齡互動問答</button>
+      <button class="tab-btn" data-target="tab-prayer">🙏 同心回應禱告</button>
+      <button class="tab-btn" data-target="tab-notes">📝 我的備課筆記</button>
+    </nav>
+
+    <!-- Content Sections -->
+    <div class="tab-content-area" id="tabContentArea">
+
+      <!-- 1. Expert Team Insights Tab -->
+      <section class="tab-pane active" id="tab-expert">
+        <div class="expert-intro-banner">
+          <h3>👥 六大專家團隊深度賦能指導</h3>
+          <p>集合資深校長、主日學長大傳道人、資深牧師、現代教育專家、發展心理學家與 UI/UX 專家智慧，為您提供從備課心靈、50分鐘課堂節奏到應急錦囊的全方位支援。</p>
+        </div>
+
+        <div class="expert-grid">
+          <!-- Principal Card -->
+          <div class="expert-card principal-card">
+            <div class="expert-header">
+              <span class="expert-avatar">🏫</span>
+              <div>
+                <h4 class="expert-role">資深校長 Barnabas 錦囊</h4>
+                <p class="expert-sub">班級經營 · 課堂節奏 · 幽默引導</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <div class="info-block">
+                <h5>⏱️ 50分鐘課堂節奏建議：</h5>
+                <ul class="pacing-list" id="expertPacingList"></ul>
+              </div>
+              <div class="info-block">
+                <h5>📋 5分鐘快速備課檢核：</h5>
+                <ul class="prep-list" id="expertPrepList"></ul>
+              </div>
+              <div class="info-block highlight-box">
+                <h5>💡 躁動應變小秘訣：</h5>
+                <p id="expertClassroomTip"></p>
+              </div>
+              <div class="info-block humor-box">
+                <h5>😄 校長開場幽默話術：</h5>
+                <p id="expertHumorOpener"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preacher Card -->
+          <div class="expert-card preacher-card">
+            <div class="expert-header">
+              <span class="expert-avatar">🔥</span>
+              <div>
+                <h4 class="expert-role">熱血傳道 Timothy 視角</h4>
+                <p class="expert-sub">主日學長大 · 兒童心聲 · 生動破題</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <div class="info-block hook-box">
+                <h5>🎣 說故事懸念 Hook（吸睛開場）：</h5>
+                <p id="expertStoryHook"></p>
+              </div>
+              <div class="info-block">
+                <h5>💭 孩子的真實內心世界：</h5>
+                <p id="expertChildWorld"></p>
+              </div>
+              <div class="info-block">
+                <h5>🎒 校園真實生活對接：</h5>
+                <p id="expertChildStruggle"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Senior Pastor Card -->
+          <div class="expert-card pastor-card">
+            <div class="expert-header">
+              <span class="expert-avatar">📖</span>
+              <div>
+                <h4 class="expert-role">資深牧師 John 釋經</h4>
+                <p class="expert-sub">救贖歷史 · 基督中心 · 教師靈修</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <div class="info-block">
+                <h5>✝️ 聖經神學焦點：</h5>
+                <p id="expertTheologyFocus"></p>
+              </div>
+              <div class="info-block gospel-box">
+                <h5>🌟 福音與基督透鏡（指向耶穌）：</h5>
+                <p id="expertChristLens"></p>
+              </div>
+              <div class="info-block devotion-box">
+                <h5>🕊️ 給主日學老師的課前靈修：</h5>
+                <p id="expertDevotion"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education & Psychology Card -->
+          <div class="expert-card edu-card">
+            <div class="expert-header">
+              <span class="expert-avatar">🧠</span>
+              <div>
+                <h4 class="expert-role">教育法 & 兒童心理專家</h4>
+                <p class="expert-sub">布魯姆分層 · 5E教學環 · 認知發展</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <div class="info-block">
+                <h5>🎯 5E 教學模式鷹架：</h5>
+                <div class="five-e-list" id="expertFiveE"></div>
+              </div>
+              <div class="info-block">
+                <h5>🧸 兒童認知與心理發展特質：</h5>
+                <p id="expertDevelopment"></p>
+              </div>
+              <div class="info-block safety-box">
+                <h5>🛡️ 建立心理安全感技巧：</h5>
+                <p id="expertPsychSafety"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Bible Story Tab -->
+      <section class="tab-pane" id="tab-story">
+        <div class="section-title-bar">
+          <h3>📖 沉浸式聖經故事分幕</h3>
+          <span class="story-hint">提示：講故事時運用語調高低、角色代入與肢體動作，效果加倍！</span>
+        </div>
+        <div class="story-acts-container" id="storyActsContainer">
+          <!-- Story acts injected here -->
+        </div>
+      </section>
+
+      <!-- 3. Songs & Games Tab -->
+      <section class="tab-pane" id="tab-games-songs">
+        <div class="two-column-grid">
+          <!-- Worship Hymn Area -->
+          <div class="card-box hymn-box">
+            <div class="card-box-header">
+              <span class="box-icon">🎵</span>
+              <div>
+                <h4>破冰敬拜詩歌推薦</h4>
+                <p class="sub-text">預備孩童心靈，進入敬拜同在</p>
+              </div>
+            </div>
+            <div class="hymn-detail" id="hymnDetailArea">
+              <!-- Hymn details -->
+            </div>
+          </div>
+
+          <!-- Warm-up Games Area -->
+          <div class="card-box games-box">
+            <div class="card-box-header">
+              <span class="box-icon">🎮</span>
+              <div>
+                <h4>課堂暖身破冰遊戲</h4>
+                <p class="sub-text">釋放活力，透過遊戲體驗真理隱喻</p>
+              </div>
+            </div>
+            <div class="games-list" id="gamesListArea">
+              <!-- Games details -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Core Truth & Application Tab -->
+      <section class="tab-pane" id="tab-truth-app">
+        <div class="two-column-grid">
+          <div class="card-box truth-box">
+            <div class="card-box-header">
+              <span class="box-icon">💡</span>
+              <div>
+                <h4>核心生命真理</h4>
+                <p class="sub-text">本課最重要的屬靈原則與信息焦點</p>
+              </div>
+            </div>
+            <div class="truth-list" id="truthListArea"></div>
+          </div>
+
+          <div class="card-box app-box">
+            <div class="card-box-header">
+              <span class="box-icon">🌱</span>
+              <div>
+                <h4>分齡生活實踐與應用</h4>
+                <p class="sub-text">在學校、家庭與人際關係中活出信仰</p>
+              </div>
+            </div>
+            <div class="app-list" id="appListArea"></div>
+          </div>
+        </div>
+
+        <div class="conclusion-banner" id="conclusionBanner">
+          <!-- Conclusion -->
+        </div>
+      </section>
+
+      <!-- 5. Crafts Tab -->
+      <section class="tab-pane" id="tab-crafts">
+        <div class="section-title-bar">
+          <h3>✂️ 小手動動創意手工 DIY</h3>
+          <span class="story-hint">手作能將抽象的屬靈真理實體化，加強長久記憶！</span>
+        </div>
+        <div class="crafts-container" id="craftsContainer">
+          <!-- Crafts injected here -->
+        </div>
+      </section>
+
+      <!-- 6. Questions & Quizzes Tab -->
+      <section class="tab-pane" id="tab-questions">
+        <div class="quiz-container">
+          <!-- Lower Grade Interactive Quiz -->
+          <div class="quiz-section lower-quiz-section">
+            <div class="quiz-section-header">
+              <div class="quiz-title-badge">
+                <span class="badge badge-grade">國小 1-3 年級 · 低年級</span>
+                <h4>🎯 互動複習小測驗</h4>
+              </div>
+              <p class="quiz-desc">點選選項立即核對答案，激勵孩子自信心！</p>
+            </div>
+            <div class="interactive-quiz-list" id="lowerQuizList">
+              <!-- Interactive multiple choice questions -->
+            </div>
+          </div>
+
+          <!-- Upper Grade Open Discussion -->
+          <div class="quiz-section upper-quiz-section">
+            <div class="quiz-section-header">
+              <div class="quiz-title-badge">
+                <span class="badge badge-grade-high">國小 4-6 年級 · 高年級</span>
+                <h4>💬 深度思辨開放式討論</h4>
+              </div>
+              <p class="quiz-desc">引導孩子深入分享生活經驗、同理心與信仰反思</p>
+            </div>
+            <div class="upper-discussion-list" id="upperQuizList">
+              <!-- Open discussion questions -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Responsive Prayer Tab -->
+      <section class="tab-pane" id="tab-prayer">
+        <div class="prayer-card">
+          <div class="prayer-header">
+            <span class="prayer-icon">🙏</span>
+            <h3>同心回應禱告</h3>
+            <p>請老師帶領全班手牽手或閉目低頭，一句一句帶領孩子同聲宣告禱告</p>
+          </div>
+          <div class="prayer-body" id="prayerDisplay">
+            <!-- Prayer text -->
+          </div>
+          <div class="prayer-footer">
+            <p>奉主耶穌基督的聖名求，阿們！ ✨</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Teacher's Notes Tab -->
+      <section class="tab-pane" id="tab-notes">
+        <div class="notes-card">
+          <div class="notes-header">
+            <h3>📝 本課專屬備課筆記與學生代禱事項</h3>
+            <p>資料將自動保存在您的瀏覽器中（離線亦可使用），供下次備課參考。</p>
+          </div>
+          <textarea id="teacherNotesInput" class="notes-textarea" placeholder="在此記錄本課帶領心得、當天孩子的特別發言、課堂應變筆記，或是需要後續探訪代禱的孩子姓名..."></textarea>
+          <div class="notes-actions">
+            <span id="saveStatusMsg" class="save-status">已自動儲存</span>
+            <button id="clearNotesBtn" class="btn btn-outline">清除本課筆記</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Floating Classroom Timer Modal / Panel -->
+  <div class="timer-floating-panel hidden" id="timerFloatingPanel">
+    <div class="timer-panel-header">
+      <span class="timer-title">⏱️ 課堂即時計時器</span>
+      <button class="close-panel-btn" id="closeTimerBtn">✕</button>
+    </div>
+    <div class="timer-panel-body">
+      <div class="timer-presets">
+        <button class="preset-btn" data-mins="1">1 分鐘</button>
+        <button class="preset-btn" data-mins="3">3 分鐘</button>
+        <button class="preset-btn active" data-mins="5">5 分鐘</button>
+        <button class="preset-btn" data-mins="10">10 分鐘</button>
+        <button class="preset-btn" data-mins="15">15 分鐘</button>
+      </div>
+      <div class="timer-clock" id="timerClockDisplay">05:00</div>
+      <div class="timer-controls">
+        <button class="btn btn-primary" id="timerStartBtn">開始計時</button>
+        <button class="btn btn-secondary" id="timerPauseBtn">暫停</button>
+        <button class="btn btn-outline" id="timerResetBtn">重設</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Presentation Mode Modal -->
+  <div class="presentation-modal hidden" id="presentationModal">
+    <div class="present-header">
+      <div class="present-meta">
+        <span id="presentQuarterBadge">2026-Q3</span>
+        <span id="presentLessonBadge">第 1 課</span>
+        <h2 id="presentTitle">金杖下的灰姑娘</h2>
+      </div>
+      <div class="present-controls">
+        <span id="presentSlideIndicator">1 / 8</span>
+        <button id="presentPrevBtn" class="present-nav-btn">◀ 上一頁</button>
+        <button id="presentNextBtn" class="present-nav-btn">下一頁 ▶</button>
+        <button id="presentExitBtn" class="present-exit-btn">✕ 退出投影</button>
+      </div>
+    </div>
+    <div class="present-content" id="presentContentDisplay">
+      <!-- Injected presentation slide -->
+    </div>
+  </div>
+
+  <!-- Print Modal / Preview Selection -->
+  <div class="print-selection-modal hidden" id="printSelectionModal">
+    <div class="print-modal-box">
+      <h3>🖨️ 選擇列印或匯出模式</h3>
+      <p>請選擇您想要列印的格式：</p>
+      <div class="print-options">
+        <button class="print-opt-btn" id="printWorksheetBtn">
+          <span class="opt-icon">🎒</span>
+          <strong>學生課後學習單</strong>
+          <small>包含金句、故事圖解要點、低年級選擇題/高年級思考題、生活實踐與家長叮嚀</small>
+        </button>
+        <button class="print-opt-btn" id="printTeacherPrepBtn">
+          <span class="opt-icon">📋</span>
+          <strong>老師備課教案手冊</strong>
+          <small>包含5分鐘速備清單、50分鐘節奏表、專家教學法、故事講述大綱與道具清單</small>
+        </button>
+      </div>
+      <button class="btn btn-outline modal-cancel-btn" id="closePrintModalBtn">取消</button>
+    </div>
+  </div>
+
+  <!-- Printable Container (Only visible during print) -->
+  <div class="print-container" id="printContainer"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>© 2026 兒童主日學教學資源庫 · 致力於為每一位愛神愛孩子的主日學老師提供最堅實的教學後盾</p>
+    <p class="footer-sub">以愛為根基 · 以真理為準繩 · 陪伴孩子在基督裡剛強成長</p>
+  </footer>
+
+  <!-- Script Load -->
+  <script src="data/curriculum.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Exclude heavy raw PPTX folders (800MB) from git
+2026-Q3 PPT/
+2026-Q4 PPT/
+*.pptx
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# AI processes and scratch files
+scripts/
+scratch/
+*.log
+.DS_Store
+Thumbs.db
