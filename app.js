@@ -259,6 +259,26 @@
       els.printSelectionModal.classList.add('hidden');
       printDocument('worksheet');
     });
+    
+    // Portal Filter Tabs
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const portalCards = document.querySelectorAll('.lesson-portal-card');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        filterTabs.forEach(t => t.classList.toggle('active', t === tab));
+
+        portalCards.forEach(card => {
+          if (filter === 'all' || card.dataset.quarter === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
     els.printTeacherPrepBtn.addEventListener('click', () => {
       els.printSelectionModal.classList.add('hidden');
       printDocument('prep');

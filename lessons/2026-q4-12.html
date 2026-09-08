@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[2026-Q4 第12課] 大喜的信息 · 主日學專屬教學頁面</title>
+  <meta name="description" content="2026兒童主日學 2026-Q4 第12課【大喜的信息】專屬備課教學頁面。投影片逐頁對齊、講員講稿、輔助教材與五大專家智庫。">
+  <link rel="stylesheet" href="lesson.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body class="theme-warm">
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="lesson-nav-header">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="../index.html" class="home-link"><span>🏠</span> 主日學資源首頁</a>
+        <span class="breadcrumbs">/ <span>2026-Q4</span> / <strong>第 12 課</strong></span>
+      </div>
+      <div class="nav-controls">
+        <button class="nav-btn" onclick="window.print()">🖨️ 列印本課教案</button>
+        <button class="nav-btn" id="themeToggleBtn">🌓 主題切換</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Main Container -->
+  <main class="page-container">
+
+    <!-- Hero Card -->
+    <section class="hero-card">
+      <div class="hero-meta">
+        <span class="badge badge-quarter">2026-Q4</span>
+        <span class="badge badge-num">第 12 課專屬教學頁</span>
+        <span class="badge badge-scripture">經文：──路加福音 2章10–11節</span>
+      </div>
+      <h1 class="lesson-title">大喜的信息</h1>
+      <h2 class="lesson-subtitle">兒童主日學聖誕特輯</h2>
+
+      <!-- Verse Gym -->
+      <div class="verse-gym-box">
+        <div class="verse-gym-header">
+          <span class="verse-tag">📖 本課核心背誦金句</span>
+          <div class="gym-btn-group">
+            <button class="gym-opt-btn active" data-mode="full">完整顯示</button>
+            <button class="gym-opt-btn" data-mode="partial">挖空 30%</button>
+            <button class="gym-opt-btn" data-mode="hard">遮蔽 60%</button>
+            <button class="gym-opt-btn" data-mode="all">全遮挑戰</button>
+          </div>
+        </div>
+        <div class="verse-text-flow" id="verseFlow">
+          <span class="v-token" data-punc="true">「</span><span class="v-token" data-punc="false">不</span><span class="v-token" data-punc="false">要</span><span class="v-token" data-punc="false">懼</span><span class="v-token" data-punc="false">怕</span><span class="v-token" data-punc="true">！</span><span class="v-token" data-punc="false">我</span><span class="v-token" data-punc="false">報</span><span class="v-token" data-punc="false">給</span><span class="v-token" data-punc="false">你</span><span class="v-token" data-punc="false">們</span><span class="v-token" data-punc="false">大</span><span class="v-token" data-punc="false">喜</span><span class="v-token" data-punc="false">的</span><span class="v-token" data-punc="false">信</span><span class="v-token" data-punc="false">息</span><span class="v-token" data-punc="true">，</span><span class="v-token" data-punc="false">是</span><span class="v-token" data-punc="false">關</span><span class="v-token" data-punc="false">乎</span><span class="v-token" data-punc="false">萬</span><span class="v-token" data-punc="false">民</span><span class="v-token" data-punc="false">的</span><span class="v-token" data-punc="true">；</span><span class="v-token" data-punc="false">因</span><span class="v-token" data-punc="false">今</span><span class="v-token" data-punc="false">天</span><span class="v-token" data-punc="false">在</span><span class="v-token" data-punc="false">大</span><span class="v-token" data-punc="false">衛</span><span class="v-token" data-punc="false">的</span><span class="v-token" data-punc="false">城</span><span class="v-token" data-punc="false">裡</span><span class="v-token" data-punc="true">，</span><span class="v-token" data-punc="false">為</span><span class="v-token" data-punc="false">你</span><span class="v-token" data-punc="false">們</span><span class="v-token" data-punc="false">生</span><span class="v-token" data-punc="false">了</span><span class="v-token" data-punc="false">救</span><span class="v-token" data-punc="false">主</span><span class="v-token" data-punc="true">，</span><span class="v-token" data-punc="false">就</span><span class="v-token" data-punc="false">是</span><span class="v-token" data-punc="false">主</span><span class="v-token" data-punc="false">基</span><span class="v-token" data-punc="false">督</span><span class="v-token" data-punc="true">。</span><span class="v-token" data-punc="true">」</span>
+        </div>
+        <div class="verse-cite">──路加福音 2章10–11節</div>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="section-nav-tabs">
+      <button class="sec-tab active" data-target="tab-slides">🖥️ PPT 逐頁對齊與講稿 (14 頁)</button>
+      <button class="sec-tab" data-target="tab-aux">🎒 五大輔助教材庫</button>
+      <button class="sec-tab" data-target="tab-experts">👥 六大專家深層錦囊</button>
+      <button class="sec-tab" data-target="tab-hymn-games">🎵 敬拜詩歌 & 破冰</button>
+      <button class="sec-tab" data-target="tab-prayer-review">🙏 複習問答與同心禱告</button>
+    </nav>
+
+    <!-- 1. Slide-by-Slide PPT Cockpit Panel -->
+    <section class="tab-panel active" id="tab-slides">
+      <div class="slide-cockpit-container">
+        <div class="cockpit-intro-bar">
+          <h3>📌 投影片完整對照駕駛艙</h3>
+          <p>下方完整列出本課 PPT 共 14 頁投影片的畫面縮圖、原文字稿、老師講述逐字稿與課堂即時互動提問點。點擊圖片可放大檢視。</p>
+        </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #1</span>
+              <img src="../assets/lessons/2026-q4-12/slide_01.jpg" alt="大喜的信息：救主基督降生了！" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">大喜的信息：救主基督降生了！</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">兒童主日學聖誕特輯
+「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」
+──路加福音 2章10–11節</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『小朋友早！今天我們要一起進入第12課【大喜的信息】！請大家看看這張美麗的投影片，上帝今天為我們準備了一個超級逆轉的恩典大冒險！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>大家今天出門時心情怎麼樣？有沒有準備好尋找今天的聖經寶藏？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #2</span>
+              <img src="../assets/lessons/2026-q4-12/slide_02.jpg" alt="🎵 最美的禮物" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">🎵 最美的禮物</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">讓我們一起用歌聲讚美上帝
+賜給我們最美的禮物──耶穌！
+點擊下方連結，一起唱這首美麗的聖誕詩歌吧！🎶</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【🎵 最美的禮物】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #3</span>
+              <img src="../assets/lessons/2026-q4-12/slide_03.jpg" alt="⭐ 伯利恆星光尋寶傳奇！" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">⭐ 伯利恆星光尋寶傳奇！</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">大型沉浸式團隊遊戲（20分鐘）──結合尋寶、拼圖、傳信與團隊合作！
+🌟 所需材料
+分色星星卡片（紅藍綠黃）
+四組大型馬槽拼圖
+天使訊息捲軸
+遮眼布、鈴鐺
+🗺️ 場地設定
+伯利恆野地（起點）
+黑暗山谷（障礙區）
+馬廄（終點）
+學生分為四隊牧羊人小組
+⭐ 階段一
+星光尋寶（8分鐘）
+在野地尋找藏好的色卡星星，每顆星星背後有聖經關鍵字！
+🌑 階段二
+跨越黑暗山谷（5分鐘）
+蒙眼牧羊人靠天使口語引導，避開障礙抵達終點！
+🔔 階段三
+馬槽重建與宣告（7分鐘）
+合力完成拼圖，搖鈴大聲宣告：「大喜的信息！救主基督降生了！」</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【⭐ 伯利恆星光尋寶傳奇！】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #4</span>
+              <img src="../assets/lessons/2026-q4-12/slide_04.jpg" alt="📖 最奇妙的夜晚" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">📖 最奇妙的夜晚</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">聖經故事 第一幕
+無處可去的旅程
+在那個遙遠的兩千多年前，羅馬皇帝該撒亞古士督下了一道嚴厲的命令，要求普天下的人都要回到自己的家鄉報名上冊。這對約瑟來說是一個巨大的挑戰，因為他的妻子馬利亞此時已經身孕已經重了，孩子隨時都可能出生。
+他們沿著蜿蜒的山路，從拿撒勒辛苦地走向大衛的城伯利恆。當他們終於抵達伯利恆時，這座原本安靜的小城已經擠滿了從各地趕回的人。大街小巷人聲鼎沸，所有的客店門口都掛著「客滿」的牌子。
+約瑟敲了一扇又一扇的門：「請問有地方可以讓我的妻子休息嗎？她快要生產了。」但得到的答案都是冷漠的拒絕。最後，一位店主說：「後院的馬廄還有一點空間，如果你們不介意和牲畜待在一起……」</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【📖 最奇妙的夜晚】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #5</span>
+              <img src="../assets/lessons/2026-q4-12/slide_05.jpg" alt="聖經故事 第二幕" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">聖經故事 第二幕</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">馬槽裡的萬王之王 👑
+那個夜晚，繁星點點。在那個充滿乾草味與牲畜氣息的卑微馬廄裡，發生了人類歷史上最驚天動地的大事。上帝的獨生愛子──耶穌，誕生在世上了！
+沒有華麗的產房，沒有金色的搖籃，馬利亞輕輕地用布將這小嬰孩包起來，溫柔地放在牲畜用的馬槽裡。
+聖經形容耶穌是萬王之王，本該住在最宏偉的宮殿裡，但祂卻選擇以最軟弱、最卑微的嬰孩形象降臨。這正是上帝向世人展現的第一個愛的信息：祂願意來到最髒、最破舊、最黑暗的地方，只為了親近我們！💛
+這小小的馬槽，從此成為了平安與希望的象徵。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #6</span>
+              <img src="../assets/lessons/2026-q4-12/slide_06.jpg" alt="聖經故事 第三幕" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">聖經故事 第三幕</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">野地裡的超自然奇蹟 ✨
+與此同時，在伯利恆城外的野地上，有一群牧羊人正輪流守著羊群。在那個時代，牧羊人是社會的最底層，人們認為他們又窮又髒。然而，上帝卻選擇將第一手的好消息分享給這些不被看重的人！
+😱 突然發生了……
+漆黑的天空被一道無法言喻的強烈光芒劃破！上帝的榮光環繞著這群牧羊人，他們嚇得面如土色，甚至想轉身逃跑！
+😇 天使說……
+「不要懼怕！看哪，我報給你們大喜的信息，是關乎萬民的。因今天在大衛的城裡，為你們生了救主，就是主基督。」
+接著，千千萬萬的天使顯現，合唱著：「在至高之處榮耀歸與上帝！在地上平安歸與他所喜悅的人！」🎶</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #7</span>
+              <div class="no-slide-img">📌 投文字重點頁</div>
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">聖經故事 第四幕</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">尋見與傳揚 🏃‍♂️💨
+天使離去後，黑夜重歸平靜，但牧羊人的心再也不平靜了！他們本來忙了一整天，都快要睡著了，可是當他們知道這個大好的消息後，便顧不得疲憊，彼此商量說：
+「走！我們快去伯利恆，看上帝為我們所作的事！」
+急忙奔跑
+他們急忙穿過田野跑向城裡
+，在昏暗的燈火中找到了馬廄。
+親眼看見
+他們看見了約瑟、馬利亞，以及那靜靜臥在馬槽裡的嬰孩耶穌── 一切都與天使所說的一模一樣！
+興奮傳揚
+他們把天使指著這孩子所說的話都傳開了！
+凡聽見的人都感到驚訝。
+讚美上帝
+牧羊人回去的路上，沿途讚美上帝，
+因為他們親眼見證了救贖的開始！
+馬利亞則安靜地站在馬槽邊，將這一切奇妙的事情記在心裡，反覆思考。💭</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #8</span>
+              <img src="../assets/lessons/2026-q4-12/slide_08.jpg" alt="💡 故事的大道理" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">💡 故事的大道理</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">救主降生
+耶穌是上帝賜給全人類最寶貴的禮物，為要救贖我們。
+謙卑榜樣
+萬王之王耶穌降生在卑微馬槽，教導我們真正的謙卑與愛。
+首選對象
+上帝先向社會基層的牧羊人報信，讓我們知道祂愛每一個人。
+讚美大能
+當我們真實地遇見耶穌，心中便會充滿喜樂，發出讚美！
+🌈 生活應用
+🎁 珍惜禮物
+感激耶穌的愛，不只在聖誕節，要天天與祂說話。
+🤝 謙卑待人
+像耶穌一樣不計較地位，願意主動去關心被遺忘的人。
+📢 分享喜樂
+將上帝愛我們的好消息，大膽地告訴家人和學校朋友。
+💛 用心留心
+學習馬利亞，把上帝的話語記在心裡，日常中反覆思考。
+親愛的小朋友，耶穌的故事並非結束在馬槽，那只是一個充滿愛的開始。無論你覺得自己多麼渺小、多麼不完美，在上帝眼中，你都是值得祂差遣獨生子來拯救的寶貝！🌟</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #9</span>
+              <img src="../assets/lessons/2026-q4-12/slide_09.jpg" alt="🌈 生活應用" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">🌈 生活應用</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">🎁 珍惜禮物
+感激耶穌的愛，不只在聖誕節，要天天與祂說話。
+🤝 謙卑待人
+像耶穌一樣不計較地位，願意主動去關心被遺忘的人。
+📢 分享喜樂
+將上帝愛我們的好消息，大膽地告訴家人和學校朋友。
+💛 用心留心
+學習馬利亞，把上帝的話語記在心裡，日常中反覆思
+考。
+親愛的小朋友，耶穌的故事並非結束在馬槽，那只是一個充滿愛的開始。無論你覺得自己多麼渺小、多麼不完美，在上帝眼中，你都是值得祂差遣獨生子來拯救的寶貝！🌟</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【🌈 生活應用】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #10</span>
+              <img src="../assets/lessons/2026-q4-12/slide_10.jpg" alt="✂️ 手工活動一" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">✂️ 手工活動一</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">閃亮星光馬槽燈 🌟
+用自己的雙手做一盞溫暖的馬槽燈，象徵耶穌的光照進黑暗！
+🛒 所需材料
+紙杯
+黃色玻璃紙
+電子小夜燈
+星星貼紙
+剪刀
+📋 製作步驟
+在紙杯側面剪出一個大型的圓形或方形窗口。
+將黃色玻璃紙貼在窗口內側，營造溫暖色調。
+在杯身其餘空間貼上不同大小的星星貼紙。
+將電子小夜燈放入紙杯底部。
+當燈光亮起，象徵耶穌的光照進黑暗的馬廄！✨</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『大家準備好了嗎？我們現在要進行超好玩的破冰遊戲【✂️ 手工活動一】！遊戲的規則非常簡單，請大家豎起耳朵聽清楚囉！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在遊戲中請注意安全，輸贏不重要，最重要的是彼此相愛互相加油！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #11</span>
+              <img src="../assets/lessons/2026-q4-12/slide_11.jpg" alt="✂️ 手工活動二" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">✂️ 手工活動二</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">冰棒棍立體馬槽 🏠
+用冰棒棍做一個可以掛在聖誕樹上的立體馬槽吊飾，帶回家紀念！
+🛒 所需材料
+冰棒棍
+乾草（或牛皮紙條）
+耶穌嬰孩小卡
+保麗龍膠
+掛繩
+📋 製作步驟
+使用三根冰棒棍黏貼成三角形，作為馬廄的屋頂。
+在三角形下方用四根冰棒棍組成長方形的地板與牆壁。
+在馬廄中央塗上大量膠水，舖上碎乾草。
+將耶穌嬰孩的小卡貼在乾草中央。
+在頂部繫上掛繩，成為聖誕樹的紀念吊飾！🎄</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『大家準備好了嗎？我們現在要進行超好玩的破冰遊戲【✂️ 手工活動二】！遊戲的規則非常簡單，請大家豎起耳朵聽清楚囉！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在遊戲中請注意安全，輸贏不重要，最重要的是彼此相愛互相加油！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #12</span>
+              <img src="../assets/lessons/2026-q4-12/slide_12.jpg" alt="🙋 討論問題" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">🙋 討論問題</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">低年級（1–3年級）
+選擇題時間！你答對了嗎？🌟
+1
+耶穌降生後被放在哪裡？
+（A）柔軟的大床　（B）搖籃　（C）給動物吃草的馬槽
+2
+誰最先在野地收到天使的消息？
+（A）國王　（B）牧羊人　（C）商人
+3
+天使說這信息是關乎誰的？
+（A）只有大人　（B）只有小孩　（C）關乎萬民
+4
+天使歌頌「在至高之處榮耀歸與」誰？
+（A）上帝　（B）總統　（C）校長
+5
+牧羊人看到耶穌後做了什麼？
+（A）睡覺　（B）趕快跑去傳好消息　（C）什麼都不說</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『今天的故事大家有沒有聽懂呢？現在是搶答大考驗時間！請看投影片上的題目，知道答案的小朋友請快速舉手！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>低年級小朋友選出正確選項，高年級同學思考為什麼會這樣！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #13</span>
+              <div class="no-slide-img">📌 投文字重點頁</div>
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">💬 深入討論</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">高年級（4–6年級）
+思考與分享時間 🤔
+1
+謙卑的啟示
+為什麼耶穌會降生在卑微的馬廄？這對你有什麼啟發？
+2
+上帝的選擇
+當時的社會地位中，牧羊人是被看輕的。上帝為何先向他們顯現？
+3
+萬民的意思
+「大喜的信息是關乎萬民的」，你認為「萬民」包含哪些人？
+4
+馬利亞的心情
+當馬利亞「反覆思想」這些事時，你覺得她的心情可能是什麼？
+5
+我來分享！
+如果今天要你向同學分享「耶穌是救主」，你會怎麼介紹？</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『今天的故事大家有沒有聽懂呢？現在是搶答大考驗時間！請看投影片上的題目，知道答案的小朋友請快速舉手！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>低年級小朋友選出正確選項，高年級同學思考為什麼會這樣！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #14</span>
+              <img src="../assets/lessons/2026-q4-12/slide_14.jpg" alt="🙏 禱告" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">🙏 禱告</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">親愛的天父:
+我們感謝你！謝謝你在那個寂靜的夜晚，將主耶穌當作最寶貴的禮物賜給我們。謝謝你讓我們看見，耶穌願意降生在卑微的馬槽，是因為祂深深地愛著我們每一個人。求上帝幫助我們，像牧羊人一樣有單純渴慕的心，隨時準備好分享你的愛與平安。願你的話語在我們心中發光，指引我們的腳步。
+奉主耶穌基督聖名禱告，阿們！🙏
+🎄 聖誕快樂！願耶穌的愛與平安充滿你的心！🎄</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『讓我們安靜我們的心，雙手合十、閉上眼睛。老師唸一句，大家跟著唸一句，我們一起把今天的話語放在心裡！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在心裡向耶穌說一聲：主耶穌，我愛你！</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- 2. Auxiliary Materials Panel -->
+    <section class="tab-panel" id="tab-aux">
+      <div class="auxiliary-grid">
+        <!-- Drama Script -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎭</span>
+            <div>
+              <h4>聖經角色扮演短劇劇本</h4>
+              <small>《大喜的信息》課堂短劇</small>
+            </div>
+          </div>
+          <div style="margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted);">
+            <strong>登場角色：</strong>旁白, 主角, 夥伴, 信心使者
+          </div>
+          
+      <div class="drama-scene-box">
+        <div class="drama-scene-title">第一幕：面臨挑戰</div>
+        <div class="drama-desc">眾人面對艱難的情境，不知所措。</div>
+        <div class="drama-dialogue">【主角】：這件事太難了，我真的能做得到嗎？【夥伴】：我們需要上帝的引導！</div>
+      </div>
+    
+      <div class="drama-scene-box">
+        <div class="drama-scene-title">第二幕：信心的轉折</div>
+        <div class="drama-desc">眾人回想起上帝的話語，重獲勇氣。</div>
+        <div class="drama-dialogue">【信心使者】：不要怕！主的話是我們腳前的燈、路上的光！【主角】：靠著加給我力量的，我們一定能剛強壯膽！</div>
+      </div>
+    
+        </div>
+
+        <!-- Family Card -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🏠</span>
+            <div>
+              <h4>家庭共讀與親子聯絡卡</h4>
+              <small>給爸爸媽媽的本週分享單</small>
+            </div>
+          </div>
+          <div class="family-card-box">
+            <h5>💌 本週主題：活出【大喜的信息】的生命真理</h5>
+            <p><strong>🍽️ 餐桌話題：</strong>今天我們在主日學學了第12課。全家一起輪流朗讀金句：『「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」』，並分享在學校或工作中最需要主力量的時刻。</p>
+            <div style="margin-top: 10px; border-top: 1px dashed #10b981; padding-top: 8px;">
+              <strong>👨‍👩‍👧‍👦 家庭同心禱告：</strong>
+              <p style="font-size: 0.9rem; font-style: italic;">親愛的天父，感謝你透過今天的話語堅固我們全家。願你的平安在我們家中掌權，帶領我們新的一週步步跟隨你！阿們。</p>
+            </div>
+          </div>
+          <button class="btn-print-aux" onclick="window.print()">🖨️ 列印親子聯絡卡</button>
+        </div>
+
+        <!-- Original Language Micro Study -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">📜</span>
+            <div>
+              <h4>聖經原文關鍵字微課堂</h4>
+              <small>希伯來文 / 希臘文字義深度解碼</small>
+            </div>
+          </div>
+          <div class="word-study-box">
+            <div class="word-orig">חֶסֶד (Hesed / 慈愛與信實之約)</div>
+            <p><strong>發音：</strong>Kheh-sed</p>
+            <p style="margin-top: 8px;">在經文【──路加福音 2章10–11節】中，上帝彰顯了祂永不改變的立約之愛（Hesed）。無論環境如何變遷，祂的信實與慈愛永遠長存！</p>
+          </div>
+        </div>
+
+        <!-- Classroom Emergency SOP -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🚨</span>
+            <div>
+              <h4>課堂突發脫序應變 SOP</h4>
+              <small>校長實戰急救指南</small>
+            </div>
+          </div>
+          <div class="sop-box">
+            【狀況：課堂中有孩子注意力渙散、偷偷玩文具】
+校長建議：走近孩子身邊，不要當眾點名。輕輕蹲下與孩子眼神平視，微笑問：『你覺得剛才故事裡的主角，這時候心跳是快還是慢？』用情境將其專注力拉回故事中。
+          </div>
+        </div>
+
+        <!-- Tough Child FAQ -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">💭</span>
+            <div>
+              <h4>孩子最常問的尖銳問題</h4>
+              <small>傳道人解惑對話錄</small>
+            </div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-q">問：聖經故事這麼久以前發生的，跟我現在的生活有什麼關係？</div>
+            <div class="faq-a">答：聖經中的每個人物都跟我們一樣會害怕、會難過、想被愛。聖經不是童話，而是同一位活著的上帝在歷史中做事的真實紀錄，今天祂依然在看顧你！</div>
+          </div>
+        </div>
+
+        <!-- Coloring Guide -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎨</span>
+            <div>
+              <h4>幼童著色圖與視覺謎題</h4>
+              <small>課後手繪活動指引</small>
+            </div>
+          </div>
+          <p style="font-size: 0.95rem; line-height: 1.7;">本課主題【大喜的信息】的情境插圖。鼓勵孩子為信心人物塗上明亮的顏色，象徵真理帶來的光明盼望。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Expert Team Insights Panel -->
+    <section class="tab-panel" id="tab-experts">
+      <div class="auxiliary-grid">
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🏫</span>
+            <div><h4>資深校長 50 分鐘節奏時間軸</h4></div>
+          </div>
+          <ul style="list-style: none;">
+            <li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>00-10 分鐘（暖身破冰與詩歌敬拜）：</strong>釋放晨間活力，以喜樂與歡笑帶領心靈進入專注敬拜</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>10-25 分鐘（沉浸式聖經冒險時光）：</strong>掌握15分鐘黃金專注期，以生動道具與情境伏筆深入故事核心</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>25-35 分鐘（分齡互動與生活實踐對話）：</strong>低年級問答強化真理記憶，高年級以生活實境難題引導獨立信仰反思</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>35-45 分鐘（小手動動創意工作坊）：</strong>透過實體手作讓屬靈意義具象化，在互助合作中加深記憶</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>45-50 分鐘（恩典守望與同心祝福）：</strong>手牽手彼此代禱，宣告神的話語成為未來一週校園生活的力量</li>
+          </ul>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🔥</span>
+            <div><h4>傳道人說故事懸念開場 Hook</h4></div>
+          </div>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #9a3412;">在寂靜寒冷的伯利恆野地裡，最平凡貧窮的牧羊人突然看見天開了！榮光四射的天使高唱：『不要懼怕！我報給你們大喜的信息，是關乎萬民的！』</p>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">✝️</span>
+            <div><h4>牧師基督中心福音透鏡</h4></div>
+          </div>
+          <p style="font-size: 0.95rem; line-height: 1.7;">耶穌就是那份上帝賜給全人類最珍貴、永不褪色的禮物！祂生在馬槽，為要使最卑微軟弱的人都能親近祂。</p>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🧠</span>
+            <div><h4>教育法 5E 教學環</h4></div>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.6;">【Engage 吸引】以趣味情境遊戲破冰，在笑聲中激發學習動機</p>
+          <p style="font-size: 0.88rem; line-height: 1.6;">【Explain 解釋】提煉核心生命真理，以生活化比喻闡明屬靈意義</p>
+          <p style="font-size: 0.88rem; line-height: 1.6;">【Elaborate 深化】透過低高年級分齡討論與創意手工，將真理向外延伸</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Hymn & Games Panel -->
+    <section class="tab-panel" id="tab-hymn-games">
+      <div class="auxiliary-grid">
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎵</span>
+            <div>
+              <h4>敬拜詩歌：🎵 最美的禮物</h4>
+              <small>🎵 最美的禮物 讓我們一起用歌聲讚美上帝 賜給我們最美的禮物──耶穌！</small>
+            </div>
+          </div>
+          <p><a href="https://www.youtube.com/results?search_query=🎵 最美的禮物+讚美之泉" target="_blank" rel="noopener" class="btn-print-aux" style="display: inline-block; text-decoration: none;">▶ 在 YouTube 上聆聽敬拜詩歌</a></p>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎮</span>
+            <div><h4>課堂破冰遊戲</h4></div>
+          </div>
+          <div style="margin-bottom: 12px;"><strong>⭐ 伯利恆星光尋寶傳奇！</strong><p style="font-size: 0.9rem; white-space: pre-line;">大型沉浸式團隊遊戲（20分鐘）──結合尋寶、拼圖、傳信與團隊合作！
+🌟 所需材料
+分色星星卡片（紅藍綠黃）
+四組大型馬槽拼圖
+天使訊息捲軸
+遮眼布、鈴鐺
+🗺️ 場地設定
+伯利恆野地（起點）
+黑暗山谷（障礙區）
+馬廄（終點）
+學生分為四隊牧羊人小組
+⭐ 階段一
+星光尋寶（8分鐘）
+在野地尋找藏好的色卡星星，每顆星星背後有聖經關鍵字！
+🌑 階段二
+跨越黑暗山谷（5分鐘）
+蒙眼牧羊人靠天使口語引導，避開障礙抵達終點！
+🔔 階段三
+馬槽重建與宣告（7分鐘）
+合力完成拼圖，搖鈴大聲宣告：「大喜的信息！救主基督降生了！」</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Prayer & Review Panel -->
+    <section class="tab-panel" id="tab-prayer-review">
+      <div class="aux-card" style="margin-bottom: 24px;">
+        <div class="aux-card-header">
+          <span class="aux-icon">🙏</span>
+          <div><h4>同心回應禱告詞</h4></div>
+        </div>
+        <div style="font-size: 1.25rem; line-height: 2.2; font-family: 'Noto Serif TC', serif; padding: 20px 0;">
+          親愛的天父:
+我們感謝你！謝謝你在那個寂靜的夜晚，將主耶穌當作最寶貴的禮物賜給我們。謝謝你讓我們看見，耶穌願意降生在卑微的馬槽，是因為祂深深地愛著我們每一個人。求上帝幫助我們，像牧羊人一樣有單純渴慕的心，隨時準備好分享你的愛與平安。願你的話語在我們心中發光，指引我們的腳步。
+奉主耶穌基督聖名禱告，阿們！🙏
+🎄 聖誕快樂！願耶穌的愛與平安充滿你的心！🎄
+        </div>
+      </div>
+
+      <div class="auxiliary-grid">
+        <div class="aux-card">
+          <h4>🎯 低年級複習選擇題</h4>
+          <ol style="margin-left: 20px; font-size: 0.92rem; line-height: 1.8;">
+            <li><strong>耶穌降生後被放在哪裡？</strong><br><span style="color: var(--text-muted);">(A) 柔軟的大床   (B) 搖籃   (C) 給動物吃草的馬槽</span></li><li><strong>誰最先在野地收到天使的消息？</strong><br><span style="color: var(--text-muted);">(A) 國王   (B) 牧羊人   (C) 商人</span></li><li><strong>天使說這信息是關乎誰的？</strong><br><span style="color: var(--text-muted);">(A) 只有大人   (B) 只有小孩   (C) 關乎萬民</span></li><li><strong>天使歌頌「在至高之處榮耀歸與」誰？</strong><br><span style="color: var(--text-muted);">(A) 上帝   (B) 總統   (C) 校長</span></li><li><strong>牧羊人看到耶穌後做了什麼？</strong><br><span style="color: var(--text-muted);">(A) 睡覺   (B) 趕快跑去傳好消息   (C) 什麼都不說</span></li>
+          </ol>
+        </div>
+        <div class="aux-card">
+          <h4>💬 高年級反思討論題</h4>
+          <ul style="margin-left: 20px; font-size: 0.92rem; line-height: 1.8;">
+            <li>思考與分享時間 🤔 1 謙卑的啟示</li><li>為什麼耶穌會降生在卑微的馬廄？這對你有什麼啟發？ 2 上帝的選擇</li><li>當時的社會地位中，牧羊人是被看輕的。上帝為何先向他們顯現？ 3 萬民的意思</li><li>「大喜的信息是關乎萬民的」，你認為「萬民」包含哪些人？ 4 馬利亞的心情</li><li>當馬利亞「反覆思想」這些事時，你覺得她的心情可能是什麼？ 5 我來分享！</li><li>如果今天要你向同學分享「耶穌是救主」，你會怎麼介紹？</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation Jumper -->
+    <div class="bottom-lesson-jumper">
+      <a href="2026-q4-11.html" class="jumper-btn">◀ 上一課：第11課 · 天窗的鑰匙，全然的奉獻</a>
+      <a href="../index.html" class="jumper-btn">返回 26 課總覽大廳</a>
+      <a href="2026-q4-13.html" class="jumper-btn">下一課：第13課 · 喜樂不打烊，我的心靈充電站 ▶</a>
+    </div>
+
+  </main>
+
+  <!-- Floating Quick Timer -->
+  <div class="floating-timer">
+    <span>⏱️ 課堂計時：</span>
+    <span class="timer-digits" id="timerDigits">05:00</span>
+    <button class="nav-btn" id="timerToggle">開始</button>
+  </div>
+
+  <script src="lesson.js"></script>
+</body>
+</html>

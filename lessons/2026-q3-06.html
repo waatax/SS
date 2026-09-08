@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[2026-Q3 第6課] 靠靈不靠力 · 主日學專屬教學頁面</title>
+  <meta name="description" content="2026兒童主日學 2026-Q3 第6課【靠靈不靠力】專屬備課教學頁面。投影片逐頁對齊、講員講稿、輔助教材與五大專家智庫。">
+  <link rel="stylesheet" href="lesson.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body class="theme-warm">
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="lesson-nav-header">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="../index.html" class="home-link"><span>🏠</span> 主日學資源首頁</a>
+        <span class="breadcrumbs">/ <span>2026-Q3</span> / <strong>第 6 課</strong></span>
+      </div>
+      <div class="nav-controls">
+        <button class="nav-btn" onclick="window.print()">🖨️ 列印本課教案</button>
+        <button class="nav-btn" id="themeToggleBtn">🌓 主題切換</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Main Container -->
+  <main class="page-container">
+
+    <!-- Hero Card -->
+    <section class="hero-card">
+      <div class="hero-meta">
+        <span class="badge badge-quarter">2026-Q3</span>
+        <span class="badge badge-num">第 6 課專屬教學頁</span>
+        <span class="badge badge-scripture">經文：信息經文：撒迦利亞書一至八章</span>
+      </div>
+      <h1 class="lesson-title">靠靈不靠力</h1>
+      <h2 class="lesson-subtitle">我的超級聖靈助推器</h2>
+
+      <!-- Verse Gym -->
+      <div class="verse-gym-box">
+        <div class="verse-gym-header">
+          <span class="verse-tag">📖 本課核心背誦金句</span>
+          <div class="gym-btn-group">
+            <button class="gym-opt-btn active" data-mode="full">完整顯示</button>
+            <button class="gym-opt-btn" data-mode="partial">挖空 30%</button>
+            <button class="gym-opt-btn" data-mode="hard">遮蔽 60%</button>
+            <button class="gym-opt-btn" data-mode="all">全遮挑戰</button>
+          </div>
+        </div>
+        <div class="verse-text-flow" id="verseFlow">
+          <span class="v-token" data-punc="true">「</span><span class="v-token" data-punc="false">萬</span><span class="v-token" data-punc="false">軍</span><span class="v-token" data-punc="false">之</span><span class="v-token" data-punc="false">耶</span><span class="v-token" data-punc="false">和</span><span class="v-token" data-punc="false">華</span><span class="v-token" data-punc="false">說</span><span class="v-token" data-punc="false">：</span><span class="v-token" data-punc="true">『</span><span class="v-token" data-punc="false">不</span><span class="v-token" data-punc="false">是</span><span class="v-token" data-punc="false">倚</span><span class="v-token" data-punc="false">靠</span><span class="v-token" data-punc="false">勢</span><span class="v-token" data-punc="false">力</span><span class="v-token" data-punc="true">，</span><span class="v-token" data-punc="false">不</span><span class="v-token" data-punc="false">是</span><span class="v-token" data-punc="false">倚</span><span class="v-token" data-punc="false">靠</span><span class="v-token" data-punc="false">才</span><span class="v-token" data-punc="false">能</span><span class="v-token" data-punc="true">，</span><span class="v-token" data-punc="false">乃</span><span class="v-token" data-punc="false">是</span><span class="v-token" data-punc="false">倚</span><span class="v-token" data-punc="false">靠</span><span class="v-token" data-punc="false">我</span><span class="v-token" data-punc="false">的</span><span class="v-token" data-punc="false">靈</span><span class="v-token" data-punc="false">方</span><span class="v-token" data-punc="false">能</span><span class="v-token" data-punc="false">成</span><span class="v-token" data-punc="false">事</span><span class="v-token" data-punc="true">。</span><span class="v-token" data-punc="true">』</span><span class="v-token" data-punc="true">」</span><span class="v-token" data-punc="true"> </span><span class="v-token" data-punc="false">—</span><span class="v-token" data-punc="false">—</span><span class="v-token" data-punc="false">撒</span><span class="v-token" data-punc="false">迦</span><span class="v-token" data-punc="false">利</span><span class="v-token" data-punc="false">亞</span><span class="v-token" data-punc="false">書</span><span class="v-token" data-punc="false">4</span><span class="v-token" data-punc="false">章</span><span class="v-token" data-punc="false">6</span><span class="v-token" data-punc="false">節</span>
+        </div>
+        <div class="verse-cite">信息經文：撒迦利亞書一至八章</div>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="section-nav-tabs">
+      <button class="sec-tab active" data-target="tab-slides">🖥️ PPT 逐頁對齊與講稿 (17 頁)</button>
+      <button class="sec-tab" data-target="tab-aux">🎒 五大輔助教材庫</button>
+      <button class="sec-tab" data-target="tab-experts">👥 六大專家深層錦囊</button>
+      <button class="sec-tab" data-target="tab-hymn-games">🎵 敬拜詩歌 & 破冰</button>
+      <button class="sec-tab" data-target="tab-prayer-review">🙏 複習問答與同心禱告</button>
+    </nav>
+
+    <!-- 1. Slide-by-Slide PPT Cockpit Panel -->
+    <section class="tab-panel active" id="tab-slides">
+      <div class="slide-cockpit-container">
+        <div class="cockpit-intro-bar">
+          <h3>📌 投影片完整對照駕駛艙</h3>
+          <p>下方完整列出本課 PPT 共 17 頁投影片的畫面縮圖、原文字稿、老師講述逐字稿與課堂即時互動提問點。點擊圖片可放大檢視。</p>
+        </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #1</span>
+              <img src="../assets/lessons/2026-q3-06/slide_01.jpg" alt="靠靈不靠力：" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">靠靈不靠力：</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">我的超級聖靈助推器
+撒迦利亞書1-8章
+「萬軍之耶和華說：『不是倚靠勢力，不是倚靠才能，乃是倚靠我的靈方能成事。』」
+——撒迦利亞書4章6節
+信息經文：撒迦利亞書一至八章
+主題經文：撒迦利亞書2章10-12節、4章6-9節</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『小朋友早！今天我們要一起進入第6課【靠靈不靠力】！請大家看看這張美麗的投影片，上帝今天為我們準備了一個超級逆轉的恩典大冒險！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>大家今天出門時心情怎麼樣？有沒有準備好尋找今天的聖經寶藏？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #2</span>
+              <div class="no-slide-img">📌 投文字重點頁</div>
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">主題經文</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">「錫安城啊，應當歡樂歌唱，因為我來要住在你中間。這是耶和華說的。」那時，必有許多國歸附耶和華，作他的子民。他要住在你中間，你就知道萬軍之耶和華差遣我到你那裡去了。耶和華必收回猶大作他聖地的分，也必再揀選耶路撒冷。
+他對我說：「這是耶和華指示所羅巴伯的。萬軍之耶和華說：『不是倚靠勢力，不是倚靠才能，乃是倚靠我的靈方能成事。』大山哪！你算什麼呢？在所羅巴伯面前，你必成為平地。他必搬出一塊石頭，安在殿頂上。人且大聲歡呼說：『願恩惠恩惠歸與這殿！』」耶和華的話又臨到我說：「所羅巴伯的手立了這殿的根基，他的手也必完成這工。你就知道萬軍之耶和華差遣我到你們這裡來了。」
+建議詩歌 讚美之泉：《住在你裡面》
+https://youtu.be/IKGazOdWmH4?si=WX1JtKoIczbuR2Lp</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【主題經文】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #3</span>
+              <img src="../assets/lessons/2026-q3-06/slide_03.jpg" alt="遊戲一：大山變平地" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">遊戲一：大山變平地</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">透過清理障礙，體會「依靠上帝，大山成為平地」的應許。
+準備材料
+大量報紙或廢紙
+彩色膠帶（作中線）
+計時器、背景音樂
+操作步驟
+製作障礙：將紙揉成球，代表困難（如害怕、吵架）。
+劃分場地：以膠帶分隔空間，將紙球平均分配至兩側。
+限時對抗：60秒內，兩隊需將自己區域的紙球推至對方場地。
+大山移開：最後10秒宣告：「依靠上帝，大山變平地！」加快清理。
+總結：紙球少者獲勝。強調靠主能挪去所有困難。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『大家準備好了嗎？我們現在要進行超好玩的破冰遊戲【遊戲一：大山變平地】！遊戲的規則非常簡單，請大家豎起耳朵聽清楚囉！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在遊戲中請注意安全，輸贏不重要，最重要的是彼此相愛互相加油！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #4</span>
+              <img src="../assets/lessons/2026-q3-06/slide_04.jpg" alt="遊戲二：歸附耶和華" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">遊戲二：歸附耶和華</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">改編自「大風吹」，體驗在上帝國度中的歸屬感。
+所需材料
+長繩（圍圓圈用）
+音樂播放器
+操作步驟
+圍建聖地：用繩圈代表「上帝的家」。
+繞圈行進：學生圍繞圓圈外圍行走。
+發出邀請：音樂停止時，老師喊：「許多國歸附耶和華！」
+進入聖地：學生迅速跳入圈內，互道：「歡迎來到上帝的家！」
+增加挑戰：逐步縮小圓圈或增加手牽手指令，象徵彼此連結。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『大家準備好了嗎？我們現在要進行超好玩的破冰遊戲【遊戲二：歸附耶和華】！遊戲的規則非常簡單，請大家豎起耳朵聽清楚囉！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在遊戲中請注意安全，輸贏不重要，最重要的是彼此相愛互相加油！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #5</span>
+              <img src="../assets/lessons/2026-q3-06/slide_05.jpg" alt="聖經故事：不可能的任務" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">聖經故事：不可能的任務</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">小朋友們，你們有沒有試過要做一件好難、好難的事？比如要把一千片的拼圖拼完，或是要把亂七八糟的房間整理乾淨？今天我們要講的故事，是關於一群以色列人，他們要挑戰一件「不可能的任務」──重建上帝的聖殿。
+當以色列人從遠方的巴比倫回到家鄉耶路撒冷時，他們心裡原本充滿期待。可是當他們踏上故土，看到的卻是倒塌的城牆和長滿雜草的荒地。他們雖然很想蓋好聖殿，但敵人一直跑來搗亂，錢不夠用，大家也慢慢變得懶惰和害怕。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #6</span>
+              <img src="../assets/lessons/2026-q3-06/slide_06.jpg" alt="聖經故事：所羅巴伯的愁煩" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">聖經故事：所羅巴伯的愁煩</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">就這樣，聖殿的根基打好了，卻荒廢了整整十六年。
+當時的首領名叫所羅巴伯。他每天看著那座蓋了一半、雜草叢生的地基，心裡一定很愁煩。他可能在想：「我有這麼多敵人，又沒有足夠的建築材料，我要怎麼完成這項大工程呢？」這對他來說，就像面前擋著一座高不可攀的「大山」。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #7</span>
+              <img src="../assets/lessons/2026-q3-06/slide_07.jpg" alt="聖經故事：撒迦利亞帶來神奇消息" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">聖經故事：撒迦利亞帶來神奇消息</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">就在這時候，上帝差遣了先知撒迦利亞帶來了一個神奇的消息。上帝對撒迦利亞說：「去告訴所羅巴伯，不要看你的軍隊（勢力）有多少，也不要看你有多聰明（才能）。你要記住，『不是倚靠勢力，不是倚靠才能，乃是倚靠我的靈方能成事。』」</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #8</span>
+              <img src="../assets/lessons/2026-q3-06/slide_08.jpg" alt="聖經故事：上帝的應許" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">聖經故事：上帝的應許</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">這句話是什麼意思呢？上帝是在告訴所羅巴伯，也告訴我們：有時候我們會覺得自己不夠強、不夠聰明，但在上帝眼中，這都不是問題！只要有聖靈的幫助，就算面前有一座像喜馬拉雅山那麼大的困難，在上帝的恩典面前，這座大山都會變成平地！</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #9</span>
+              <img src="../assets/lessons/2026-q3-06/slide_09.jpg" alt="應許與勇氣" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">應許與勇氣</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">上帝還給了所羅巴伯一個應許。上帝說：「所羅巴伯的手親自立了這殿的根基，他的手也一定要親自把最後一塊石頭安在殿頂上！」這就像是上帝在保證：我既然開始了這個好工作，我就一定會幫你完成它。
+小朋友，當所羅巴伯聽完這些話，他的勇氣是不是又回來了呢？他不再看敵人的威脅，不再看口袋裡有多少錢，他開始看著上帝的應許。後來，在上帝的聖靈感動下，百姓們重新動工。這一次，他們不再抱怨，而是充滿了信心。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【應許與勇氣】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #10</span>
+              <img src="../assets/lessons/2026-q3-06/slide_10.jpg" alt="恩惠歸與這殿！" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">恩惠歸與這殿！</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">恩惠歸與這殿！
+最後，聖殿真的蓋好了！當所羅巴伯把最後那塊最重要的「頂石」放上去的時候，全城的人都大聲歡呼：「願恩惠！恩惠歸與這殿！」那一刻，每個人都知道，這不是因為人很厲害，而是因為上帝與他們同在。
+上帝也透過撒迦利亞告訴大家一個更棒的消息：這座聖殿不僅僅是給以色列人的，將來「必有許多國」的人都要來到這裡歸附耶和華。上帝要親自住在祂的子民中間，這就是最大的喜樂！
+所以，下次當你覺得功課好難、跟朋友吵架心裡好難過，或是覺得自己做不到某些事的時候，請記得這句話：「不是倚靠勢力，不是倚靠才能，乃是倚靠主的靈。」上帝就在你身邊，祂要住在你的心裡，幫你把困難的「大山」變成平坦的路。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【恩惠歸與這殿！】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #11</span>
+              <img src="../assets/lessons/2026-q3-06/slide_11.jpg" alt="故事訊息" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">故事訊息</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3-4 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">01
+上帝必同在
+上帝應許要住在我們中間，祂不是遠在天邊，而是近在我們生活裡。
+02
+聖靈能力
+遇到困難時，聖靈會賜下我們所缺乏的智慧和勇氣，幫助我們完成任務。
+03
+神的信實
+上帝開始的工作，祂必負責到底，所羅巴伯立了根基也必看見完工。
+04
+萬民歸主
+上帝的愛不分國界，祂渴望每個人都認識祂，一起在祂殿中歡呼。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『孩子們，讓我們把時光倒流！看著這幅圖畫，主角正在面臨前所未有的考驗……想像如果是你，你會怎麼辦？』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>如果是你站在他的位置，你的手心會不會冒汗？你覺得上帝在暗中做什麼事？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #12</span>
+              <img src="../assets/lessons/2026-q3-06/slide_12.jpg" alt="結語" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">結語</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">小朋友，今天我們看到所羅巴伯面對荒涼的廢墟和強大的敵人，但他最終能完成聖殿，並不是因為他有千軍萬馬，而是因為他選擇信靠上帝。這對我們來說是一個好大的鼓勵！在學校或家裡，我們也會遇到像「大山」一樣的挑戰，可能是改不掉的壞習慣，或者是覺得自己做不到的任務。
+「不是倚靠勢力，不是倚靠才能，乃是倚靠上帝的靈方能成事。」
+上帝不僅應許要幫我們把大山變為平地，祂更應許要永遠住在我們中間，陪伴我們走過每一段路。當我們把生命的主權交給上帝時，祂那「恩惠、恩惠」的榮耀就要充滿在我們的生活中。讓我們一起學習，成為一個天天與主同行、靠聖靈得勝的士兵！</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『請大家注意看這個重點：【結語】。這段話告訴我們上帝對我們每個人的美好心意！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>誰能用自己的話，把這句話解釋給隔壁的同學聽？</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #13</span>
+              <img src="../assets/lessons/2026-q3-06/slide_13.jpg" alt="手工活動一：聖靈動力風車" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">手工活動一：聖靈動力風車</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">材料：
+正方形彩紙、大頭針、吸管。
+步驟：
+將彩紙對角剪開，但不剪斷中心。
+將四角摺向中心，並用大頭針固定。
+釘在吸管上。
+在風車葉片寫上「倚靠主的靈」。
+吹氣讓風車轉動，體會看不見的靈力。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『大家準備好了嗎？我們現在要進行超好玩的破冰遊戲【手工活動一：聖靈動力風車】！遊戲的規則非常簡單，請大家豎起耳朵聽清楚囉！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在遊戲中請注意安全，輸贏不重要，最重要的是彼此相愛互相加油！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #14</span>
+              <img src="../assets/lessons/2026-q3-06/slide_14.jpg" alt="手工活動二：大山變平地刮畫" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">手工活動二：大山變平地刮畫</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">材料：
+刮畫紙、木筆。
+步驟：
+在刮畫紙上方畫出一座黑漆漆的大山。
+在大山中刮出彩色的小徑。
+在山腳下寫下「靠主方能成事」。
+在天空處畫上代表上帝榮耀的光芒。
+裝飾畫框完成。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『大家準備好了嗎？我們現在要進行超好玩的破冰遊戲【手工活動二：大山變平地刮畫】！遊戲的規則非常簡單，請大家豎起耳朵聽清楚囉！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在遊戲中請注意安全，輸贏不重要，最重要的是彼此相愛互相加油！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #15</span>
+              <div class="no-slide-img">📌 投文字重點頁</div>
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">討論問題：低年級（選擇題）</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">1
+上帝說要成事，最重要是倚靠什麼？
+(A) 金幣
+(B) 聖靈的靈
+(C) 自己的力氣
+2
+聖殿完工時，大家大聲歡呼什麼？
+(A) 恩惠恩惠
+(B) 我好棒
+(C) 肚子餓了
+3
+上帝說祂會住在哪裡？
+(A) 只有天空
+(B) 躲在山洞
+(C) 住在祂子民中間
+4
+所羅巴伯面對困難時，困難像什麼？
+(A) 小草
+(B) 大山
+(C) 棉花糖
+5
+這段經文是哪位先知寫的？
+(A) 撒迦利亞
+(B) 挪亞
+(C) 摩西</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『今天的故事大家有沒有聽懂呢？現在是搶答大考驗時間！請看投影片上的題目，知道答案的小朋友請快速舉手！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>低年級小朋友選出正確選項，高年級同學思考為什麼會這樣！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #16</span>
+              <div class="no-slide-img">📌 投文字重點頁</div>
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">高年級</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：8-10 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">開放式問題
+討論問題：高年級（開放式問題）
+問題一
+「不是倚靠勢力，不是倚靠才能」在你的學習生活中可以如何應用？
+問題二
+為什麼上帝要強調「所羅巴伯的手立了根基，也必完成這工」？這對你有什麼鼓勵？
+問題三
+當我們面對像「大山」一樣的挑戰時，應該先作什麼樣的禱告？
+問題四
+經文提到「許多國歸附耶和華」，你覺得我們可以如何幫助身邊不同的人認識主？
+問題五
+「上帝住在我們中間」對你的生活有什麼實際的意義？
+引導方向：先分享個人經驗，再回到經文中的應許與挑戰。</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『今天的故事大家有沒有聽懂呢？現在是搶答大考驗時間！請看投影片上的題目，知道答案的小朋友請快速舉手！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>低年級小朋友選出正確選項，高年級同學思考為什麼會這樣！</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="slide-item-card">
+            <div class="slide-visual-pane">
+              <span class="slide-number-badge">投影片 #17</span>
+              <img src="../assets/lessons/2026-q3-06/slide_17.jpg" alt="禱告" class="slide-img" loading="lazy">
+            </div>
+            <div class="slide-teaching-pane">
+              <div class="slide-pane-header">
+                <h4 class="slide-title-text">禱告</h4>
+                <span class="slide-timing-badge">⏱️ 建議停留：3 分鐘</span>
+              </div>
+              <div class="slide-raw-summary">親愛的天父，感謝你應許要住在我們中間。當我們面對困難、覺得自己做不到的時候，求你提醒我們：不是倚靠我們自己的聰明或力氣，而是要倚靠你的聖靈。求你除去我們心中的大山，讓我們在每件事上都看見你的恩惠。讓我們一生跟隨你，成為屬你的子民。奉耶穌基督的名求，阿們！</div>
+              <div class="teacher-script-box">
+                <h5>🎤 老師口頭講述逐字稿（怎麼說）：</h5>
+                <p>『讓我們安靜我們的心，雙手合十、閉上眼睛。老師唸一句，大家跟著唸一句，我們一起把今天的話語放在心裡！』</p>
+              </div>
+              <div class="student-prompt-box">
+                <h5>❓ 課堂立即提問（問孩子什麼）：</h5>
+                <p>在心裡向耶穌說一聲：主耶穌，我愛你！</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- 2. Auxiliary Materials Panel -->
+    <section class="tab-panel" id="tab-aux">
+      <div class="auxiliary-grid">
+        <!-- Drama Script -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎭</span>
+            <div>
+              <h4>聖經角色扮演短劇劇本</h4>
+              <small>《靠靈不靠力》課堂短劇</small>
+            </div>
+          </div>
+          <div style="margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted);">
+            <strong>登場角色：</strong>旁白, 主角, 夥伴, 信心使者
+          </div>
+          
+      <div class="drama-scene-box">
+        <div class="drama-scene-title">第一幕：面臨挑戰</div>
+        <div class="drama-desc">眾人面對艱難的情境，不知所措。</div>
+        <div class="drama-dialogue">【主角】：這件事太難了，我真的能做得到嗎？【夥伴】：我們需要上帝的引導！</div>
+      </div>
+    
+      <div class="drama-scene-box">
+        <div class="drama-scene-title">第二幕：信心的轉折</div>
+        <div class="drama-desc">眾人回想起上帝的話語，重獲勇氣。</div>
+        <div class="drama-dialogue">【信心使者】：不要怕！主的話是我們腳前的燈、路上的光！【主角】：靠著加給我力量的，我們一定能剛強壯膽！</div>
+      </div>
+    
+        </div>
+
+        <!-- Family Card -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🏠</span>
+            <div>
+              <h4>家庭共讀與親子聯絡卡</h4>
+              <small>給爸爸媽媽的本週分享單</small>
+            </div>
+          </div>
+          <div class="family-card-box">
+            <h5>💌 本週主題：活出【靠靈不靠力】的生命真理</h5>
+            <p><strong>🍽️ 餐桌話題：</strong>今天我們在主日學學了第6課。全家一起輪流朗讀金句：『「萬軍之耶和華說：『不是倚靠勢力，不是倚靠才能，乃是倚靠我的靈方能成事。』」 ——撒迦利亞書4章6節』，並分享在學校或工作中最需要主力量的時刻。</p>
+            <div style="margin-top: 10px; border-top: 1px dashed #10b981; padding-top: 8px;">
+              <strong>👨‍👩‍👧‍👦 家庭同心禱告：</strong>
+              <p style="font-size: 0.9rem; font-style: italic;">親愛的天父，感謝你透過今天的話語堅固我們全家。願你的平安在我們家中掌權，帶領我們新的一週步步跟隨你！阿們。</p>
+            </div>
+          </div>
+          <button class="btn-print-aux" onclick="window.print()">🖨️ 列印親子聯絡卡</button>
+        </div>
+
+        <!-- Original Language Micro Study -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">📜</span>
+            <div>
+              <h4>聖經原文關鍵字微課堂</h4>
+              <small>希伯來文 / 希臘文字義深度解碼</small>
+            </div>
+          </div>
+          <div class="word-study-box">
+            <div class="word-orig">חֶסֶד (Hesed / 慈愛與信實之約)</div>
+            <p><strong>發音：</strong>Kheh-sed</p>
+            <p style="margin-top: 8px;">在經文【信息經文：撒迦利亞書一至八章】中，上帝彰顯了祂永不改變的立約之愛（Hesed）。無論環境如何變遷，祂的信實與慈愛永遠長存！</p>
+          </div>
+        </div>
+
+        <!-- Classroom Emergency SOP -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🚨</span>
+            <div>
+              <h4>課堂突發脫序應變 SOP</h4>
+              <small>校長實戰急救指南</small>
+            </div>
+          </div>
+          <div class="sop-box">
+            【狀況：課堂中有孩子注意力渙散、偷偷玩文具】
+校長建議：走近孩子身邊，不要當眾點名。輕輕蹲下與孩子眼神平視，微笑問：『你覺得剛才故事裡的主角，這時候心跳是快還是慢？』用情境將其專注力拉回故事中。
+          </div>
+        </div>
+
+        <!-- Tough Child FAQ -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">💭</span>
+            <div>
+              <h4>孩子最常問的尖銳問題</h4>
+              <small>傳道人解惑對話錄</small>
+            </div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-q">問：聖經故事這麼久以前發生的，跟我現在的生活有什麼關係？</div>
+            <div class="faq-a">答：聖經中的每個人物都跟我們一樣會害怕、會難過、想被愛。聖經不是童話，而是同一位活著的上帝在歷史中做事的真實紀錄，今天祂依然在看顧你！</div>
+          </div>
+        </div>
+
+        <!-- Coloring Guide -->
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎨</span>
+            <div>
+              <h4>幼童著色圖與視覺謎題</h4>
+              <small>課後手繪活動指引</small>
+            </div>
+          </div>
+          <p style="font-size: 0.95rem; line-height: 1.7;">本課主題【靠靈不靠力】的情境插圖。鼓勵孩子為信心人物塗上明亮的顏色，象徵真理帶來的光明盼望。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Expert Team Insights Panel -->
+    <section class="tab-panel" id="tab-experts">
+      <div class="auxiliary-grid">
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🏫</span>
+            <div><h4>資深校長 50 分鐘節奏時間軸</h4></div>
+          </div>
+          <ul style="list-style: none;">
+            <li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>00-10 分鐘（暖身破冰與詩歌敬拜）：</strong>釋放晨間活力，以喜樂與歡笑帶領心靈進入專注敬拜</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>10-25 分鐘（沉浸式聖經冒險時光）：</strong>掌握15分鐘黃金專注期，以生動道具與情境伏筆深入故事核心</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>25-35 分鐘（分齡互動與生活實踐對話）：</strong>低年級問答強化真理記憶，高年級以生活實境難題引導獨立信仰反思</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>35-45 分鐘（小手動動創意工作坊）：</strong>透過實體手作讓屬靈意義具象化，在互助合作中加深記憶</li><li style="padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem;"><strong>45-50 分鐘（恩典守望與同心祝福）：</strong>手牽手彼此代禱，宣告神的話語成為未來一週校園生活的力量</li>
+          </ul>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🔥</span>
+            <div><h4>傳道人說故事懸念開場 Hook</h4></div>
+          </div>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #9a3412;">當所羅巴伯看著被燒毀的荒涼聖殿，每個人都說：『算了吧，我們做不到！』上帝卻差派先知說：『大山啊，你要變為平地！』你生活中遇到什麼大山？</p>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">✝️</span>
+            <div><h4>牧師基督中心福音透鏡</h4></div>
+          </div>
+          <p style="font-size: 0.95rem; line-height: 1.7;">耶穌就是那位靠著聖靈趕鬼、醫病、行事，並在升天後將聖靈澆灌在每位信徒心中的受膏君王。如今聖靈住在我們裡面！</p>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🧠</span>
+            <div><h4>教育法 5E 教學環</h4></div>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.6;">【Engage 吸引】以趣味情境遊戲破冰，在笑聲中激發學習動機</p>
+          <p style="font-size: 0.88rem; line-height: 1.6;">【Explain 解釋】提煉核心生命真理，以生活化比喻闡明屬靈意義</p>
+          <p style="font-size: 0.88rem; line-height: 1.6;">【Elaborate 深化】透過低高年級分齡討論與創意手工，將真理向外延伸</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Hymn & Games Panel -->
+    <section class="tab-panel" id="tab-hymn-games">
+      <div class="auxiliary-grid">
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎵</span>
+            <div>
+              <h4>敬拜詩歌：《住在你裡面》</h4>
+              <small>主題經文 「錫安城啊，應當歡樂歌唱，因為我來要住在你中間。這是耶和華說的。」那時，必有許多國歸附耶和華，作他的子民。他要住在你中間，你就知道萬軍之耶和華差遣我到你那裡去了。耶和華必收回猶大作他聖地的分，也必再揀選耶路撒冷。 他對我說：「這是耶和華指示所羅巴伯的。萬軍之耶和華說：『不是倚靠勢力，不是倚靠才能，乃是倚靠我的靈方能成事。』大山哪！你算什麼呢？在所羅巴伯面前，你必成為平地。他必搬出一塊石頭，安在殿頂上。人且大聲歡呼說：『願恩惠恩惠歸與這殿！』」耶和華的話又臨到我說：「所羅巴伯的手立了這殿的根基，他的手也必完成這工。你就知道萬軍之耶和華差遣我到你們這裡來了。」</small>
+            </div>
+          </div>
+          <p><a href="https://youtu.be/IKGazOdWmH4?si=WX1JtKoIczbuR2Lp" target="_blank" rel="noopener" class="btn-print-aux" style="display: inline-block; text-decoration: none;">▶ 在 YouTube 上聆聽敬拜詩歌</a></p>
+        </div>
+
+        <div class="aux-card">
+          <div class="aux-card-header">
+            <span class="aux-icon">🎮</span>
+            <div><h4>課堂破冰遊戲</h4></div>
+          </div>
+          <div style="margin-bottom: 12px;"><strong>遊戲一：大山變平地</strong><p style="font-size: 0.9rem; white-space: pre-line;">透過清理障礙，體會「依靠上帝，大山成為平地」的應許。
+準備材料
+大量報紙或廢紙
+彩色膠帶（作中線）
+計時器、背景音樂
+操作步驟
+製作障礙：將紙揉成球，代表困難（如害怕、吵架）。
+劃分場地：以膠帶分隔空間，將紙球平均分配至兩側。
+限時對抗：60秒內，兩隊需將自己區域的紙球推至對方場地。
+大山移開：最後10秒宣告：「依靠上帝，大山變平地！」加快清理。
+總結：紙球少者獲勝。強調靠主能挪去所有困難。</p></div><div style="margin-bottom: 12px;"><strong>遊戲二：歸附耶和華</strong><p style="font-size: 0.9rem; white-space: pre-line;">改編自「大風吹」，體驗在上帝國度中的歸屬感。
+所需材料
+長繩（圍圓圈用）
+音樂播放器
+操作步驟
+圍建聖地：用繩圈代表「上帝的家」。
+繞圈行進：學生圍繞圓圈外圍行走。
+發出邀請：音樂停止時，老師喊：「許多國歸附耶和華！」
+進入聖地：學生迅速跳入圈內，互道：「歡迎來到上帝的家！」
+增加挑戰：逐步縮小圓圈或增加手牽手指令，象徵彼此連結。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Prayer & Review Panel -->
+    <section class="tab-panel" id="tab-prayer-review">
+      <div class="aux-card" style="margin-bottom: 24px;">
+        <div class="aux-card-header">
+          <span class="aux-icon">🙏</span>
+          <div><h4>同心回應禱告詞</h4></div>
+        </div>
+        <div style="font-size: 1.25rem; line-height: 2.2; font-family: 'Noto Serif TC', serif; padding: 20px 0;">
+          親愛的天父，感謝你應許要住在我們中間。當我們面對困難、覺得自己做不到的時候，求你提醒我們：不是倚靠我們自己的聰明或力氣，而是要倚靠你的聖靈。求你除去我們心中的大山，讓我們在每件事上都看見你的恩惠。讓我們一生跟隨你，成為屬你的子民。奉耶穌基督的名求，阿們！
+        </div>
+      </div>
+
+      <div class="auxiliary-grid">
+        <div class="aux-card">
+          <h4>🎯 低年級複習選擇題</h4>
+          <ol style="margin-left: 20px; font-size: 0.92rem; line-height: 1.8;">
+            <li><strong>上帝說要成事，最重要是倚靠什麼？</strong><br><span style="color: var(--text-muted);">(A) 金幣   (B) 聖靈的靈   (C) 自己的力氣</span></li><li><strong>聖殿完工時，大家大聲歡呼什麼？</strong><br><span style="color: var(--text-muted);">(A) 恩惠恩惠   (B) 我好棒   (C) 肚子餓了</span></li><li><strong>上帝說祂會住在哪裡？</strong><br><span style="color: var(--text-muted);">(A) 只有天空   (B) 躲在山洞   (C) 住在祂子民中間</span></li><li><strong>所羅巴伯面對困難時，困難像什麼？</strong><br><span style="color: var(--text-muted);">(A) 小草   (B) 大山   (C) 棉花糖</span></li><li><strong>這段經文是哪位先知寫的？</strong><br><span style="color: var(--text-muted);">(A) 撒迦利亞   (B) 挪亞   (C) 摩西</span></li>
+          </ol>
+        </div>
+        <div class="aux-card">
+          <h4>💬 高年級反思討論題</h4>
+          <ul style="margin-left: 20px; font-size: 0.92rem; line-height: 1.8;">
+            <li>「不是倚靠勢力，不是倚靠才能」在你的學習生活中可以如何應用？</li><li>為什麼上帝要強調「所羅巴伯的手立了根基，也必完成這工」？這對你有什麼鼓勵？</li><li>當我們面對像「大山」一樣的挑戰時，應該先作什麼樣的禱告？</li><li>經文提到「許多國歸附耶和華」，你覺得我們可以如何幫助身邊不同的人認識主？</li><li>「上帝住在我們中間」對你的生活有什麼實際的意義？ 引導方向：先分享個人經驗，再回到經文中的應許與挑戰。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation Jumper -->
+    <div class="bottom-lesson-jumper">
+      <a href="2026-q3-05.html" class="jumper-btn">◀ 上一課：第5課 · 尼尼微城的奇蹟</a>
+      <a href="../index.html" class="jumper-btn">返回 26 課總覽大廳</a>
+      <a href="2026-q3-07.html" class="jumper-btn">下一課：第7課 · 你是主冠冕上的寶石 ▶</a>
+    </div>
+
+  </main>
+
+  <!-- Floating Quick Timer -->
+  <div class="floating-timer">
+    <span>⏱️ 課堂計時：</span>
+    <span class="timer-digits" id="timerDigits">05:00</span>
+    <button class="nav-btn" id="timerToggle">開始</button>
+  </div>
+
+  <script src="lesson.js"></script>
+</body>
+</html>
