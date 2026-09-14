@@ -131,6 +131,7 @@
     const pState = {
       slideIndex: 1,
       isGridOpen: false,
+      isTheaterMode: false,
       isAutoPlaying: false,
       autoPlayIntervalSec: 5,
       autoPlayTimer: null,
@@ -217,6 +218,7 @@
             </div>
             <div class="player-header-actions">
               <button class="player-btn-icon" id="pBtnGrid" type="button" title="縮圖格線總覽 (G 鍵)"><i class="fa-solid fa-grip"></i></button>
+              <button class="player-btn-icon" id="pBtnTheater" type="button" title="劇院巨幕模式 (T 鍵)"><i class="fa-solid fa-film"></i></button>
               <button class="player-btn-icon" id="pBtnPrev" type="button" title="上一張 (← 鍵)"><i class="fa-solid fa-chevron-left"></i></button>
               <button class="player-btn-icon" id="pBtnNext" type="button" title="下一張 (→ 鍵 或 空白鍵)"><i class="fa-solid fa-chevron-right"></i></button>
               <button class="player-btn-icon" id="pBtnFullscreen" type="button" title="全螢幕投影展示 (F 鍵)"><i class="fa-solid fa-expand"></i></button>
@@ -274,6 +276,29 @@
             <div class="p-raw-body" id="pRawBody"></div>
           </div>
         </div>
+      </div>
+
+      <!-- Mobile Thumb-Friendly Sticky Control Bar -->
+      <div class="mobile-slide-bar" id="pMobileSlideBar">
+        <button class="m-bar-btn" id="pMBtnPrev" type="button" aria-label="上一頁">
+          <i class="fa-solid fa-chevron-left"></i>
+          <span>上一頁</span>
+        </button>
+        <div class="m-bar-indicator" id="pMIndicator">
+          <span id="pMCurrent">1</span> / <span>${slides.length}</span>
+        </div>
+        <button class="m-bar-btn m-bar-speak" id="pMBtnSpeak" type="button" aria-label="朗讀講稿">
+          <i class="fa-solid fa-volume-high" id="pMAudioIcon"></i>
+          <span>朗讀</span>
+        </button>
+        <button class="m-bar-btn" id="pMBtnNext" type="button" aria-label="下一頁">
+          <i class="fa-solid fa-chevron-right"></i>
+          <span>下一頁</span>
+        </button>
+        <button class="m-bar-btn" id="pMBtnFullscreen" type="button" aria-label="全螢幕展示">
+          <i class="fa-solid fa-expand"></i>
+          <span>全螢幕</span>
+        </button>
       </div>
     `;
 
@@ -370,11 +395,20 @@
     const pBtnPrev = document.getElementById('pBtnPrev');
     const pBtnNext = document.getElementById('pBtnNext');
     const pBtnGrid = document.getElementById('pBtnGrid');
+    const pBtnTheater = document.getElementById('pBtnTheater');
     const pBtnFullscreen = document.getElementById('pBtnFullscreen');
     const pBtnSpeakVerbatim = document.getElementById('pBtnSpeakVerbatim');
     const pBtnCopyVerbatim = document.getElementById('pBtnCopyVerbatim');
     const btnModePlayer = document.getElementById('btnModePlayer');
     const btnModeList = document.getElementById('btnModeList');
+
+    // Mobile slide thumb bar elements
+    const pMBtnPrev = document.getElementById('pMBtnPrev');
+    const pMBtnNext = document.getElementById('pMBtnNext');
+    const pMBtnSpeak = document.getElementById('pMBtnSpeak');
+    const pMBtnFullscreen = document.getElementById('pMBtnFullscreen');
+    const pMCurrent = document.getElementById('pMCurrent');
+    const pMAudioIcon = document.getElementById('pMAudioIcon');
 
     // Presenter Modal Elements
     const lTimerDigits = document.getElementById('lTimerDigits');
@@ -527,6 +561,9 @@
       // Buttons disabled
       pBtnPrev.disabled = idx === 1;
       pBtnNext.disabled = idx === slides.length;
+      if (pMBtnPrev) pMBtnPrev.disabled = idx === 1;
+      if (pMBtnNext) pMBtnNext.disabled = idx === slides.length;
+      if (pMCurrent) pMCurrent.textContent = idx;
       pOverlayPrev.style.display = idx === 1 ? 'none' : 'flex';
       pOverlayNext.style.display = idx === slides.length ? 'none' : 'flex';
     }
@@ -542,6 +579,18 @@
       pState.isGridOpen = !pState.isGridOpen;
       pGridGallery.hidden = !pState.isGridOpen;
       pBtnGrid.classList.toggle('active', pState.isGridOpen);
+    }
+
+    function togglePlayerTheater() {
+      const dual = playerContainer.querySelector('.player-dual-pane');
+      if (!dual) return;
+      pState.isTheaterMode = !pState.isTheaterMode;
+      dual.classList.toggle('theater-mode', pState.isTheaterMode);
+      if (pBtnTheater) {
+        pBtnTheater.classList.toggle('active', pState.isTheaterMode);
+        pBtnTheater.title = pState.isTheaterMode ? '還原雙欄模式 (T 鍵)' : '劇院巨幕模式 (T 鍵)';
+      }
+      showLToast(pState.isTheaterMode ? '已開啟 16:9 劇院巨幕模式！' : '已還原標準雙欄模式', 'fa-film');
     }
 
     // Speech Narration
@@ -563,6 +612,8 @@
       pAudioNarrateBtn.classList.add('speaking');
       pAudioIcon.className = 'fa-solid fa-pause';
       pAudioText.textContent = '暫停朗讀';
+      if (pMAudioIcon) pMAudioIcon.className = 'fa-solid fa-pause';
+      if (pMBtnSpeak) pMBtnSpeak.classList.add('speaking');
 
       let text = '';
       if (slide.teacherScript) text += slide.teacherScript.replace(/[『』「」]/g, '') + '。';
@@ -587,6 +638,8 @@
         pAudioNarrateBtn.classList.remove('speaking');
         pAudioIcon.className = 'fa-solid fa-volume-high';
         pAudioText.textContent = '朗讀本頁講稿';
+        if (pMAudioIcon) pMAudioIcon.className = 'fa-solid fa-volume-high';
+        if (pMBtnSpeak) pMBtnSpeak.classList.remove('speaking');
 
         if (pState.autoAdvanceTTS && pState.slideIndex < slides.length) {
           setTimeout(() => {
@@ -617,6 +670,8 @@
         pAudioNarrateBtn.classList.remove('speaking');
         pAudioIcon.className = 'fa-solid fa-volume-high';
         pAudioText.textContent = '朗讀本頁講稿';
+        if (pMAudioIcon) pMAudioIcon.className = 'fa-solid fa-volume-high';
+        if (pMBtnSpeak) pMBtnSpeak.classList.remove('speaking');
       }
     }
 
@@ -743,9 +798,40 @@
     pOverlayNext.addEventListener('click', nextSlide);
     pJumpSelect.addEventListener('change', (e) => setSlide(parseInt(e.target.value, 10), 'none'));
     pBtnGrid.addEventListener('click', toggleGrid);
+    if (pBtnTheater) pBtnTheater.addEventListener('click', togglePlayerTheater);
     pBtnFullscreen.addEventListener('click', openPresenter);
     pAudioNarrateBtn.addEventListener('click', toggleSpeech);
     pBtnSpeakVerbatim.addEventListener('click', toggleSpeech);
+
+    // Mobile Thumb Bar Buttons
+    if (pMBtnPrev) pMBtnPrev.addEventListener('click', prevSlide);
+    if (pMBtnNext) pMBtnNext.addEventListener('click', nextSlide);
+    if (pMBtnSpeak) pMBtnSpeak.addEventListener('click', toggleSpeech);
+    if (pMBtnFullscreen) pMBtnFullscreen.addEventListener('click', openPresenter);
+
+    // Touch Swipe Gestures on Slide Stage
+    const pStageMain = document.getElementById('pStageMain');
+    let pTouchX = 0;
+    let pTouchY = 0;
+    if (pStageMain) {
+      pStageMain.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          pTouchX = e.touches[0].clientX;
+          pTouchY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      pStageMain.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches.length === 1) {
+          const dx = e.changedTouches[0].clientX - pTouchX;
+          const dy = e.changedTouches[0].clientY - pTouchY;
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+            if (dx < 0) nextSlide();
+            else prevSlide();
+          }
+        }
+      }, { passive: true });
+    }
 
     // Floating Micro-Toast for dedicated lesson page
     const lToast = document.createElement('div');
@@ -826,6 +912,7 @@
         if (e.key === 'ArrowRight' || e.key === 'Space') { e.preventDefault(); nextSlide(); }
         else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
         else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); openPresenter(); }
+        else if (e.key === 't' || e.key === 'T') { e.preventDefault(); togglePlayerTheater(); }
         else if (e.key === 'g' || e.key === 'G') { e.preventDefault(); toggleGrid(); }
         else if (e.key === 'p' || e.key === 'P') { e.preventDefault(); toggleSlideshow(); }
         else if (e.key === 'Escape' && pState.isGridOpen) { toggleGrid(); }

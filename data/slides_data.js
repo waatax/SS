@@ -1,5 +1,5 @@
-// Sunday School Full Slides Database for 2026 Q3 & Q4 (417 Slides Total)
-window.SLIDES_DATA = {
+// Sunday School Full Slide Deck & Deep Review Dataset for 2026 Q3 & Q4 (26 Lessons, 417 Slides Total)
+window.SS_SLIDES_DATA = {
   "2026-q3-01": {
     "id": "2026-q3-01",
     "quarter": "2026-Q3",
@@ -34,7 +34,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 3,
         "badge": "投影片 #3",
-        "image": "",
+        "image": "assets/lessons/2026-q3-01/slide_03.jpg",
         "alt": "",
         "title": "遊戲活動",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -67,7 +67,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 6,
         "badge": "投影片 #6",
-        "image": "",
+        "image": "assets/lessons/2026-q3-01/slide_06.jpg",
         "alt": "",
         "title": "末底改的震撼回覆：「現今的機會」",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -133,7 +133,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 12,
         "badge": "投影片 #12",
-        "image": "",
+        "image": "assets/lessons/2026-q3-01/slide_12.jpg",
         "alt": "",
         "title": "小手動動趣",
         "timing": "⏱️ 建議停留：12-15 分鐘",
@@ -144,7 +144,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-01/slide_13.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -199,7 +199,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 2,
         "badge": "投影片 #2",
-        "image": "",
+        "image": "assets/lessons/2026-q3-02/slide_02.jpg",
         "alt": "",
         "title": "主題經文",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -243,7 +243,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 6,
         "badge": "投影片 #6",
-        "image": "",
+        "image": "assets/lessons/2026-q3-02/slide_06.jpg",
         "alt": "",
         "title": "普珥日的三件重要事情",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -265,7 +265,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 8,
         "badge": "投影片 #8",
-        "image": "",
+        "image": "assets/lessons/2026-q3-02/slide_08.jpg",
         "alt": "",
         "title": "這封信是一個「活的見證」",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -298,7 +298,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 11,
         "badge": "投影片 #11",
-        "image": "",
+        "image": "assets/lessons/2026-q3-02/slide_11.jpg",
         "alt": "",
         "title": "手工活動一：「恩典記事本」裝飾",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -309,7 +309,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 12,
         "badge": "投影片 #12",
-        "image": "",
+        "image": "assets/lessons/2026-q3-02/slide_12.jpg",
         "alt": "",
         "title": "手工活動二：「普珥日」撥浪鼓（嘈雜器）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -320,7 +320,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-02/slide_13.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -430,7 +430,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 7,
         "badge": "投影片 #7",
-        "image": "",
+        "image": "assets/lessons/2026-q3-03/slide_07.jpg",
         "alt": "",
         "title": "【心情的季節】",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -474,7 +474,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 11,
         "badge": "投影片 #11",
-        "image": "",
+        "image": "assets/lessons/2026-q3-03/slide_11.jpg",
         "alt": "",
         "title": "生活應用",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -518,7 +518,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-03/slide_15.jpg",
         "alt": "",
         "title": "七、討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -694,7 +694,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-04/slide_13.jpg",
         "alt": "",
         "title": "手工活動二：「不虛空」沙瓶畫",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -705,7 +705,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q3-04/slide_14.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -716,7 +716,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-04/slide_15.jpg",
         "alt": "",
         "title": "討論問題：高年級（開放式）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -881,7 +881,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-05/slide_13.jpg",
         "alt": "",
         "title": "手工活動 1：大魚吞約拿拉拉卡",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -892,7 +892,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q3-05/slide_14.jpg",
         "alt": "",
         "title": "手工活動 2：蓖麻樹生長盆栽",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -903,7 +903,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-05/slide_15.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -914,7 +914,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 16,
         "badge": "投影片 #16",
-        "image": "",
+        "image": "assets/lessons/2026-q3-05/slide_16.jpg",
         "alt": "",
         "title": "討論問題：高年級（開放式問題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -958,7 +958,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 2,
         "badge": "投影片 #2",
-        "image": "",
+        "image": "assets/lessons/2026-q3-06/slide_02.jpg",
         "alt": "",
         "title": "主題經文",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -1101,7 +1101,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-06/slide_15.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1112,7 +1112,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 16,
         "badge": "投影片 #16",
-        "image": "",
+        "image": "assets/lessons/2026-q3-06/slide_16.jpg",
         "alt": "",
         "title": "高年級",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1222,7 +1222,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 8,
         "badge": "投影片 #8",
-        "image": "",
+        "image": "assets/lessons/2026-q3-07/slide_08.jpg",
         "alt": "",
         "title": "永不放棄的憐恤",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -1288,7 +1288,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q3-07/slide_14.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1299,7 +1299,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-07/slide_15.jpg",
         "alt": "",
         "title": "討論問題：高年級（開放式問題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1365,7 +1365,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 4,
         "badge": "投影片 #4",
-        "image": "",
+        "image": "assets/lessons/2026-q3-08/slide_04.jpg",
         "alt": "",
         "title": "更多遊戲活動",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1420,7 +1420,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 9,
         "badge": "投影片 #9",
-        "image": "",
+        "image": "assets/lessons/2026-q3-08/slide_09.jpg",
         "alt": "",
         "title": "生活應用",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -1442,7 +1442,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 11,
         "badge": "投影片 #11",
-        "image": "",
+        "image": "assets/lessons/2026-q3-08/slide_11.jpg",
         "alt": "",
         "title": "手工活動",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1453,7 +1453,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 12,
         "badge": "投影片 #12",
-        "image": "",
+        "image": "assets/lessons/2026-q3-08/slide_12.jpg",
         "alt": "",
         "title": "手工活動",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1464,7 +1464,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-08/slide_13.jpg",
         "alt": "",
         "title": "討論問題",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1541,7 +1541,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 4,
         "badge": "投影片 #4",
-        "image": "",
+        "image": "assets/lessons/2026-q3-09/slide_04.jpg",
         "alt": "",
         "title": "千千萬萬的敬拜",
         "timing": "⏱️ 建議停留：5 分鐘",
@@ -1563,7 +1563,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 6,
         "badge": "投影片 #6",
-        "image": "",
+        "image": "assets/lessons/2026-q3-09/slide_06.jpg",
         "alt": "",
         "title": "沒有人配得開啟書卷",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -1596,7 +1596,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 9,
         "badge": "投影片 #9",
-        "image": "",
+        "image": "assets/lessons/2026-q3-09/slide_09.jpg",
         "alt": "",
         "title": "全宇宙一起合唱",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -1607,7 +1607,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 10,
         "badge": "投影片 #10",
-        "image": "",
+        "image": "assets/lessons/2026-q3-09/slide_10.jpg",
         "alt": "",
         "title": "故事訊息",
         "timing": "⏱️ 建議停留：3-4 分鐘",
@@ -1640,7 +1640,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-09/slide_13.jpg",
         "alt": "",
         "title": "手工活動",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1651,7 +1651,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q3-09/slide_14.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1662,7 +1662,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-09/slide_15.jpg",
         "alt": "",
         "title": "討論問題：高年級（開放式問題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1706,7 +1706,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 2,
         "badge": "投影片 #2",
-        "image": "",
+        "image": "assets/lessons/2026-q3-10/slide_02.jpg",
         "alt": "",
         "title": "建議詩歌",
         "timing": "⏱️ 建議停留：5 分鐘",
@@ -1717,7 +1717,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 3,
         "badge": "投影片 #3",
-        "image": "",
+        "image": "assets/lessons/2026-q3-10/slide_03.jpg",
         "alt": "",
         "title": "遊戲活動",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1794,7 +1794,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 10,
         "badge": "投影片 #10",
-        "image": "",
+        "image": "assets/lessons/2026-q3-10/slide_10.jpg",
         "alt": "",
         "title": "手工活動：「苦甜翻轉」變色小書卷",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1805,7 +1805,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 11,
         "badge": "投影片 #11",
-        "image": "",
+        "image": "assets/lessons/2026-q3-10/slide_11.jpg",
         "alt": "",
         "title": "手工活動：「見證人」指印燈臺",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1816,7 +1816,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 12,
         "badge": "投影片 #12",
-        "image": "",
+        "image": "assets/lessons/2026-q3-10/slide_12.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1827,7 +1827,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-10/slide_13.jpg",
         "alt": "",
         "title": "討論問題：高年級（開放式問題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1871,7 +1871,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 2,
         "badge": "投影片 #2",
-        "image": "",
+        "image": "assets/lessons/2026-q3-11/slide_02.jpg",
         "alt": "",
         "title": "主題經文",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -1893,7 +1893,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 4,
         "badge": "投影片 #4",
-        "image": "",
+        "image": "assets/lessons/2026-q3-11/slide_04.jpg",
         "alt": "",
         "title": "遊戲一：福音飛機 ✈️",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1904,7 +1904,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 5,
         "badge": "投影片 #5",
-        "image": "",
+        "image": "assets/lessons/2026-q3-11/slide_05.jpg",
         "alt": "",
         "title": "遊戲二：金鐮刀大收割 🌾",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -1981,7 +1981,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 12,
         "badge": "投影片 #12",
-        "image": "",
+        "image": "assets/lessons/2026-q3-11/slide_12.jpg",
         "alt": "",
         "title": "生活應用 🌟",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -2003,7 +2003,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q3-11/slide_14.jpg",
         "alt": "",
         "title": "手工活動一：「羔羊印記」頭帶 👑",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2014,7 +2014,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-11/slide_15.jpg",
         "alt": "",
         "title": "手工活動二：「雲端人子」福音轉盤 ☁️",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2025,7 +2025,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 16,
         "badge": "投影片 #16",
-        "image": "",
+        "image": "assets/lessons/2026-q3-11/slide_16.jpg",
         "alt": "",
         "title": "討論問題",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2080,7 +2080,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 3,
         "badge": "投影片 #3",
-        "image": "",
+        "image": "assets/lessons/2026-q3-12/slide_03.jpg",
         "alt": "",
         "title": "遊戲設計",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2135,7 +2135,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 8,
         "badge": "投影片 #8",
-        "image": "",
+        "image": "assets/lessons/2026-q3-12/slide_08.jpg",
         "alt": "",
         "title": "生命冊的審判",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -2146,7 +2146,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 9,
         "badge": "投影片 #9",
-        "image": "",
+        "image": "assets/lessons/2026-q3-12/slide_09.jpg",
         "alt": "",
         "title": "故事訊息",
         "timing": "⏱️ 建議停留：3-4 分鐘",
@@ -2201,7 +2201,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q3-12/slide_14.jpg",
         "alt": "",
         "title": "討論問題：低年級（選擇題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2212,7 +2212,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q3-12/slide_15.jpg",
         "alt": "",
         "title": "討論問題：高年級（開放式問題）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2377,7 +2377,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q3-13/slide_13.jpg",
         "alt": "",
         "title": "生活應用",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -2421,7 +2421,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 17,
         "badge": "投影片 #17",
-        "image": "",
+        "image": "assets/lessons/2026-q3-13/slide_17.jpg",
         "alt": "",
         "title": "討論問題",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2707,7 +2707,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 4,
         "badge": "投影片 #4",
-        "image": "",
+        "image": "assets/lessons/2026-q4-02/slide_04.jpg",
         "alt": "",
         "title": "🎮 遊戲時間",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2817,7 +2817,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q4-02/slide_14.jpg",
         "alt": "",
         "title": "💬 討論問題",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2872,7 +2872,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 3,
         "badge": "投影片 #3",
-        "image": "",
+        "image": "assets/lessons/2026-q4-03/slide_03.jpg",
         "alt": "",
         "title": "🎮 遊戲時間",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2883,7 +2883,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 4,
         "badge": "投影片 #4",
-        "image": "",
+        "image": "assets/lessons/2026-q4-03/slide_04.jpg",
         "alt": "",
         "title": "🎮 遊戲時間",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -2916,7 +2916,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 7,
         "badge": "投影片 #7",
-        "image": "",
+        "image": "assets/lessons/2026-q4-03/slide_07.jpg",
         "alt": "",
         "title": "⚠️ 進入迦南的危險",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -2982,7 +2982,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q4-03/slide_13.jpg",
         "alt": "",
         "title": "✂️ 手工活動",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -3510,7 +3510,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 12,
         "badge": "投影片 #12",
-        "image": "",
+        "image": "assets/lessons/2026-q4-06/slide_12.jpg",
         "alt": "",
         "title": "💬 討論問題（國小 4–6 年級）",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -3697,7 +3697,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q4-07/slide_15.jpg",
         "alt": "",
         "title": "💬 討論問題：國小 4–6 年級",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -3873,7 +3873,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q4-08/slide_14.jpg",
         "alt": "",
         "title": "❓ 討論問題：國小1–3年級",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -3884,7 +3884,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q4-08/slide_15.jpg",
         "alt": "",
         "title": "💬 討論問題：國小4–6年級",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -4203,7 +4203,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 9,
         "badge": "投影片 #9",
-        "image": "",
+        "image": "assets/lessons/2026-q4-10/slide_09.jpg",
         "alt": "",
         "title": "⭐ 至近的親屬",
         "timing": "⏱️ 建議停留：2-3 分鐘",
@@ -4258,7 +4258,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 14,
         "badge": "投影片 #14",
-        "image": "",
+        "image": "assets/lessons/2026-q4-10/slide_14.jpg",
         "alt": "",
         "title": "🎨 手工活動一：感恩麥穗畫",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -4269,7 +4269,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 15,
         "badge": "投影片 #15",
-        "image": "",
+        "image": "assets/lessons/2026-q4-10/slide_15.jpg",
         "alt": "",
         "title": "💌 手工活動二：忠誠愛心瓶",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -4291,7 +4291,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 17,
         "badge": "投影片 #17",
-        "image": "",
+        "image": "assets/lessons/2026-q4-10/slide_17.jpg",
         "alt": "",
         "title": "💬 討論問題：國小 4–6 年級",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -4489,7 +4489,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 16,
         "badge": "投影片 #16",
-        "image": "",
+        "image": "assets/lessons/2026-q4-11/slide_16.jpg",
         "alt": "",
         "title": "💬 討論問題：國小 4–6 年級",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -4588,7 +4588,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 7,
         "badge": "投影片 #7",
-        "image": "",
+        "image": "assets/lessons/2026-q4-12/slide_07.jpg",
         "alt": "",
         "title": "聖經故事 第四幕",
         "timing": "⏱️ 建議停留：3-4 分鐘",
@@ -4654,7 +4654,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 13,
         "badge": "投影片 #13",
-        "image": "",
+        "image": "assets/lessons/2026-q4-12/slide_13.jpg",
         "alt": "",
         "title": "💬 深入討論",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -4709,7 +4709,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 3,
         "badge": "投影片 #3",
-        "image": "",
+        "image": "assets/lessons/2026-q4-13/slide_03.jpg",
         "alt": "",
         "title": "🎮 遊戲環節一：獄中脫困記",
         "timing": "⏱️ 建議停留：8-10 分鐘",
@@ -4764,7 +4764,7 @@ window.SLIDES_DATA = {
       {
         "slideIndex": 8,
         "badge": "投影片 #8",
-        "image": "",
+        "image": "assets/lessons/2026-q4-13/slide_08.jpg",
         "alt": "",
         "title": "💪 第四段：學會知足的強大力量",
         "timing": "⏱️ 建議停留：2-3 分鐘",

@@ -299,6 +299,9 @@
                   <button class="btn-icon" id="btnGridView" type="button" title="格線縮圖總覽 (G 鍵)">
                     <i class="fa-solid fa-grip"></i>
                   </button>
+                  <button class="btn-icon" id="btnTheaterMode" type="button" title="劇院巨幕模式 (T 鍵)">
+                    <i class="fa-solid fa-film"></i>
+                  </button>
                   <button class="btn-icon" id="btnSlidePrev" type="button" title="上一張 (← 方向鍵)">
                     <i class="fa-solid fa-chevron-left"></i>
                   </button>
@@ -388,6 +391,7 @@
                 <span class="shortcut-tip"><i class="fa-regular fa-keyboard"></i> 鍵盤快捷鍵：</span>
                 <span class="kbd-pill"><kbd>←</kbd> 上一張</span>
                 <span class="kbd-pill"><kbd>→</kbd> / <kbd>Space</kbd> 下一張</span>
+                <span class="kbd-pill"><kbd>T</kbd> 巨幕劇院</span>
                 <span class="kbd-pill"><kbd>F</kbd> 全螢幕投影</span>
                 <span class="kbd-pill"><kbd>G</kbd> 縮圖總覽</span>
                 <span class="kbd-pill"><kbd>P</kbd> 連續播放</span>
@@ -395,6 +399,29 @@
 
             </div>
 
+          </div>
+
+          <!-- Mobile Thumb-Friendly Sticky Control Bar (Mobile Portrait Only) -->
+          <div class="mobile-slide-bar" id="mobileSlideBar">
+            <button class="m-bar-btn" id="mBtnSlidePrev" type="button" aria-label="上一張投影片">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>上一頁</span>
+            </button>
+            <div class="m-bar-indicator" id="mBarIndicator">
+              <span id="mCurrentSlide">1</span> / <span id="mTotalSlide">15</span>
+            </div>
+            <button class="m-bar-btn m-bar-speak" id="mBtnSlideSpeak" type="button" aria-label="朗讀講稿">
+              <i class="fa-solid fa-volume-high" id="mAudioIcon"></i>
+              <span>朗讀</span>
+            </button>
+            <button class="m-bar-btn" id="mBtnSlideNext" type="button" aria-label="下一張投影片">
+              <i class="fa-solid fa-chevron-right"></i>
+              <span>下一頁</span>
+            </button>
+            <button class="m-bar-btn" id="mBtnSlideFullscreen" type="button" aria-label="全螢幕展示">
+              <i class="fa-solid fa-expand"></i>
+              <span>全螢幕</span>
+            </button>
           </div>
 
         </div>

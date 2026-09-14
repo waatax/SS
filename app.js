@@ -22,6 +22,7 @@
     // Slide Presentation Deck
     slideIndex: 1,
     isGridOpen: false,
+    isTheaterMode: false,
     isAutoPlaying: false,
     autoPlayIntervalSec: 5,
     autoPlayTimer: null,
@@ -111,9 +112,19 @@
     totalSlideNum: document.getElementById('totalSlideNum'),
     slideJumpSelect: document.getElementById('slideJumpSelect'),
     btnGridView: document.getElementById('btnGridView'),
+    btnTheaterMode: document.getElementById('btnTheaterMode'),
     btnSlidePrev: document.getElementById('btnSlidePrev'),
     btnSlideNext: document.getElementById('btnSlideNext'),
     btnSlideFullscreen: document.getElementById('btnSlideFullscreen'),
+    // Mobile slide thumb bar
+    mobileSlideBar: document.getElementById('mobileSlideBar'),
+    mBtnSlidePrev: document.getElementById('mBtnSlidePrev'),
+    mBtnSlideNext: document.getElementById('mBtnSlideNext'),
+    mBtnSlideSpeak: document.getElementById('mBtnSlideSpeak'),
+    mBtnSlideFullscreen: document.getElementById('mBtnSlideFullscreen'),
+    mCurrentSlide: document.getElementById('mCurrentSlide'),
+    mTotalSlide: document.getElementById('mTotalSlide'),
+    mAudioIcon: document.getElementById('mAudioIcon'),
     slideStageMain: document.getElementById('slideStageMain'),
     slideMainImg: document.getElementById('slideMainImg'),
     slideTextFallback: document.getElementById('slideTextFallback'),
@@ -320,7 +331,37 @@
       });
     }
     if (els.btnGridView) els.btnGridView.addEventListener('click', toggleGridView);
+    if (els.btnTheaterMode) els.btnTheaterMode.addEventListener('click', toggleTheaterMode);
     if (els.btnSlideFullscreen) els.btnSlideFullscreen.addEventListener('click', openPresentationMode);
+
+    // Mobile Slide Bar Buttons
+    if (els.mBtnSlidePrev) els.mBtnSlidePrev.addEventListener('click', prevSlide);
+    if (els.mBtnSlideNext) els.mBtnSlideNext.addEventListener('click', nextSlide);
+    if (els.mBtnSlideSpeak) els.mBtnSlideSpeak.addEventListener('click', toggleSpeechNarration);
+    if (els.mBtnSlideFullscreen) els.mBtnSlideFullscreen.addEventListener('click', openPresentationMode);
+
+    // Touch Swipe Gestures for Mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+    if (els.slideStageMain) {
+      els.slideStageMain.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      els.slideStageMain.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches.length === 1) {
+          const deltaX = e.changedTouches[0].clientX - touchStartX;
+          const deltaY = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX < 0) nextSlide();
+            else prevSlide();
+          }
+        }
+      }, { passive: true });
+    }
 
     // Speech Narration Controls
     if (els.slideAudioNarrateBtn) els.slideAudioNarrateBtn.addEventListener('click', toggleSpeechNarration);
@@ -395,6 +436,9 @@
         } else if (e.key === 'f' || e.key === 'F') {
           e.preventDefault();
           openPresentationMode();
+        } else if (e.key === 't' || e.key === 'T') {
+          e.preventDefault();
+          toggleTheaterMode();
         } else if (e.key === 'g' || e.key === 'G') {
           e.preventDefault();
           toggleGridView();
@@ -695,11 +739,28 @@
 
     // Education & Psychology
     els.expertFiveE.innerHTML = `
-      <div class="five-e-item"><strong>${ed.five_e.engage}</strong></div>
-      <div class="five-e-item"><strong>${ed.five_e.explore}</strong></div>
-      <div class="five-e-item"><strong>${ed.five_e.explain}</strong></div>
-      <div class="five-e-item"><strong>${ed.five_e.elaborate}</strong></div>
-      <div class="five-e-item"><strong>${ed.five_e.evaluate}</strong></div>
+      <div class="five-e-roadmap">
+        <div class="five-e-card-item">
+          <span class="five-e-badge-pill badge-e-engage">🎯 1. Engage 吸引</span>
+          <div class="five-e-content-text">${ed.five_e.engage}</div>
+        </div>
+        <div class="five-e-card-item">
+          <span class="five-e-badge-pill badge-e-explore">🔍 2. Explore 探索</span>
+          <div class="five-e-content-text">${ed.five_e.explore}</div>
+        </div>
+        <div class="five-e-card-item">
+          <span class="five-e-badge-pill badge-e-explain">💡 3. Explain 解釋</span>
+          <div class="five-e-content-text">${ed.five_e.explain}</div>
+        </div>
+        <div class="five-e-card-item">
+          <span class="five-e-badge-pill badge-e-elaborate">🌱 4. Elaborate 延伸</span>
+          <div class="five-e-content-text">${ed.five_e.elaborate}</div>
+        </div>
+        <div class="five-e-card-item">
+          <span class="five-e-badge-pill badge-e-evaluate">📝 5. Evaluate 評鑑</span>
+          <div class="five-e-content-text">${ed.five_e.evaluate}</div>
+        </div>
+      </div>
     `;
     els.expertDevelopment.textContent = ps.developmental_stage;
     els.expertPsychSafety.textContent = ps.psychological_safety + ' ' + ps.empathy_building;
@@ -998,6 +1059,9 @@
     if (els.totalSlideNum) {
       els.totalSlideNum.textContent = slides.length;
     }
+    if (els.mTotalSlide) {
+      els.mTotalSlide.textContent = slides.length;
+    }
 
     // Populate Slide Jump Select
     if (els.slideJumpSelect) {
@@ -1032,10 +1096,14 @@
     // Counter & Select
     if (els.currentSlideNum) els.currentSlideNum.textContent = idx;
     if (els.slideJumpSelect) els.slideJumpSelect.value = idx;
+    if (els.mCurrentSlide) els.mCurrentSlide.textContent = idx;
+    if (els.mTotalSlide) els.mTotalSlide.textContent = slides.length;
 
     // Prev / Next button states
     if (els.btnSlidePrev) els.btnSlidePrev.disabled = idx === 1;
     if (els.btnSlideNext) els.btnSlideNext.disabled = idx === slides.length;
+    if (els.mBtnSlidePrev) els.mBtnSlidePrev.disabled = idx === 1;
+    if (els.mBtnSlideNext) els.mBtnSlideNext.disabled = idx === slides.length;
     if (els.overlayPrevBtn) els.overlayPrevBtn.style.display = idx === 1 ? 'none' : 'flex';
     if (els.overlayNextBtn) els.overlayNextBtn.style.display = idx === slides.length ? 'none' : 'flex';
 
@@ -1219,6 +1287,19 @@
     }
   }
 
+  // Theater Mode (16:9 巨幕劇院模式)
+  function toggleTheaterMode() {
+    const dualPane = document.querySelector('.slide-dual-pane');
+    if (!dualPane) return;
+    state.isTheaterMode = !state.isTheaterMode;
+    dualPane.classList.toggle('theater-mode', state.isTheaterMode);
+    if (els.btnTheaterMode) {
+      els.btnTheaterMode.classList.toggle('active', state.isTheaterMode);
+      els.btnTheaterMode.title = state.isTheaterMode ? '還原雙欄駕駛艙 (T 鍵)' : '劇院巨幕模式 (T 鍵)';
+    }
+    showToast(state.isTheaterMode ? '已開啟 16:9 劇院巨幕模式！' : '已還原標準雙欄駕駛艙', 'fa-film');
+  }
+
   // Web Speech API Narration
   function toggleSpeechNarration() {
     if (!('speechSynthesis' in window)) {
@@ -1250,6 +1331,12 @@
     if (els.slideAudioBtnText) {
       els.slideAudioBtnText.textContent = '暫停朗讀';
     }
+    if (els.mAudioIcon) {
+      els.mAudioIcon.className = 'fa-solid fa-pause';
+    }
+    if (els.mBtnSlideSpeak) {
+      els.mBtnSlideSpeak.classList.add('speaking');
+    }
 
     let textToSpeak = '';
     if (slide.teacherScript) {
@@ -1280,6 +1367,8 @@
       if (els.slideAudioNarrateBtn) els.slideAudioNarrateBtn.classList.remove('speaking');
       if (els.slideAudioIcon) els.slideAudioIcon.className = 'fa-solid fa-volume-high';
       if (els.slideAudioBtnText) els.slideAudioBtnText.textContent = '朗讀本頁講稿';
+      if (els.mAudioIcon) els.mAudioIcon.className = 'fa-solid fa-volume-high';
+      if (els.mBtnSlideSpeak) els.mBtnSlideSpeak.classList.remove('speaking');
 
       if (state.autoAdvanceTTS) {
         if (state.slideIndex < slides.length) {
@@ -1318,6 +1407,8 @@
       if (els.slideAudioNarrateBtn) els.slideAudioNarrateBtn.classList.remove('speaking');
       if (els.slideAudioIcon) els.slideAudioIcon.className = 'fa-solid fa-volume-high';
       if (els.slideAudioBtnText) els.slideAudioBtnText.textContent = '朗讀本頁講稿';
+      if (els.mAudioIcon) els.mAudioIcon.className = 'fa-solid fa-volume-high';
+      if (els.mBtnSlideSpeak) els.mBtnSlideSpeak.classList.remove('speaking');
     }
   }
 

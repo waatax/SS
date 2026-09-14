@@ -1475,3 +1475,146 @@ body.theme-dark .p-raw-tag {
   box-shadow: 0 12px 36px -4px rgba(184, 134, 40, 0.12), 0 4px 12px -2px rgba(43, 38, 34, 0.06);
 }
 
+/* ==========================================================================
+   Theater Mode for Dedicated Lesson Page (16:9 劇院巨幕模式)
+   ========================================================================== */
+.player-btn-icon.active {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.player-dual-pane.theater-mode {
+  grid-template-columns: 1fr;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.player-dual-pane.theater-mode .player-stage-card {
+  width: 100%;
+}
+
+.player-dual-pane.theater-mode .player-stage-main {
+  aspect-ratio: 16/9;
+  max-height: 640px;
+}
+
+.player-dual-pane.theater-mode .player-deep-review {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.player-dual-pane.theater-mode .p-review-header {
+  grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   Mobile Thumb-Friendly Bottom Control Bar (Dedicated Lesson Player)
+   ========================================================================== */
+.mobile-slide-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .slide-player-container {
+    padding-bottom: 70px;
+  }
+
+  .player-stage-main {
+    aspect-ratio: 16/9;
+    min-height: 200px;
+  }
+
+  .player-thumbnails-strip {
+    padding: 8px 10px;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .player-thumb-item {
+    width: 78px;
+    height: 44px;
+    min-width: 78px;
+  }
+
+  .mobile-slide-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(19, 28, 42, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid rgba(197, 147, 43, 0.4);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
+    z-index: 999;
+    justify-content: space-around;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .m-bar-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    gap: 3px;
+    cursor: pointer;
+    min-width: 52px;
+    transition: all 0.2s;
+    touch-action: manipulation;
+  }
+
+  .m-bar-btn:active {
+    background: rgba(184, 134, 40, 0.35);
+    border-color: #c5932b;
+    transform: scale(0.96);
+  }
+
+  .m-bar-btn i {
+    font-size: 1.05rem;
+    color: #fbbf24;
+  }
+
+  .m-bar-btn.m-bar-speak {
+    background: linear-gradient(135deg, #b88628, #996515);
+    border-color: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(184, 134, 40, 0.3);
+  }
+
+  .m-bar-btn.m-bar-speak i {
+    color: #ffffff;
+  }
+
+  .m-bar-btn:disabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .m-bar-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fbbf24;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(197, 147, 43, 0.35);
+  }
+}
+

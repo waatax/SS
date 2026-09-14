@@ -2843,3 +2843,377 @@ kbd {
   box-shadow: 0 12px 36px -4px rgba(184, 134, 40, 0.12), 0 4px 12px -2px rgba(43, 38, 34, 0.06);
 }
 
+/* ==========================================================================
+   Theater Mode (16:9 巨幕劇院模式)
+   ========================================================================== */
+.btn-icon.active {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.slide-dual-pane.theater-mode {
+  grid-template-columns: 1fr;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.slide-dual-pane.theater-mode .slide-stage-card {
+  width: 100%;
+}
+
+.slide-dual-pane.theater-mode .slide-stage-main {
+  aspect-ratio: 16/9;
+  max-height: 640px;
+}
+
+.slide-dual-pane.theater-mode .slide-deep-review-pane {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.slide-dual-pane.theater-mode .review-header-card {
+  grid-column: 1 / -1;
+}
+
+.slide-dual-pane.theater-mode .shortcuts-helper-card {
+  grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   5E Pedagogical Roadmap Layout (五大教學法完整環節)
+   ========================================================================== */
+.five-e-roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.five-e-card-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.1rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.five-e-card-item:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.five-e-badge-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.badge-e-engage {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.badge-e-explore {
+  background: #e0f2fe;
+  color: #075985;
+  border: 1px solid #7dd3fc;
+}
+
+.badge-e-explain {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.badge-e-elaborate {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.badge-e-evaluate {
+  background: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #d8b4fe;
+}
+
+body.theme-dark .badge-e-engage {
+  background: #450a0a;
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+body.theme-dark .badge-e-explore {
+  background: #082f49;
+  color: #7dd3fc;
+  border-color: #0369a1;
+}
+
+body.theme-dark .badge-e-explain {
+  background: #451a03;
+  color: #fde68a;
+  border-color: #78350f;
+}
+
+body.theme-dark .badge-e-elaborate {
+  background: #052e16;
+  color: #86efac;
+  border-color: #14532d;
+}
+
+body.theme-dark .badge-e-evaluate {
+  background: #3b0764;
+  color: #e9d5ff;
+  border-color: #581c87;
+}
+
+.five-e-content-text {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  flex: 1;
+}
+
+.five-e-content-text strong {
+  color: var(--secondary-dark);
+}
+
+body.theme-dark .five-e-content-text strong {
+  color: #f8fafc;
+}
+
+/* ==========================================================================
+   Mobile Thumb-Friendly Bottom Control Bar & Responsive Polish
+   ========================================================================== */
+.mobile-slide-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Mobile Slide Stage Layout */
+  .slide-deck-container {
+    padding-bottom: 70px; /* Leave space for bottom thumb bar */
+  }
+
+  .slide-dual-pane {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .slide-stage-card {
+    border-radius: var(--radius-md);
+  }
+
+  .slide-stage-main {
+    aspect-ratio: 16/9;
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .slide-view-header {
+    padding: 0.6rem 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .slide-counter {
+    font-size: 0.88rem;
+  }
+
+  .slide-header-actions .btn-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  /* Thumbnails filmstrip mobile touch scroll */
+  .slide-thumbnails-strip {
+    padding: 8px 10px;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .thumb-item {
+    width: 78px;
+    height: 44px;
+    min-width: 78px;
+  }
+
+  /* Deep Review Card mobile adjustments */
+  .slide-deep-review-pane {
+    padding: 0;
+  }
+
+  .teacher-verbatim-card,
+  .student-prompt-card,
+  .raw-points-card,
+  .review-header-card {
+    padding: 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .verbatim-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* Fixed Mobile Thumb Bar */
+  .mobile-slide-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(19, 28, 42, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid rgba(197, 147, 43, 0.4);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
+    z-index: 999;
+    justify-content: space-around;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .m-bar-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    gap: 3px;
+    cursor: pointer;
+    min-width: 52px;
+    transition: all 0.2s;
+    touch-action: manipulation;
+  }
+
+  .m-bar-btn:active {
+    background: rgba(184, 134, 40, 0.35);
+    border-color: #c5932b;
+    transform: scale(0.96);
+  }
+
+  .m-bar-btn i {
+    font-size: 1.05rem;
+    color: #fbbf24;
+  }
+
+  .m-bar-btn.m-bar-speak {
+    background: linear-gradient(135deg, #b88628, #996515);
+    border-color: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(184, 134, 40, 0.3);
+  }
+
+  .m-bar-btn.m-bar-speak i {
+    color: #ffffff;
+  }
+
+  .m-bar-btn:disabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .m-bar-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fbbf24;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(197, 147, 43, 0.35);
+  }
+
+  /* Global Toolbar mobile layout */
+  .slide-global-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.85rem;
+  }
+
+  .slide-audio-controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .audio-narrate-btn,
+  .audio-auto-advance-btn,
+  .slideshow-play-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .two-column-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-card {
+    padding: 18px 14px;
+  }
+
+  .hero-meta {
+    gap: 4px;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+  }
+
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .m-bar-btn span {
+    font-size: 0.65rem;
+  }
+
+  .m-bar-btn {
+    min-width: 46px;
+    padding: 5px 6px;
+  }
+
+  .slide-stage-main {
+    min-height: 180px;
+  }
+}
+
