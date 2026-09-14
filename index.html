@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 Free Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="theme-warm">
 
@@ -35,6 +37,7 @@
         <div class="search-box">
           <span class="search-icon">🔍</span>
           <input type="text" id="searchInput" placeholder="搜尋課名、經文、主題、詩歌..." autocomplete="off">
+          <span class="search-kbd-hint" title="快捷鍵：按下 / 鍵快速搜尋">/</span>
           <button id="clearSearchBtn" class="clear-search-btn" title="清除搜尋">✕</button>
           <div class="search-results-dropdown" id="searchResultsDropdown"></div>
         </div>
@@ -74,7 +77,13 @@
       <!-- Memory Verse Box with Gym Interaction -->
       <div class="memory-verse-box">
         <div class="verse-header">
-          <span class="verse-label">📖 本課背誦金句</span>
+          <div class="verse-header-left">
+            <span class="verse-label">📖 本課背誦金句</span>
+            <div class="verse-header-actions">
+              <button class="verse-tool-btn" id="verseSpeakBtn" type="button" title="聆聽金句語音朗讀"><i class="fa-solid fa-volume-high"></i> 朗讀</button>
+              <button class="verse-tool-btn" id="verseCopyBtn" type="button" title="複製金句全文到剪貼簿"><i class="fa-regular fa-copy"></i> 複製</button>
+            </div>
+          </div>
           <div class="verse-gym-controls">
             <span class="gym-tip">💡 點擊字詞可單獨隱藏：</span>
             <button class="gym-btn active" data-mode="full">完整</button>
@@ -93,6 +102,7 @@
     <!-- Module Navigation Tabs -->
     <nav class="module-tabs" id="moduleTabs">
       <button class="tab-btn active" data-target="tab-expert">🌟 專家團隊錦囊</button>
+      <button class="tab-btn highlight-tab" data-target="tab-slides"><i class="fa-solid fa-desktop"></i> 🖥️ 原版 PPT 逐頁深探</button>
       <button class="tab-btn" data-target="tab-story">📖 沉浸式聖經故事</button>
       <button class="tab-btn" data-target="tab-games-songs">🎵 詩歌敬拜 & 🎮 破冰遊戲</button>
       <button class="tab-btn" data-target="tab-truth-app">💡 核心真理 & 🌱 生活應用</button>
@@ -216,6 +226,177 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- PPT Slide-by-Slide Cockpit & Deep Review Tab Pane (Inspired by BlessEq) -->
+      <section class="tab-pane" id="tab-slides">
+        <div class="slide-deck-container">
+          
+          <!-- Top Narration & Autoplay Controls Bar -->
+          <div class="slide-global-toolbar">
+            <div class="toolbar-group">
+              <span class="toolbar-title"><i class="fa-solid fa-play-circle text-gold"></i> 原版 PPT 逐頁深探駕駛艙</span>
+              <span class="slide-total-info" id="slideDeckInfo">本課共 15 頁高畫質投影片</span>
+            </div>
+
+            <!-- Auto Narration & Auto Advance Tools -->
+            <div class="slide-audio-controls">
+              <button class="audio-narrate-btn" id="slideAudioNarrateBtn" type="button" title="播放本頁老師口頭講述逐字稿">
+                <i class="fa-solid fa-volume-high" id="slideAudioIcon"></i>
+                <span class="soundwave-bars" id="soundwaveBars" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span>
+                </span>
+                <span id="slideAudioBtnText">朗讀本頁講稿</span>
+              </button>
+              
+              <button class="audio-auto-advance-btn" id="slideAutoAdvanceBtn" type="button" title="切換朗讀結束後是否自動翻下一頁">
+                <i class="fa-solid fa-forward-step"></i>
+                <span id="slideAutoAdvanceText">自動連播：關</span>
+              </button>
+
+              <div class="audio-speed-box">
+                <label for="slideAudioSpeedSelect" title="語音朗讀速度"><i class="fa-solid fa-gauge-high"></i></label>
+                <select id="slideAudioSpeedSelect" title="調整語音朗讀速度">
+                  <option value="0.8">0.8x 緩速</option>
+                  <option value="1" selected>1.0x 標準</option>
+                  <option value="1.2">1.2x 稍快</option>
+                  <option value="1.5">1.5x 快速</option>
+                  <option value="1.8">1.8x 極速</option>
+                </select>
+              </div>
+
+              <!-- Timed Autoplay slideshow -->
+              <div class="slideshow-autoplay-box">
+                <button class="slideshow-play-btn" id="slideshowPlayBtn" type="button" title="定時投影片幻燈放映">
+                  <i class="fa-solid fa-play" id="slideshowPlayIcon"></i>
+                  <span id="slideshowPlayText">幻燈放映</span>
+                </button>
+                <select id="slideshowIntervalSelect" title="幻燈放映換頁間隔">
+                  <option value="3">3 秒/頁</option>
+                  <option value="5" selected>5 秒/頁</option>
+                  <option value="8">8 秒/頁</option>
+                  <option value="12">12 秒/頁</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dual-Pane Workspace: Slide Presentation Stage (Left) & Deep Review Cockpit (Right) -->
+          <div class="slide-dual-pane">
+
+            <!-- Left: 16:9 Cinema Slide Stage -->
+            <div class="slide-stage-card">
+              <!-- Header Actions -->
+              <div class="slide-view-header">
+                <div class="slide-counter" id="slideCounterDisplay">
+                  <i class="fa-regular fa-image text-gold"></i>
+                  <span>投影片 <strong id="currentSlideNum">1</strong> / <strong id="totalSlideNum">15</strong></span>
+                  <select id="slideJumpSelect" class="slide-jump-select" title="直接跳轉指定投影片"></select>
+                </div>
+
+                <div class="slide-header-actions">
+                  <button class="btn-icon" id="btnGridView" type="button" title="格線縮圖總覽 (G 鍵)">
+                    <i class="fa-solid fa-grip"></i>
+                  </button>
+                  <button class="btn-icon" id="btnSlidePrev" type="button" title="上一張 (← 方向鍵)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <button class="btn-icon" id="btnSlideNext" type="button" title="下一張 (→ 或 空白鍵)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                  <button class="btn-icon" id="btnSlideFullscreen" type="button" title="全螢幕講員投影展示 (F 鍵)">
+                    <i class="fa-solid fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Slide Main Stage -->
+              <div class="slide-stage-main" id="slideStageMain" role="region" aria-label="投影片主視覺區">
+                <img src="" alt="投影片影像" class="slide-main-img" id="slideMainImg">
+                <div class="slide-text-fallback" id="slideTextFallback" style="display:none;">
+                  <div class="fallback-badge"><i class="fa-solid fa-feather-pointed"></i> 投文字重點頁</div>
+                  <h3 id="fallbackTitle"></h3>
+                  <div id="fallbackSnippet" class="fallback-snippet"></div>
+                </div>
+
+                <!-- Hover Overlay Navigation -->
+                <button class="slide-nav-overlay-btn slide-prev-btn" id="overlayPrevBtn" type="button" title="上一張投影片 (←)">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slide-nav-overlay-btn slide-next-btn" id="overlayNextBtn" type="button" title="下一張投影片 (→)">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- Auto-play progress bar indicator -->
+                <div class="slide-autoplay-progress" id="slideAutoplayProgress"></div>
+              </div>
+
+              <!-- Grid Gallery (Toggleable) -->
+              <div class="slide-grid-gallery" id="slideGridGallery" hidden></div>
+
+              <!-- Horizontal Thumbnail Strip -->
+              <div class="slide-thumbnails-strip" id="thumbnailsStrip" role="listbox" aria-label="投影片縮圖膠卷"></div>
+            </div>
+
+            <!-- Right: Slide Deep Review & Teacher Script Cockpit -->
+            <div class="slide-deep-review-pane">
+              
+              <!-- Slide Title & Timing Header -->
+              <div class="review-header-card">
+                <div class="review-title-group">
+                  <span class="slide-badge-idx" id="reviewBadgeIdx">投影片 #1</span>
+                  <h3 class="review-slide-title" id="reviewSlideTitle">金杖下的灰姑娘</h3>
+                </div>
+                <span class="slide-timing-badge" id="reviewTimingBadge">⏱️ 建議停留：2-3 分鐘</span>
+              </div>
+
+              <!-- Teacher Verbatim Oral Script Box -->
+              <div class="teacher-verbatim-card">
+                <div class="verbatim-card-header">
+                  <span class="verbatim-tag"><i class="fa-solid fa-microphone-lines text-gold"></i> 老師口頭講述逐字稿（怎麼說）：</span>
+                  <div class="verbatim-actions">
+                    <button class="micro-speech-btn" id="btnSpeakVerbatim" type="button" title="聆聽這段台詞">
+                      <i class="fa-solid fa-volume-high"></i> 朗讀此段
+                    </button>
+                    <button class="micro-copy-btn" id="btnCopyVerbatim" type="button" title="複製此段講述逐字稿">
+                      <i class="fa-regular fa-copy"></i> 複製
+                    </button>
+                  </div>
+                </div>
+                <p class="verbatim-text" id="reviewTeacherScript"></p>
+              </div>
+
+              <!-- Classroom Immediate Prompt / Questions -->
+              <div class="student-prompt-card">
+                <div class="prompt-card-header">
+                  <span class="prompt-tag"><i class="fa-solid fa-circle-question text-gold"></i> 課堂即時提問（問孩子什麼）：</span>
+                </div>
+                <p class="prompt-text" id="reviewStudentPrompt"></p>
+              </div>
+
+              <!-- Raw Text & Key Bullet Points -->
+              <div class="raw-points-card">
+                <div class="raw-card-header">
+                  <span class="raw-tag"><i class="fa-solid fa-list-check text-gold"></i> 原文字稿與投影片核心重點：</span>
+                </div>
+                <div class="raw-bullet-content" id="reviewRawContent"></div>
+              </div>
+
+              <!-- Quick Navigation & Keyboard Shortcuts Helper -->
+              <div class="shortcuts-helper-card">
+                <span class="shortcut-tip"><i class="fa-regular fa-keyboard"></i> 鍵盤快捷鍵：</span>
+                <span class="kbd-pill"><kbd>←</kbd> 上一張</span>
+                <span class="kbd-pill"><kbd>→</kbd> / <kbd>Space</kbd> 下一張</span>
+                <span class="kbd-pill"><kbd>F</kbd> 全螢幕投影</span>
+                <span class="kbd-pill"><kbd>G</kbd> 縮圖總覽</span>
+                <span class="kbd-pill"><kbd>P</kbd> 連續播放</span>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
       </section>
 
@@ -858,7 +1039,7 @@
     </div>
   </div>
 
-  <!-- Fullscreen Presentation Mode Modal -->
+  <!-- Fullscreen Presentation Mode Modal (Cinema Stage & Presenter Cockpit) -->
   <div class="presentation-modal hidden" id="presentationModal">
     <div class="present-header">
       <div class="present-meta">
@@ -866,15 +1047,51 @@
         <span id="presentLessonBadge">第 1 課</span>
         <h2 id="presentTitle">金杖下的灰姑娘</h2>
       </div>
+
+      <!-- Center Presenter Timer (Play / Pause / Reset) -->
+      <div class="present-timer-box">
+        <i class="fa-regular fa-clock text-gold"></i>
+        <span id="presentTimerDisplay">00:00</span>
+        <button id="presentTimerToggleBtn" class="present-icon-btn" title="開始/暫停計時"><i class="fa-solid fa-play" id="presentTimerIcon"></i></button>
+        <button id="presentTimerResetBtn" class="present-icon-btn" title="重設計時"><i class="fa-solid fa-rotate-right"></i></button>
+      </div>
+
       <div class="present-controls">
-        <span id="presentSlideIndicator">1 / 8</span>
-        <button id="presentPrevBtn" class="present-nav-btn">◀ 上一頁</button>
-        <button id="presentNextBtn" class="present-nav-btn">下一頁 ▶</button>
-        <button id="presentExitBtn" class="present-exit-btn">✕ 退出投影</button>
+        <button id="presentToggleNotesBtn" class="present-tool-btn" title="開關講員備忘提詞卡 (N 鍵)"><i class="fa-regular fa-comment-dots"></i> <span id="notesToggleText">講員提詞卡</span></button>
+        <span id="presentSlideIndicator" class="present-indicator">1 / 15</span>
+        <button id="presentPrevBtn" class="present-nav-btn"><i class="fa-solid fa-chevron-left"></i> 上一張</button>
+        <button id="presentNextBtn" class="present-nav-btn">下一張 <i class="fa-solid fa-chevron-right"></i></button>
+        <button id="presentExitBtn" class="present-exit-btn" title="退出全螢幕 (Esc)"><i class="fa-solid fa-xmark"></i> 退出投影</button>
       </div>
     </div>
+
+    <!-- Presentation Main Visual Stage -->
     <div class="present-content" id="presentContentDisplay">
-      <!-- Injected presentation slide -->
+      <div class="presenter-stage-wrap">
+        <img src="" alt="投影展示投影片" class="presenter-img" id="presenterImg">
+        <div class="presenter-text-fallback" id="presenterTextFallback" style="display:none;">
+          <h2 id="presenterFallbackTitle"></h2>
+          <div id="presenterFallbackText" class="presenter-fallback-body"></div>
+        </div>
+      </div>
+
+      <!-- Floating Presenter Teleprompter / Notes HUD -->
+      <div class="presenter-notes-hud" id="presenterNotesHud">
+        <div class="notes-hud-header">
+          <span><i class="fa-solid fa-microphone-lines text-gold"></i> 講員備忘提詞 (快捷鍵 N 開關)</span>
+          <span class="hud-timing" id="hudTimingBadge">建議 2-3 分鐘</span>
+        </div>
+        <div class="notes-hud-body">
+          <div class="hud-section">
+            <strong class="hud-label">🎤 老師講述逐字稿：</strong>
+            <p id="hudTeacherScript"></p>
+          </div>
+          <div class="hud-section">
+            <strong class="hud-label">❓ 課堂立即提問：</strong>
+            <p id="hudStudentPrompt"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -908,8 +1125,12 @@
     <p class="footer-sub">以愛為根基 · 以真理為準繩 · 陪伴孩子在基督裡剛強成長</p>
   </footer>
 
+  <!-- Floating Micro-Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite"></div>
+
   <!-- Script Load -->
   <script src="data/curriculum.js"></script>
+  <script src="data/slides_data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

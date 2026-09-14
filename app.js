@@ -19,9 +19,23 @@
     timerTotal: 300,
     timerInterval: null,
     timerRunning: false,
-    // Presentation Mode
+    // Slide Presentation Deck
+    slideIndex: 1,
+    isGridOpen: false,
+    isAutoPlaying: false,
+    autoPlayIntervalSec: 5,
+    autoPlayTimer: null,
+    isSpeaking: false,
+    speechRate: 1.0,
+    autoAdvanceTTS: false,
+    speechKeepAlive: null,
+    // Presentation Fullscreen Cockpit
     presentIndex: 0,
-    presentSlides: []
+    presentSlides: [],
+    presentTimerSec: 0,
+    presentTimerInterval: null,
+    presentTimerRunning: false,
+    showNotesHud: true
   };
 
   // DOM Elements
@@ -41,6 +55,8 @@
     heroSubtitle: document.getElementById('heroSubtitle'),
     verseDisplay: document.getElementById('verseDisplay'),
     verseCitation: document.getElementById('verseCitation'),
+    verseSpeakBtn: document.getElementById('verseSpeakBtn'),
+    verseCopyBtn: document.getElementById('verseCopyBtn'),
     // Expert
     expertPacingList: document.getElementById('expertPacingList'),
     expertPrepList: document.getElementById('expertPrepList'),
@@ -77,17 +93,70 @@
     timerStartBtn: document.getElementById('timerStartBtn'),
     timerPauseBtn: document.getElementById('timerPauseBtn'),
     timerResetBtn: document.getElementById('timerResetBtn'),
-    // Presentation
+    // Slide Deck Cockpit Elements
+    tabSlides: document.getElementById('tab-slides'),
+    slideDeckInfo: document.getElementById('slideDeckInfo'),
+    slideAudioNarrateBtn: document.getElementById('slideAudioNarrateBtn'),
+    slideAudioIcon: document.getElementById('slideAudioIcon'),
+    soundwaveBars: document.getElementById('soundwaveBars'),
+    slideAudioBtnText: document.getElementById('slideAudioBtnText'),
+    slideAutoAdvanceBtn: document.getElementById('slideAutoAdvanceBtn'),
+    slideAutoAdvanceText: document.getElementById('slideAutoAdvanceText'),
+    slideAudioSpeedSelect: document.getElementById('slideAudioSpeedSelect'),
+    slideshowPlayBtn: document.getElementById('slideshowPlayBtn'),
+    slideshowPlayIcon: document.getElementById('slideshowPlayIcon'),
+    slideshowPlayText: document.getElementById('slideshowPlayText'),
+    slideshowIntervalSelect: document.getElementById('slideshowIntervalSelect'),
+    currentSlideNum: document.getElementById('currentSlideNum'),
+    totalSlideNum: document.getElementById('totalSlideNum'),
+    slideJumpSelect: document.getElementById('slideJumpSelect'),
+    btnGridView: document.getElementById('btnGridView'),
+    btnSlidePrev: document.getElementById('btnSlidePrev'),
+    btnSlideNext: document.getElementById('btnSlideNext'),
+    btnSlideFullscreen: document.getElementById('btnSlideFullscreen'),
+    slideStageMain: document.getElementById('slideStageMain'),
+    slideMainImg: document.getElementById('slideMainImg'),
+    slideTextFallback: document.getElementById('slideTextFallback'),
+    fallbackTitle: document.getElementById('fallbackTitle'),
+    fallbackSnippet: document.getElementById('fallbackSnippet'),
+    overlayPrevBtn: document.getElementById('overlayPrevBtn'),
+    overlayNextBtn: document.getElementById('overlayNextBtn'),
+    slideAutoplayProgress: document.getElementById('slideAutoplayProgress'),
+    slideGridGallery: document.getElementById('slideGridGallery'),
+    thumbnailsStrip: document.getElementById('thumbnailsStrip'),
+    reviewBadgeIdx: document.getElementById('reviewBadgeIdx'),
+    reviewSlideTitle: document.getElementById('reviewSlideTitle'),
+    reviewTimingBadge: document.getElementById('reviewTimingBadge'),
+    btnSpeakVerbatim: document.getElementById('btnSpeakVerbatim'),
+    btnCopyVerbatim: document.getElementById('btnCopyVerbatim'),
+    reviewTeacherScript: document.getElementById('reviewTeacherScript'),
+    reviewStudentPrompt: document.getElementById('reviewStudentPrompt'),
+    reviewRawContent: document.getElementById('reviewRawContent'),
+    // Presentation Modal (Upgraded)
     presentModeBtn: document.getElementById('presentModeBtn'),
     presentationModal: document.getElementById('presentationModal'),
     presentQuarterBadge: document.getElementById('presentQuarterBadge'),
     presentLessonBadge: document.getElementById('presentLessonBadge'),
     presentTitle: document.getElementById('presentTitle'),
+    presentTimerDisplay: document.getElementById('presentTimerDisplay'),
+    presentTimerToggleBtn: document.getElementById('presentTimerToggleBtn'),
+    presentTimerIcon: document.getElementById('presentTimerIcon'),
+    presentTimerResetBtn: document.getElementById('presentTimerResetBtn'),
+    presentToggleNotesBtn: document.getElementById('presentToggleNotesBtn'),
+    notesToggleText: document.getElementById('notesToggleText'),
     presentSlideIndicator: document.getElementById('presentSlideIndicator'),
     presentPrevBtn: document.getElementById('presentPrevBtn'),
     presentNextBtn: document.getElementById('presentNextBtn'),
     presentExitBtn: document.getElementById('presentExitBtn'),
     presentContentDisplay: document.getElementById('presentContentDisplay'),
+    presenterImg: document.getElementById('presenterImg'),
+    presenterTextFallback: document.getElementById('presenterTextFallback'),
+    presenterFallbackTitle: document.getElementById('presenterFallbackTitle'),
+    presenterFallbackText: document.getElementById('presenterFallbackText'),
+    presenterNotesHud: document.getElementById('presenterNotesHud'),
+    hudTimingBadge: document.getElementById('hudTimingBadge'),
+    hudTeacherScript: document.getElementById('hudTeacherScript'),
+    hudStudentPrompt: document.getElementById('hudStudentPrompt'),
     // Print
     printBtn: document.getElementById('printBtn'),
     printSelectionModal: document.getElementById('printSelectionModal'),
@@ -98,7 +167,8 @@
     // Styling
     fontDownBtn: document.getElementById('fontDownBtn'),
     fontUpBtn: document.getElementById('fontUpBtn'),
-    themeToggleBtn: document.getElementById('themeToggleBtn')
+    themeToggleBtn: document.getElementById('themeToggleBtn'),
+    toastNotification: document.getElementById('toastNotification')
   };
 
   // Initialize
@@ -187,6 +257,10 @@
       }
     });
 
+    // Verse Audio & Copy
+    if (els.verseSpeakBtn) els.verseSpeakBtn.addEventListener('click', speakVerse);
+    if (els.verseCopyBtn) els.verseCopyBtn.addEventListener('click', copyVerse);
+
     // Font Sizing
     els.fontUpBtn.addEventListener('click', () => {
       if (state.fontSize < 24) {
@@ -235,16 +309,101 @@
     els.timerPauseBtn.addEventListener('click', pauseTimer);
     els.timerResetBtn.addEventListener('click', () => resetTimer(state.timerTotal));
 
-    // Presentation Mode
-    els.presentModeBtn.addEventListener('click', openPresentationMode);
-    els.presentExitBtn.addEventListener('click', closePresentationMode);
-    els.presentPrevBtn.addEventListener('click', prevPresentSlide);
-    els.presentNextBtn.addEventListener('click', nextPresentSlide);
+    // Slide Deck Cockpit Controls
+    if (els.btnSlidePrev) els.btnSlidePrev.addEventListener('click', prevSlide);
+    if (els.btnSlideNext) els.btnSlideNext.addEventListener('click', nextSlide);
+    if (els.overlayPrevBtn) els.overlayPrevBtn.addEventListener('click', prevSlide);
+    if (els.overlayNextBtn) els.overlayNextBtn.addEventListener('click', nextSlide);
+    if (els.slideJumpSelect) {
+      els.slideJumpSelect.addEventListener('change', (e) => {
+        setSlide(parseInt(e.target.value, 10), 'none');
+      });
+    }
+    if (els.btnGridView) els.btnGridView.addEventListener('click', toggleGridView);
+    if (els.btnSlideFullscreen) els.btnSlideFullscreen.addEventListener('click', openPresentationMode);
+
+    // Speech Narration Controls
+    if (els.slideAudioNarrateBtn) els.slideAudioNarrateBtn.addEventListener('click', toggleSpeechNarration);
+    if (els.btnSpeakVerbatim) els.btnSpeakVerbatim.addEventListener('click', toggleSpeechNarration);
+    if (els.btnCopyVerbatim) els.btnCopyVerbatim.addEventListener('click', copyTeacherScript);
+    if (els.slideAutoAdvanceBtn) els.slideAutoAdvanceBtn.addEventListener('click', toggleAutoAdvance);
+    if (els.slideAudioSpeedSelect) {
+      els.slideAudioSpeedSelect.addEventListener('change', (e) => {
+        state.speechRate = parseFloat(e.target.value);
+      });
+    }
+
+    // Timed Slideshow Controls
+    if (els.slideshowPlayBtn) els.slideshowPlayBtn.addEventListener('click', toggleSlideshowAutoplay);
+    if (els.slideshowIntervalSelect) {
+      els.slideshowIntervalSelect.addEventListener('change', (e) => {
+        state.autoPlayIntervalSec = parseInt(e.target.value, 10);
+        if (state.isAutoPlaying) {
+          stopSlideshowAutoplay();
+          startSlideshowAutoplay();
+        }
+      });
+    }
+
+    // Presentation Modal Controls
+    if (els.presentModeBtn) els.presentModeBtn.addEventListener('click', openPresentationMode);
+    if (els.presentExitBtn) els.presentExitBtn.addEventListener('click', closePresentationMode);
+    if (els.presentPrevBtn) els.presentPrevBtn.addEventListener('click', prevSlide);
+    if (els.presentNextBtn) els.presentNextBtn.addEventListener('click', nextSlide);
+    if (els.presentTimerToggleBtn) els.presentTimerToggleBtn.addEventListener('click', togglePresenterTimer);
+    if (els.presentTimerResetBtn) els.presentTimerResetBtn.addEventListener('click', resetPresenterTimer);
+    if (els.presentToggleNotesBtn) els.presentToggleNotesBtn.addEventListener('click', togglePresenterNotesHud);
+
+    // Global & Modal Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
-      if (!els.presentationModal.classList.contains('hidden')) {
-        if (e.key === 'ArrowRight' || e.key === 'Space') nextPresentSlide();
-        else if (e.key === 'ArrowLeft') prevPresentSlide();
-        else if (e.key === 'Escape') closePresentationMode();
+      const modalOpen = els.presentationModal && !els.presentationModal.classList.contains('hidden');
+      const isSlidesTab = state.activeTab === 'tab-slides';
+
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+        return;
+      }
+
+      // Hotkey to focus search box: / or Ctrl+K
+      if (e.key === '/' || (e.key === 'k' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        if (els.searchInput) {
+          els.searchInput.focus();
+          els.searchInput.select();
+        }
+        return;
+      }
+
+      if (modalOpen) {
+        if (e.key === 'ArrowRight' || e.key === 'Space') {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevSlide();
+        } else if (e.key === 'Escape') {
+          closePresentationMode();
+        } else if (e.key === 'n' || e.key === 'N') {
+          togglePresenterNotesHud();
+        }
+      } else if (isSlidesTab) {
+        if (e.key === 'ArrowRight' || e.key === 'Space') {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevSlide();
+        } else if (e.key === 'f' || e.key === 'F') {
+          e.preventDefault();
+          openPresentationMode();
+        } else if (e.key === 'g' || e.key === 'G') {
+          e.preventDefault();
+          toggleGridView();
+        } else if (e.key === 'p' || e.key === 'P') {
+          e.preventDefault();
+          toggleSlideshowAutoplay();
+        } else if (e.key === 'Escape' && state.isGridOpen) {
+          toggleGridView();
+        }
       }
     });
 
@@ -346,6 +505,12 @@
     // 10. Load Teacher Notes
     loadTeacherNotes();
 
+    // 11. Render Slide Deck Presentation Cockpit (BlessEq architecture)
+    state.slideIndex = 1;
+    stopSpeechNarration();
+    stopSlideshowAutoplay();
+    renderSlideDeck();
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -404,6 +569,100 @@
       }
       els.verseDisplay.appendChild(span);
     });
+  }
+
+  // Toast Notification Utility (和風微浮動提示)
+  let toastTimeout = null;
+  function showToast(message, icon = 'fa-check') {
+    if (!els.toastNotification) return;
+    els.toastNotification.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
+    els.toastNotification.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      if (els.toastNotification) els.toastNotification.classList.remove('show');
+    }, 2400);
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showToast('已複製到剪貼簿！', 'fa-copy');
+    } catch (err) {
+      showToast('複製失敗，請手動選取複製', 'fa-circle-exclamation');
+    }
+    document.body.removeChild(ta);
+  }
+
+  // Verse Audio & Copy
+  function speakVerse() {
+    const l = state.currentLesson;
+    if (!l || !l.verse) return;
+    if (!('speechSynthesis' in window)) {
+      showToast('您的瀏覽器不支援語音朗讀功能', 'fa-triangle-exclamation');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const cleanVerse = l.verse.replace(/^背誦金句[：:]\s*/, '').replace(/[「」『』]/g, '');
+    const utter = new SpeechSynthesisUtterance(cleanVerse);
+    utter.lang = 'zh-TW';
+    utter.rate = state.speechRate;
+
+    const setVoice = () => {
+      const voices = window.speechSynthesis.getVoices();
+      const zhVoice = voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang && v.lang.startsWith('zh'));
+      if (zhVoice) utter.voice = zhVoice;
+    };
+    if (window.speechSynthesis.getVoices().length > 0) setVoice();
+    else window.speechSynthesis.addEventListener('voiceschanged', setVoice, { once: true });
+
+    showToast('正在朗讀本課背誦金句...', 'fa-volume-high');
+    if (els.verseSpeakBtn) els.verseSpeakBtn.classList.add('active');
+
+    utter.onend = () => {
+      if (els.verseSpeakBtn) els.verseSpeakBtn.classList.remove('active');
+    };
+    utter.onerror = () => {
+      if (els.verseSpeakBtn) els.verseSpeakBtn.classList.remove('active');
+    };
+
+    window.speechSynthesis.speak(utter);
+  }
+
+  function copyVerse() {
+    const l = state.currentLesson;
+    if (!l || !l.verse) return;
+    const cleanVerse = l.verse.replace(/^背誦金句[：:]\s*/, '');
+    const citation = l.scripture || '';
+    const fullText = `${cleanVerse} ${citation ? '——' + citation : ''}`;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(fullText).then(() => {
+        showToast('本課金句已成功複製！', 'fa-copy');
+      }).catch(() => fallbackCopy(fullText));
+    } else {
+      fallbackCopy(fullText);
+    }
+  }
+
+  function copyTeacherScript() {
+    const slides = getCurrentLessonSlides();
+    if (!slides || !slides.length) return;
+    const idx = Math.max(1, Math.min(state.slideIndex, slides.length));
+    const slide = slides[idx - 1];
+    if (!slide || !slide.teacherScript) return;
+    const text = slide.teacherScript.replace(/^[『「]|['』」]$/g, '');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('老師講述逐字稿已複製！', 'fa-copy');
+      }).catch(() => fallbackCopy(text));
+    } else {
+      fallbackCopy(text);
+    }
   }
 
   // Render Expert Team
@@ -716,129 +975,518 @@
     } catch (e) {}
   }
 
-  // Presentation Mode
+  // ==========================================================================
+  // BlessEq-Inspired Slide Presentation Deck & Deep Review Cockpit (V3)
+  // ==========================================================================
+
+  function getCurrentLessonSlides() {
+    if (!state.currentLesson) return [];
+    const lessonId = state.currentLesson.id || `${state.quarter.toLowerCase()}-${String(state.lessonNum).padStart(2, '0')}`;
+    if (window.SLIDES_DATA && window.SLIDES_DATA[lessonId]) {
+      return window.SLIDES_DATA[lessonId].slides || [];
+    }
+    return [];
+  }
+
+  function renderSlideDeck() {
+    const slides = getCurrentLessonSlides();
+    if (!slides || !slides.length) return;
+
+    if (els.slideDeckInfo) {
+      els.slideDeckInfo.textContent = `本課共 ${slides.length} 頁高畫質投影片`;
+    }
+    if (els.totalSlideNum) {
+      els.totalSlideNum.textContent = slides.length;
+    }
+
+    // Populate Slide Jump Select
+    if (els.slideJumpSelect) {
+      els.slideJumpSelect.innerHTML = '';
+      slides.forEach((s, i) => {
+        const opt = document.createElement('option');
+        opt.value = i + 1;
+        opt.textContent = `${s.badge || '投影片 #' + (i + 1)} · ${(s.title || '').slice(0, 14)}`;
+        els.slideJumpSelect.appendChild(opt);
+      });
+    }
+
+    // Render Thumbnails & Grid
+    renderThumbnails(slides);
+    if (state.isGridOpen) {
+      renderSlideGrid(slides);
+    }
+
+    // Set initial slide
+    setSlide(state.slideIndex || 1, 'none');
+  }
+
+  function setSlide(newIdx, direction = 'none') {
+    const slides = getCurrentLessonSlides();
+    if (!slides || !slides.length) return;
+
+    const idx = Math.max(1, Math.min(newIdx, slides.length));
+    state.slideIndex = idx;
+    const slide = slides[idx - 1];
+    if (!slide) return;
+
+    // Counter & Select
+    if (els.currentSlideNum) els.currentSlideNum.textContent = idx;
+    if (els.slideJumpSelect) els.slideJumpSelect.value = idx;
+
+    // Prev / Next button states
+    if (els.btnSlidePrev) els.btnSlidePrev.disabled = idx === 1;
+    if (els.btnSlideNext) els.btnSlideNext.disabled = idx === slides.length;
+    if (els.overlayPrevBtn) els.overlayPrevBtn.style.display = idx === 1 ? 'none' : 'flex';
+    if (els.overlayNextBtn) els.overlayNextBtn.style.display = idx === slides.length ? 'none' : 'flex';
+
+    // Slide Image Transition
+    const img = els.slideMainImg;
+    if (img) {
+      img.classList.remove('enter-right', 'enter-left');
+      void img.offsetWidth; // trigger reflow
+      if (direction === 'next') img.classList.add('enter-right');
+      else if (direction === 'prev') img.classList.add('enter-left');
+
+      if (slide.image) {
+        img.style.display = 'block';
+        if (els.slideTextFallback) els.slideTextFallback.style.display = 'none';
+        img.src = slide.image;
+        img.alt = slide.alt || slide.title || `投影片 #${idx}`;
+      } else {
+        img.style.display = 'none';
+        if (els.slideTextFallback) {
+          els.slideTextFallback.style.display = 'block';
+          if (els.fallbackTitle) els.fallbackTitle.textContent = slide.title || `投影片 #${idx}`;
+          if (els.fallbackSnippet) els.fallbackSnippet.textContent = slide.rawText || '本頁為重要真理與課堂互動提要';
+        }
+      }
+    }
+
+    // Sync Thumbnails Strip
+    syncThumbnailActive(idx);
+
+    // Sync Grid Active
+    if (els.slideGridGallery) {
+      els.slideGridGallery.querySelectorAll('.slide-grid-thumb').forEach(t => {
+        t.classList.toggle('active', parseInt(t.dataset.idx, 10) === idx);
+      });
+    }
+
+    // Populate Deep Review Pane
+    if (els.reviewBadgeIdx) els.reviewBadgeIdx.textContent = slide.badge || `投影片 #${idx}`;
+    if (els.reviewSlideTitle) els.reviewSlideTitle.textContent = slide.title || '投影片重點提要';
+    if (els.reviewTimingBadge) els.reviewTimingBadge.textContent = slide.timing || '⏱️ 建議停留：2-3 分鐘';
+
+    if (els.reviewTeacherScript) {
+      const script = slide.teacherScript ? slide.teacherScript.replace(/^[『「]|['』」]$/g, '') : '（請參考原文字稿進行口頭發揮，引導孩子們感受上帝話語的大能）';
+      els.reviewTeacherScript.textContent = script;
+    }
+
+    if (els.reviewStudentPrompt) {
+      els.reviewStudentPrompt.textContent = slide.studentPrompt || '（提問孩子們對於今天故事與生活情境的想法）';
+    }
+
+    if (els.reviewRawContent) {
+      els.reviewRawContent.textContent = slide.rawText || '此頁為視覺插畫或概念總覽';
+    }
+
+    // If Presenter Modal is open, update it
+    if (els.presentationModal && !els.presentationModal.classList.contains('hidden')) {
+      updatePresenterSlide();
+    }
+
+    // Preload adjacent slides
+    [idx - 1, idx + 1, idx + 2].forEach(i => {
+      if (i >= 1 && i <= slides.length && slides[i - 1] && slides[i - 1].image) {
+        const pImg = new Image();
+        pImg.src = slides[i - 1].image;
+      }
+    });
+  }
+
+  function nextSlide() {
+    const slides = getCurrentLessonSlides();
+    if (state.slideIndex < slides.length) {
+      setSlide(state.slideIndex + 1, 'next');
+    }
+  }
+
+  function prevSlide() {
+    if (state.slideIndex > 1) {
+      setSlide(state.slideIndex - 1, 'prev');
+    }
+  }
+
+  // Thumbnails Strip
+  function renderThumbnails(slides) {
+    if (!els.thumbnailsStrip) return;
+    els.thumbnailsStrip.innerHTML = '';
+
+    slides.forEach((slide, i) => {
+      const idx = i + 1;
+      const thumb = document.createElement('div');
+      thumb.className = `thumb-item ${idx === state.slideIndex ? 'active' : ''}`;
+      thumb.dataset.idx = idx;
+      thumb.title = `第 ${idx} 頁：${slide.title || ''}`;
+
+      if (slide.image) {
+        const img = document.createElement('img');
+        img.src = slide.image;
+        img.alt = '';
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+      } else {
+        const fallbackSpan = document.createElement('div');
+        fallbackSpan.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;font-size:0.65rem;color:#fbbf24;text-align:center;padding:2px;background:#27272a;';
+        fallbackSpan.textContent = '重點頁';
+        thumb.appendChild(fallbackSpan);
+      }
+
+      const idxBadge = document.createElement('span');
+      idxBadge.className = 'thumb-idx';
+      idxBadge.textContent = `#${idx}`;
+      thumb.appendChild(idxBadge);
+
+      thumb.addEventListener('click', () => {
+        const dir = idx > state.slideIndex ? 'next' : (idx < state.slideIndex ? 'prev' : 'none');
+        setSlide(idx, dir);
+      });
+
+      els.thumbnailsStrip.appendChild(thumb);
+    });
+  }
+
+  function syncThumbnailActive(activeIdx) {
+    if (!els.thumbnailsStrip) return;
+    els.thumbnailsStrip.querySelectorAll('.thumb-item').forEach(t => {
+      const isActive = parseInt(t.dataset.idx, 10) === activeIdx;
+      t.classList.toggle('active', isActive);
+      if (isActive) {
+        t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    });
+  }
+
+  // Grid Gallery Overview
+  function renderSlideGrid(slides) {
+    if (!els.slideGridGallery) return;
+    els.slideGridGallery.innerHTML = '';
+
+    slides.forEach((slide, i) => {
+      const idx = i + 1;
+      const thumb = document.createElement('div');
+      thumb.className = `slide-grid-thumb ${idx === state.slideIndex ? 'active' : ''}`;
+      thumb.dataset.idx = idx;
+
+      if (slide.image) {
+        const img = document.createElement('img');
+        img.src = slide.image;
+        img.alt = '';
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+      } else {
+        const textDiv = document.createElement('div');
+        textDiv.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;font-size:0.8rem;color:#fef08a;background:#27272a;padding:6px;text-align:center;';
+        textDiv.textContent = slide.title || `第 ${idx} 頁`;
+        thumb.appendChild(textDiv);
+      }
+
+      const badge = document.createElement('span');
+      badge.className = 'grid-thumb-idx';
+      badge.textContent = `#${idx}`;
+      thumb.appendChild(badge);
+
+      thumb.addEventListener('click', () => {
+        const dir = idx > state.slideIndex ? 'next' : 'prev';
+        setSlide(idx, dir);
+        toggleGridView();
+      });
+
+      els.slideGridGallery.appendChild(thumb);
+    });
+  }
+
+  function toggleGridView() {
+    if (!els.slideGridGallery) return;
+    state.isGridOpen = !state.isGridOpen;
+    els.slideGridGallery.hidden = !state.isGridOpen;
+    if (els.btnGridView) {
+      els.btnGridView.classList.toggle('active', state.isGridOpen);
+    }
+    if (state.isGridOpen) {
+      const slides = getCurrentLessonSlides();
+      renderSlideGrid(slides);
+    }
+  }
+
+  // Web Speech API Narration
+  function toggleSpeechNarration() {
+    if (!('speechSynthesis' in window)) {
+      alert('您的瀏覽器不支援 Web Speech 語音合成功能，建議使用 Chrome / Edge 瀏覽器體驗！');
+      return;
+    }
+    if (state.isSpeaking) {
+      stopSpeechNarration();
+    } else {
+      startSpeechNarration();
+    }
+  }
+
+  function startSpeechNarration(isAutoAdvance = false) {
+    const slides = getCurrentLessonSlides();
+    if (!slides || !slides.length) return;
+    const slide = slides[state.slideIndex - 1];
+    if (!slide) return;
+
+    stopSpeechNarration(false);
+    state.isSpeaking = true;
+
+    if (els.slideAudioNarrateBtn) {
+      els.slideAudioNarrateBtn.classList.add('speaking');
+    }
+    if (els.slideAudioIcon) {
+      els.slideAudioIcon.className = 'fa-solid fa-pause';
+    }
+    if (els.slideAudioBtnText) {
+      els.slideAudioBtnText.textContent = '暫停朗讀';
+    }
+
+    let textToSpeak = '';
+    if (slide.teacherScript) {
+      textToSpeak += slide.teacherScript.replace(/[『』「」]/g, '') + '。';
+    }
+    if (slide.studentPrompt) {
+      textToSpeak += ' 課堂提問：' + slide.studentPrompt;
+    }
+    if (!textToSpeak.trim()) {
+      textToSpeak = (slide.title || '') + '。' + (slide.rawText || '');
+    }
+
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    utterance.lang = 'zh-TW';
+    utterance.rate = state.speechRate;
+
+    const setVoice = () => {
+      const voices = window.speechSynthesis.getVoices();
+      const zhVoice = voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang && v.lang.startsWith('zh'));
+      if (zhVoice) utterance.voice = zhVoice;
+    };
+    if (window.speechSynthesis.getVoices().length > 0) setVoice();
+    else window.speechSynthesis.addEventListener('voiceschanged', setVoice, { once: true });
+
+    utterance.onend = () => {
+      state.isSpeaking = false;
+      clearInterval(state.speechKeepAlive);
+      if (els.slideAudioNarrateBtn) els.slideAudioNarrateBtn.classList.remove('speaking');
+      if (els.slideAudioIcon) els.slideAudioIcon.className = 'fa-solid fa-volume-high';
+      if (els.slideAudioBtnText) els.slideAudioBtnText.textContent = '朗讀本頁講稿';
+
+      if (state.autoAdvanceTTS) {
+        if (state.slideIndex < slides.length) {
+          setTimeout(() => {
+            nextSlide();
+            setTimeout(() => {
+              startSpeechNarration(true);
+            }, 600);
+          }, 800);
+        }
+      }
+    };
+
+    utterance.onerror = () => {
+      stopSpeechNarration();
+    };
+
+    clearInterval(state.speechKeepAlive);
+    state.speechKeepAlive = setInterval(() => {
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+        window.speechSynthesis.resume();
+      }
+    }, 10000);
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function stopSpeechNarration(resetState = true) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    clearInterval(state.speechKeepAlive);
+    if (resetState) {
+      state.isSpeaking = false;
+      if (els.slideAudioNarrateBtn) els.slideAudioNarrateBtn.classList.remove('speaking');
+      if (els.slideAudioIcon) els.slideAudioIcon.className = 'fa-solid fa-volume-high';
+      if (els.slideAudioBtnText) els.slideAudioBtnText.textContent = '朗讀本頁講稿';
+    }
+  }
+
+  function toggleAutoAdvance() {
+    state.autoAdvanceTTS = !state.autoAdvanceTTS;
+    if (els.slideAutoAdvanceBtn) {
+      els.slideAutoAdvanceBtn.classList.toggle('active', state.autoAdvanceTTS);
+    }
+    if (els.slideAutoAdvanceText) {
+      els.slideAutoAdvanceText.textContent = state.autoAdvanceTTS ? '自動連播：開' : '自動連播：關';
+    }
+  }
+
+  // Timed Slideshow Autoplay
+  function toggleSlideshowAutoplay() {
+    if (state.isAutoPlaying) {
+      stopSlideshowAutoplay();
+    } else {
+      startSlideshowAutoplay();
+    }
+  }
+
+  function startSlideshowAutoplay() {
+    state.isAutoPlaying = true;
+    if (els.slideshowPlayBtn) els.slideshowPlayBtn.classList.add('playing');
+    if (els.slideshowPlayIcon) els.slideshowPlayIcon.className = 'fa-solid fa-pause';
+    if (els.slideshowPlayText) els.slideshowPlayText.textContent = '暫停放映';
+
+    const intervalMs = state.autoPlayIntervalSec * 1000;
+    if (els.slideAutoplayProgress) {
+      els.slideAutoplayProgress.style.transition = `width ${state.autoPlayIntervalSec}s linear`;
+      els.slideAutoplayProgress.style.width = '100%';
+    }
+
+    state.autoPlayTimer = setInterval(() => {
+      const slides = getCurrentLessonSlides();
+      if (state.slideIndex >= slides.length) {
+        setSlide(1, 'next');
+      } else {
+        nextSlide();
+      }
+      if (els.slideAutoplayProgress) {
+        els.slideAutoplayProgress.style.transition = 'none';
+        els.slideAutoplayProgress.style.width = '0%';
+        setTimeout(() => {
+          if (els.slideAutoplayProgress) {
+            els.slideAutoplayProgress.style.transition = `width ${state.autoPlayIntervalSec}s linear`;
+            els.slideAutoplayProgress.style.width = '100%';
+          }
+        }, 50);
+      }
+    }, intervalMs);
+  }
+
+  function stopSlideshowAutoplay() {
+    state.isAutoPlaying = false;
+    clearInterval(state.autoPlayTimer);
+    if (els.slideshowPlayBtn) els.slideshowPlayBtn.classList.remove('playing');
+    if (els.slideshowPlayIcon) els.slideshowPlayIcon.className = 'fa-solid fa-play';
+    if (els.slideshowPlayText) els.slideshowPlayText.textContent = '幻燈放映';
+    if (els.slideAutoplayProgress) {
+      els.slideAutoplayProgress.style.transition = 'none';
+      els.slideAutoplayProgress.style.width = '0%';
+    }
+  }
+
+  // Presenter Fullscreen Cockpit
   function openPresentationMode() {
     const l = state.currentLesson;
     if (!l) return;
+    const slides = getCurrentLessonSlides();
+    if (!slides.length) return;
 
-    // Build slides sequence
-    state.presentSlides = [
-      {
-        title: `📖 本課主題與經文`,
-        html: `
-          <div style="text-align: center; margin-bottom: 24px;">
-            <h1 style="font-size: 3rem; color: #f59e0b; margin-bottom: 12px;">${l.title}</h1>
-            <h3 style="font-size: 1.8rem; color: #94a3b8;">${l.subtitle}</h3>
-          </div>
-          <div style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; border: 1px solid #334155;">
-            <p style="font-size: 1.5rem; color: #38bdf8;">📌 信息經文：${l.scripture || '經文'}</p>
-          </div>
-        `
-      },
-      {
-        title: `🌟 背誦金句`,
-        html: `
-          <div style="background: rgba(245, 158, 11, 0.1); border: 2px solid #f59e0b; padding: 36px; border-radius: 16px; text-align: center;">
-            <p style="font-size: 2.2rem; line-height: 1.9; color: #fef3c7; font-family: 'Noto Serif TC', serif;">
-              ${l.verse}
-            </p>
-          </div>
-        `
-      }
-    ];
+    if (els.presentQuarterBadge) els.presentQuarterBadge.textContent = l.quarter;
+    if (els.presentLessonBadge) els.presentLessonBadge.textContent = `第 ${l.lesson_num} 課`;
+    if (els.presentTitle) els.presentTitle.textContent = l.title;
 
-    // Add Hymn
-    if (l.hymn && l.hymn.title) {
-      state.presentSlides.push({
-        title: `🎵 敬拜詩歌`,
-        html: `
-          <div style="text-align: center; padding: 32px;">
-            <h2 style="font-size: 2.8rem; color: #38bdf8; margin-bottom: 16px;">${l.hymn.title}</h2>
-            <p style="font-size: 1.8rem; color: #cbd5e1; line-height: 1.8;">${l.hymn.description}</p>
-          </div>
-        `
-      });
-    }
-
-    // Add Story Acts
-    if (l.story && l.story.length) {
-      l.story.forEach((act, aIdx) => {
-        state.presentSlides.push({
-          title: `📖 聖經故事（幕次 ${aIdx + 1}）· ${act.title}`,
-          html: `
-            <div style="font-size: 1.8rem; line-height: 2.0; color: #f1f5f9;">
-              ${act.paragraphs.map(p => `<p style="margin-bottom: 18px;">${p}</p>`).join('')}
-            </div>
-          `
-        });
-      });
-    }
-
-    // Add Core Truths
-    if (l.life_lessons && l.life_lessons.length) {
-      state.presentSlides.push({
-        title: `💡 核心生命真理`,
-        html: `
-          <div style="display: flex; flex-direction: column; gap: 20px;">
-            ${l.life_lessons.map(t => `
-              <div style="background: rgba(255,255,255,0.06); padding: 20px; border-radius: 12px;">
-                <h3 style="font-size: 1.8rem; color: #f59e0b; margin-bottom: 8px;">✨ ${t.title}</h3>
-                <div style="font-size: 1.5rem; line-height: 1.7; color: #e2e8f0;">${t.points.map(p => `<p>${p}</p>`).join('')}</div>
-              </div>
-            `).join('')}
-          </div>
-        `
-      });
-    }
-
-    // Add Closing Prayer
-    if (l.prayer) {
-      state.presentSlides.push({
-        title: `🙏 同心回應禱告`,
-        html: `
-          <div style="background: rgba(255,255,255,0.05); padding: 36px; border-radius: 16px; font-size: 2rem; line-height: 2.2; color: #f8fafc; font-family: 'Noto Serif TC', serif;">
-            ${l.prayer}
-          </div>
-        `
-      });
-    }
-
-    state.presentIndex = 0;
-    els.presentQuarterBadge.textContent = l.quarter;
-    els.presentLessonBadge.textContent = `第 ${l.lesson_num} 課`;
-    els.presentTitle.textContent = l.title;
     els.presentationModal.classList.remove('hidden');
-    renderPresentSlide();
+    updatePresenterSlide();
+    startPresenterTimer();
   }
 
-  function renderPresentSlide() {
-    const slide = state.presentSlides[state.presentIndex];
+  function updatePresenterSlide() {
+    const slides = getCurrentLessonSlides();
+    if (!slides.length) return;
+    const idx = Math.max(1, Math.min(state.slideIndex, slides.length));
+    const slide = slides[idx - 1];
     if (!slide) return;
-    els.presentSlideIndicator.textContent = `${state.presentIndex + 1} / ${state.presentSlides.length}`;
-    els.presentContentDisplay.innerHTML = `
-      <h2 class="present-slide-title">${slide.title}</h2>
-      <div class="present-slide-body">${slide.html}</div>
-    `;
-    els.presentPrevBtn.disabled = state.presentIndex === 0;
-    els.presentNextBtn.disabled = state.presentIndex === state.presentSlides.length - 1;
-  }
 
-  function nextPresentSlide() {
-    if (state.presentIndex < state.presentSlides.length - 1) {
-      state.presentIndex++;
-      renderPresentSlide();
+    if (els.presentSlideIndicator) {
+      els.presentSlideIndicator.textContent = `${idx} / ${slides.length}`;
     }
-  }
 
-  function prevPresentSlide() {
-    if (state.presentIndex > 0) {
-      state.presentIndex--;
-      renderPresentSlide();
+    if (slide.image) {
+      if (els.presenterImg) {
+        els.presenterImg.style.display = 'block';
+        els.presenterImg.src = slide.image;
+        els.presenterImg.alt = slide.title || `投影片 #${idx}`;
+      }
+      if (els.presenterTextFallback) els.presenterTextFallback.style.display = 'none';
+    } else {
+      if (els.presenterImg) els.presenterImg.style.display = 'none';
+      if (els.presenterTextFallback) {
+        els.presenterTextFallback.style.display = 'block';
+        if (els.presenterFallbackTitle) els.presenterFallbackTitle.textContent = slide.title || `投影片 #${idx}`;
+        if (els.presenterFallbackText) els.presenterFallbackText.textContent = slide.rawText || '';
+      }
     }
+
+    // Teleprompter / HUD
+    if (els.hudTimingBadge) els.hudTimingBadge.textContent = slide.timing || '建議 2-3 分鐘';
+    if (els.hudTeacherScript) {
+      els.hudTeacherScript.textContent = slide.teacherScript ? slide.teacherScript.replace(/^[『「]|['』」]$/g, '') : '（參考投影片重點進行口頭分享）';
+    }
+    if (els.hudStudentPrompt) {
+      els.hudStudentPrompt.textContent = slide.studentPrompt || '（課堂互動提問）';
+    }
+
+    if (els.presentPrevBtn) els.presentPrevBtn.disabled = idx === 1;
+    if (els.presentNextBtn) els.presentNextBtn.disabled = idx === slides.length;
   }
 
   function closePresentationMode() {
     els.presentationModal.classList.add('hidden');
+    stopPresenterTimer();
+  }
+
+  function togglePresenterTimer() {
+    if (state.presentTimerRunning) {
+      stopPresenterTimer();
+    } else {
+      startPresenterTimer();
+    }
+  }
+
+  function startPresenterTimer() {
+    if (state.presentTimerRunning) return;
+    state.presentTimerRunning = true;
+    if (els.presentTimerIcon) els.presentTimerIcon.className = 'fa-solid fa-pause';
+    state.presentTimerInterval = setInterval(() => {
+      state.presentTimerSec++;
+      const m = Math.floor(state.presentTimerSec / 60);
+      const s = state.presentTimerSec % 60;
+      if (els.presentTimerDisplay) {
+        els.presentTimerDisplay.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      }
+    }, 1000);
+  }
+
+  function stopPresenterTimer() {
+    state.presentTimerRunning = false;
+    clearInterval(state.presentTimerInterval);
+    if (els.presentTimerIcon) els.presentTimerIcon.className = 'fa-solid fa-play';
+  }
+
+  function resetPresenterTimer() {
+    stopPresenterTimer();
+    state.presentTimerSec = 0;
+    if (els.presentTimerDisplay) els.presentTimerDisplay.textContent = '00:00';
+  }
+
+  function togglePresenterNotesHud() {
+    state.showNotesHud = !state.showNotesHud;
+    if (els.presenterNotesHud) {
+      els.presenterNotesHud.classList.toggle('minimized', !state.showNotesHud);
+    }
+    if (els.presentToggleNotesBtn) {
+      els.presentToggleNotesBtn.classList.toggle('active', state.showNotesHud);
+    }
   }
 
   // Print Document Generation
