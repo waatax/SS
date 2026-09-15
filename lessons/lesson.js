@@ -145,15 +145,35 @@
       showNotesHud: true
     };
 
+    // Detect PPT File Information from URL
+    const filename = window.location.pathname.split('/').pop() || '';
+    const match = filename.match(/(2026-q[34])-(\d+)/i);
+    let pptInfo = {
+      folder: '2026-Q3 PPT',
+      fileName: '繁2026-Q3-第1課.pptx',
+      displayPath: '2026-Q3 PPT / 繁2026-Q3-第1課.pptx',
+      downloadUrl: '../2026-Q3%20PPT/%E7%B9%812026-Q3-%E7%AC%AC1%E8%AA%B2.pptx'
+    };
+    if (match) {
+      const q = match[1].toUpperCase();
+      const num = parseInt(match[2], 10);
+      const folder = `${q} PPT`;
+      const fileName = `繁${q}-第${num}課.pptx`;
+      const downloadUrl = `../${encodeURIComponent(folder)}/${encodeURIComponent(fileName)}`;
+      pptInfo = { folder, fileName, displayPath: `${folder} / ${fileName}`, downloadUrl };
+    }
+
     // 1. Build Mode Switcher Bar
     const modeBar = document.createElement('div');
     modeBar.className = 'slide-view-mode-bar';
     modeBar.innerHTML = `
       <div class="player-toolbar-group">
         <span class="player-toolbar-title"><i class="fa-solid fa-play-circle text-gold"></i> 原版 PPT 逐頁深探駕駛艙</span>
+        <span class="ppt-file-badge" title="原版簡報來源檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> ${pptInfo.displayPath}</span>
         <span class="p-timing-badge">全套共 ${slides.length} 頁高畫質投影片</span>
       </div>
       <div class="mode-toggle-group">
+        <a class="download-pptx-btn" href="${pptInfo.downloadUrl}" download title="下載本課原版 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載原檔 PPTX</a>
         <button class="mode-btn active" id="btnModePlayer" type="button"><i class="fa-solid fa-gamepad"></i> 投影片播放模式</button>
         <button class="mode-btn" id="btnModeList" type="button"><i class="fa-solid fa-list-ul"></i> 卡片對照清單</button>
       </div>
@@ -309,6 +329,7 @@
     presenterModal.innerHTML = `
       <div class="l-present-header">
         <div class="l-present-meta">
+          <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 8px;background:rgba(255,255,255,0.1);border-radius:4px;font-size:0.8rem;color:#fca5a5;margin-bottom:4px;"><i class="fa-solid fa-file-powerpoint text-danger"></i> ${pptInfo.displayPath}</span>
           <h2>${lessonTitleText}</h2>
         </div>
         <div class="l-present-timer">
@@ -318,6 +339,7 @@
           <button id="lTimerResetBtn" class="player-btn-icon" style="border:none;background:transparent;color:#fff;" title="重設"><i class="fa-solid fa-rotate-right"></i></button>
         </div>
         <div class="l-present-controls">
+          <a class="player-btn-action" href="${pptInfo.downloadUrl}" download style="background:rgba(239,68,68,0.25);color:#fca5a5;border-color:rgba(239,68,68,0.4);" title="下載原版 PPTX"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
           <button class="player-btn-action" id="lToggleNotesBtn" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.2);"><i class="fa-regular fa-comment-dots"></i> 講員提詞卡 (N)</button>
           <span style="font-family:monospace;font-size:1.05rem;color:#fbbf24;font-weight:700;padding:0 0.5rem;" id="lSlideNumIndicator">1 / ${slides.length}</span>
           <button class="player-btn-action" id="lBtnPrev"><i class="fa-solid fa-chevron-left"></i> 上一張</button>

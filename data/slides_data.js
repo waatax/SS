@@ -4874,3 +4874,4 @@ window.SS_SLIDES_DATA = {
     ]
   }
 };
+window.SLIDES_DATA = window.SS_SLIDES_DATA;

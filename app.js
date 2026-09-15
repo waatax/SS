@@ -54,6 +54,10 @@
     heroScripture: document.getElementById('heroScripture'),
     heroTitle: document.getElementById('heroTitle'),
     heroSubtitle: document.getElementById('heroSubtitle'),
+    heroPlayPptBtn: document.getElementById('heroPlayPptBtn'),
+    heroPresentPptBtn: document.getElementById('heroPresentPptBtn'),
+    heroDownloadPptBtn: document.getElementById('heroDownloadPptBtn'),
+    heroPptSource: document.getElementById('heroPptSource'),
     verseDisplay: document.getElementById('verseDisplay'),
     verseCitation: document.getElementById('verseCitation'),
     verseSpeakBtn: document.getElementById('verseSpeakBtn'),
@@ -97,6 +101,11 @@
     // Slide Deck Cockpit Elements
     tabSlides: document.getElementById('tab-slides'),
     slideDeckInfo: document.getElementById('slideDeckInfo'),
+    pptFileBadge: document.getElementById('pptFileBadge'),
+    pptFileNameText: document.getElementById('pptFileNameText'),
+    pptLessonSwitcher: document.getElementById('pptLessonSwitcher'),
+    slideDownloadPptxBtn: document.getElementById('slideDownloadPptxBtn'),
+    btnToolbarPresent: document.getElementById('btnToolbarPresent'),
     slideAudioNarrateBtn: document.getElementById('slideAudioNarrateBtn'),
     slideAudioIcon: document.getElementById('slideAudioIcon'),
     soundwaveBars: document.getElementById('soundwaveBars'),
@@ -148,11 +157,20 @@
     presentationModal: document.getElementById('presentationModal'),
     presentQuarterBadge: document.getElementById('presentQuarterBadge'),
     presentLessonBadge: document.getElementById('presentLessonBadge'),
+    presenterFileTag: document.getElementById('presenterFileTag'),
+    presenterFileName: document.getElementById('presenterFileName'),
+    presenterDlBtn: document.getElementById('presenterDlBtn'),
     presentTitle: document.getElementById('presentTitle'),
     presentTimerDisplay: document.getElementById('presentTimerDisplay'),
     presentTimerToggleBtn: document.getElementById('presentTimerToggleBtn'),
     presentTimerIcon: document.getElementById('presentTimerIcon'),
     presentTimerResetBtn: document.getElementById('presentTimerResetBtn'),
+    presentAutoplayBtn: document.getElementById('presentAutoplayBtn'),
+    presentAutoplayIcon: document.getElementById('presentAutoplayIcon'),
+    presentAutoplayText: document.getElementById('presentAutoplayText'),
+    presentSpeakBtn: document.getElementById('presentSpeakBtn'),
+    presentSpeakIcon: document.getElementById('presentSpeakIcon'),
+    presentSpeakText: document.getElementById('presentSpeakText'),
     presentToggleNotesBtn: document.getElementById('presentToggleNotesBtn'),
     notesToggleText: document.getElementById('notesToggleText'),
     presentSlideIndicator: document.getElementById('presentSlideIndicator'),
@@ -168,6 +186,15 @@
     hudTimingBadge: document.getElementById('hudTimingBadge'),
     hudTeacherScript: document.getElementById('hudTeacherScript'),
     hudStudentPrompt: document.getElementById('hudStudentPrompt'),
+    // PPT Catalog Modal
+    btnPptCatalogModal: document.getElementById('btnPptCatalogModal'),
+    pptCatalogModal: document.getElementById('pptCatalogModal'),
+    closePptModalBtn: document.getElementById('closePptModalBtn'),
+    closePptModalBtn2: document.getElementById('closePptModalBtn2'),
+    closePptModalBackdrop: document.getElementById('closePptModalBackdrop'),
+    pptTabQ3: document.getElementById('pptTabQ3'),
+    pptTabQ4: document.getElementById('pptTabQ4'),
+    pptCatalogBody: document.getElementById('pptCatalogBody'),
     // Print
     printBtn: document.getElementById('printBtn'),
     printSelectionModal: document.getElementById('printSelectionModal'),
@@ -195,6 +222,9 @@
     // Event Listeners
     setupEventListeners();
 
+    // Populate PPT Lesson Switcher Dropdown
+    populatePptLessonSwitcher();
+
     // Render Initial Lesson
     renderLessonRail();
     loadCurrentLesson();
@@ -209,6 +239,158 @@
         state.lessonNum = parseInt(match[2], 10);
       }
     }
+  }
+
+  // PPT File Information Helper
+  function getPptFileInfo(quarter, lessonNum) {
+    const q = quarter || state.quarter || '2026-Q3';
+    const num = lessonNum || state.lessonNum || 1;
+    const folder = `${q} PPT`;
+    const fileName = `繁${q}-第${num}課.pptx`;
+    const encodedPath = `${encodeURIComponent(folder)}/${encodeURIComponent(fileName)}`;
+    return {
+      quarter: q,
+      lessonNum: num,
+      folder,
+      fileName,
+      displayPath: `${folder} / ${fileName}`,
+      downloadUrl: encodedPath
+    };
+  }
+
+  function populatePptLessonSwitcher() {
+    if (!els.pptLessonSwitcher || !window.CURRICULUM_DATA) return;
+    els.pptLessonSwitcher.innerHTML = '';
+
+    const q3Lessons = window.CURRICULUM_DATA.filter(l => l.quarter === '2026-Q3');
+    const q4Lessons = window.CURRICULUM_DATA.filter(l => l.quarter === '2026-Q4');
+
+    const g3 = document.createElement('optgroup');
+    g3.label = '📁 2026-Q3 PPT (13 份簡報)';
+    q3Lessons.forEach(l => {
+      const opt = document.createElement('option');
+      opt.value = l.id;
+      opt.textContent = `第 ${l.lesson_num} 課：${l.title}`;
+      g3.appendChild(opt);
+    });
+    els.pptLessonSwitcher.appendChild(g3);
+
+    const g4 = document.createElement('optgroup');
+    g4.label = '📁 2026-Q4 PPT (13 份簡報)';
+    q4Lessons.forEach(l => {
+      const opt = document.createElement('option');
+      opt.value = l.id;
+      opt.textContent = `第 ${l.lesson_num} 課：${l.title}`;
+      g4.appendChild(opt);
+    });
+    els.pptLessonSwitcher.appendChild(g4);
+
+    if (state.currentLesson) {
+      els.pptLessonSwitcher.value = state.currentLesson.id;
+    }
+  }
+
+  function switchLessonById(lessonId) {
+    if (!lessonId) return;
+    const match = lessonId.match(/(2026-q[34])-(\d+)/i);
+    if (!match) return;
+    const quarter = match[1].toUpperCase();
+    const num = parseInt(match[2], 10);
+    state.quarter = quarter;
+    state.lessonNum = num;
+    document.querySelectorAll('.quarter-btn').forEach(b => b.classList.toggle('active', b.dataset.quarter === quarter));
+    renderLessonRail();
+    loadCurrentLesson();
+    updateUrlHash();
+    if (els.pptLessonSwitcher) {
+      els.pptLessonSwitcher.value = lessonId;
+    }
+  }
+
+  function switchToPptTab() {
+    state.activeTab = 'tab-slides';
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.target === 'tab-slides');
+    });
+    document.querySelectorAll('.tab-pane').forEach(p => {
+      p.classList.toggle('active', p.id === 'tab-slides');
+    });
+    renderSlideDeck();
+    const target = document.getElementById('tab-slides');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // PPT Catalog Modal Operations
+  function openPptCatalogModal(quarter) {
+    if (!els.pptCatalogModal) return;
+    els.pptCatalogModal.classList.remove('hidden');
+    renderPptCatalogCards(quarter || state.quarter || '2026-Q3');
+  }
+
+  function closePptCatalogModal() {
+    if (!els.pptCatalogModal) return;
+    els.pptCatalogModal.classList.add('hidden');
+  }
+
+  function renderPptCatalogCards(quarter = '2026-Q3') {
+    if (!els.pptCatalogBody || !window.CURRICULUM_DATA) return;
+    const slidesData = window.SLIDES_DATA || window.SS_SLIDES_DATA || {};
+    const lessons = window.CURRICULUM_DATA.filter(l => l.quarter === quarter);
+
+    if (els.pptTabQ3) els.pptTabQ3.classList.toggle('active', quarter === '2026-Q3');
+    if (els.pptTabQ4) els.pptTabQ4.classList.toggle('active', quarter === '2026-Q4');
+
+    els.pptCatalogBody.innerHTML = '';
+    lessons.forEach(l => {
+      const lessonSlides = (slidesData[l.id] && slidesData[l.id].slides) ? slidesData[l.id].slides : [];
+      const count = lessonSlides.length || 15;
+      const firstSlideImg = (lessonSlides[0] && lessonSlides[0].image) ? lessonSlides[0].image : `assets/lessons/${l.id}/slide_01.jpg`;
+      const pptInfo = getPptFileInfo(l.quarter, l.lesson_num);
+
+      const card = document.createElement('div');
+      card.className = 'ppt-cat-card';
+      card.innerHTML = `
+        <div class="ppt-cat-thumb">
+          <img src="${firstSlideImg}" alt="${l.title}" loading="lazy">
+          <span class="ppt-cat-badge">第 ${l.lesson_num} 課 · ${count} 頁</span>
+        </div>
+        <div class="ppt-cat-content">
+          <div class="ppt-cat-meta">
+            <span class="ppt-cat-filename"><i class="fa-solid fa-file-powerpoint text-danger"></i> ${pptInfo.fileName}</span>
+          </div>
+          <h3 class="ppt-cat-title">第 ${l.lesson_num} 課：${l.title}</h3>
+          <p class="ppt-cat-subtitle">${l.subtitle || ''}</p>
+          <p class="ppt-cat-scripture"><i class="fa-solid fa-book-bible text-gold"></i> ${l.scripture || ''}</p>
+          <div class="ppt-cat-actions">
+            <button class="ppt-action-btn ppt-btn-play" type="button" title="在此頁播放投影片"><i class="fa-solid fa-play"></i> 立即播放</button>
+            <button class="ppt-action-btn ppt-btn-present" type="button" title="全螢幕投影演講模式"><i class="fa-solid fa-desktop"></i> 投影模式</button>
+            <a class="ppt-action-btn ppt-btn-dl" href="${pptInfo.downloadUrl}" download title="下載原檔 PPTX"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
+            <a class="ppt-action-btn ppt-btn-page" href="lessons/${l.id}.html" target="_blank" title="開啟獨立專屬教學頁面"><i class="fa-solid fa-arrow-up-right-from-square"></i> 專屬頁</a>
+          </div>
+        </div>
+      `;
+
+      // Button clicks
+      const playBtn = card.querySelector('.ppt-btn-play');
+      playBtn.addEventListener('click', () => {
+        switchLessonById(l.id);
+        closePptCatalogModal();
+        switchToPptTab();
+      });
+
+      const presentBtn = card.querySelector('.ppt-btn-present');
+      presentBtn.addEventListener('click', () => {
+        switchLessonById(l.id);
+        closePptCatalogModal();
+        setTimeout(() => {
+          openPresentationMode();
+        }, 120);
+      });
+
+      els.pptCatalogBody.appendChild(card);
+    });
   }
 
   function setupEventListeners() {
@@ -386,6 +568,26 @@
       });
     }
 
+    // Hero PPT Play & Present Buttons
+    if (els.heroPlayPptBtn) els.heroPlayPptBtn.addEventListener('click', switchToPptTab);
+    if (els.heroPresentPptBtn) els.heroPresentPptBtn.addEventListener('click', openPresentationMode);
+
+    // PPT Switcher & Toolbar Presentation
+    if (els.pptLessonSwitcher) {
+      els.pptLessonSwitcher.addEventListener('change', (e) => switchLessonById(e.target.value));
+    }
+    if (els.btnToolbarPresent) els.btnToolbarPresent.addEventListener('click', openPresentationMode);
+
+    // PPT Catalog Modal
+    if (els.btnPptCatalogModal) {
+      els.btnPptCatalogModal.addEventListener('click', () => openPptCatalogModal(state.quarter));
+    }
+    if (els.closePptModalBtn) els.closePptModalBtn.addEventListener('click', closePptCatalogModal);
+    if (els.closePptModalBtn2) els.closePptModalBtn2.addEventListener('click', closePptCatalogModal);
+    if (els.closePptModalBackdrop) els.closePptModalBackdrop.addEventListener('click', closePptCatalogModal);
+    if (els.pptTabQ3) els.pptTabQ3.addEventListener('click', () => renderPptCatalogCards('2026-Q3'));
+    if (els.pptTabQ4) els.pptTabQ4.addEventListener('click', () => renderPptCatalogCards('2026-Q4'));
+
     // Presentation Modal Controls
     if (els.presentModeBtn) els.presentModeBtn.addEventListener('click', openPresentationMode);
     if (els.presentExitBtn) els.presentExitBtn.addEventListener('click', closePresentationMode);
@@ -394,9 +596,12 @@
     if (els.presentTimerToggleBtn) els.presentTimerToggleBtn.addEventListener('click', togglePresenterTimer);
     if (els.presentTimerResetBtn) els.presentTimerResetBtn.addEventListener('click', resetPresenterTimer);
     if (els.presentToggleNotesBtn) els.presentToggleNotesBtn.addEventListener('click', togglePresenterNotesHud);
+    if (els.presentAutoplayBtn) els.presentAutoplayBtn.addEventListener('click', toggleSlideshowAutoplay);
+    if (els.presentSpeakBtn) els.presentSpeakBtn.addEventListener('click', toggleSpeechNarration);
 
     // Global & Modal Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
+      const catalogOpen = els.pptCatalogModal && !els.pptCatalogModal.classList.contains('hidden');
       const modalOpen = els.presentationModal && !els.presentationModal.classList.contains('hidden');
       const isSlidesTab = state.activeTab === 'tab-slides';
 
@@ -414,6 +619,13 @@
         return;
       }
 
+      if (catalogOpen) {
+        if (e.key === 'Escape') {
+          closePptCatalogModal();
+        }
+        return;
+      }
+
       if (modalOpen) {
         if (e.key === 'ArrowRight' || e.key === 'Space') {
           e.preventDefault();
@@ -425,6 +637,8 @@
           closePresentationMode();
         } else if (e.key === 'n' || e.key === 'N') {
           togglePresenterNotesHud();
+        } else if (e.key === 'p' || e.key === 'P') {
+          toggleSlideshowAutoplay();
         }
       } else if (isSlidesTab) {
         if (e.key === 'ArrowRight' || e.key === 'Space') {
@@ -521,6 +735,33 @@
     els.heroScripture.textContent = lesson.scripture || '聖經經文信息';
     els.heroTitle.textContent = lesson.title;
     els.heroSubtitle.textContent = lesson.subtitle || lesson.quarter_title;
+
+    // PPT Source & Download Links Update
+    const pptInfo = getPptFileInfo(lesson.quarter, lesson.lesson_num);
+    if (els.heroDownloadPptBtn) {
+      els.heroDownloadPptBtn.href = pptInfo.downloadUrl;
+      els.heroDownloadPptBtn.setAttribute('download', pptInfo.fileName);
+    }
+    if (els.heroPptSource) {
+      els.heroPptSource.innerHTML = `<i class="fa-regular fa-folder-open"></i> 檔案：${pptInfo.displayPath}`;
+    }
+    if (els.pptFileNameText) {
+      els.pptFileNameText.textContent = pptInfo.displayPath;
+    }
+    if (els.slideDownloadPptxBtn) {
+      els.slideDownloadPptxBtn.href = pptInfo.downloadUrl;
+      els.slideDownloadPptxBtn.setAttribute('download', pptInfo.fileName);
+    }
+    if (els.pptLessonSwitcher) {
+      els.pptLessonSwitcher.value = lesson.id;
+    }
+    if (els.presenterFileName) {
+      els.presenterFileName.textContent = pptInfo.displayPath;
+    }
+    if (els.presenterDlBtn) {
+      els.presenterDlBtn.href = pptInfo.downloadUrl;
+      els.presenterDlBtn.setAttribute('download', pptInfo.fileName);
+    }
 
     // 2. Verse Gym
     renderVerseGym();
@@ -1043,8 +1284,9 @@
   function getCurrentLessonSlides() {
     if (!state.currentLesson) return [];
     const lessonId = state.currentLesson.id || `${state.quarter.toLowerCase()}-${String(state.lessonNum).padStart(2, '0')}`;
-    if (window.SLIDES_DATA && window.SLIDES_DATA[lessonId]) {
-      return window.SLIDES_DATA[lessonId].slides || [];
+    const slidesData = window.SLIDES_DATA || window.SS_SLIDES_DATA;
+    if (slidesData && slidesData[lessonId]) {
+      return slidesData[lessonId].slides || [];
     }
     return [];
   }
@@ -1337,6 +1579,15 @@
     if (els.mBtnSlideSpeak) {
       els.mBtnSlideSpeak.classList.add('speaking');
     }
+    if (els.presentSpeakBtn) {
+      els.presentSpeakBtn.classList.add('speaking');
+    }
+    if (els.presentSpeakIcon) {
+      els.presentSpeakIcon.className = 'fa-solid fa-pause';
+    }
+    if (els.presentSpeakText) {
+      els.presentSpeakText.textContent = '暫停朗讀';
+    }
 
     let textToSpeak = '';
     if (slide.teacherScript) {
@@ -1369,6 +1620,9 @@
       if (els.slideAudioBtnText) els.slideAudioBtnText.textContent = '朗讀本頁講稿';
       if (els.mAudioIcon) els.mAudioIcon.className = 'fa-solid fa-volume-high';
       if (els.mBtnSlideSpeak) els.mBtnSlideSpeak.classList.remove('speaking');
+      if (els.presentSpeakBtn) els.presentSpeakBtn.classList.remove('speaking');
+      if (els.presentSpeakIcon) els.presentSpeakIcon.className = 'fa-solid fa-volume-high';
+      if (els.presentSpeakText) els.presentSpeakText.textContent = '朗讀講稿';
 
       if (state.autoAdvanceTTS) {
         if (state.slideIndex < slides.length) {
@@ -1409,6 +1663,9 @@
       if (els.slideAudioBtnText) els.slideAudioBtnText.textContent = '朗讀本頁講稿';
       if (els.mAudioIcon) els.mAudioIcon.className = 'fa-solid fa-volume-high';
       if (els.mBtnSlideSpeak) els.mBtnSlideSpeak.classList.remove('speaking');
+      if (els.presentSpeakBtn) els.presentSpeakBtn.classList.remove('speaking');
+      if (els.presentSpeakIcon) els.presentSpeakIcon.className = 'fa-solid fa-volume-high';
+      if (els.presentSpeakText) els.presentSpeakText.textContent = '朗讀講稿';
     }
   }
 
@@ -1436,6 +1693,9 @@
     if (els.slideshowPlayBtn) els.slideshowPlayBtn.classList.add('playing');
     if (els.slideshowPlayIcon) els.slideshowPlayIcon.className = 'fa-solid fa-pause';
     if (els.slideshowPlayText) els.slideshowPlayText.textContent = '暫停放映';
+    if (els.presentAutoplayBtn) els.presentAutoplayBtn.classList.add('playing');
+    if (els.presentAutoplayIcon) els.presentAutoplayIcon.className = 'fa-solid fa-pause';
+    if (els.presentAutoplayText) els.presentAutoplayText.textContent = '暫停放映';
 
     const intervalMs = state.autoPlayIntervalSec * 1000;
     if (els.slideAutoplayProgress) {
@@ -1469,6 +1729,9 @@
     if (els.slideshowPlayBtn) els.slideshowPlayBtn.classList.remove('playing');
     if (els.slideshowPlayIcon) els.slideshowPlayIcon.className = 'fa-solid fa-play';
     if (els.slideshowPlayText) els.slideshowPlayText.textContent = '幻燈放映';
+    if (els.presentAutoplayBtn) els.presentAutoplayBtn.classList.remove('playing');
+    if (els.presentAutoplayIcon) els.presentAutoplayIcon.className = 'fa-solid fa-play';
+    if (els.presentAutoplayText) els.presentAutoplayText.textContent = '自動播放';
     if (els.slideAutoplayProgress) {
       els.slideAutoplayProgress.style.transition = 'none';
       els.slideAutoplayProgress.style.width = '0%';
@@ -1482,8 +1745,14 @@
     const slides = getCurrentLessonSlides();
     if (!slides.length) return;
 
+    const pptInfo = getPptFileInfo(l.quarter, l.lesson_num);
     if (els.presentQuarterBadge) els.presentQuarterBadge.textContent = l.quarter;
     if (els.presentLessonBadge) els.presentLessonBadge.textContent = `第 ${l.lesson_num} 課`;
+    if (els.presenterFileName) els.presenterFileName.textContent = pptInfo.displayPath;
+    if (els.presenterDlBtn) {
+      els.presenterDlBtn.href = pptInfo.downloadUrl;
+      els.presenterDlBtn.setAttribute('download', pptInfo.fileName);
+    }
     if (els.presentTitle) els.presentTitle.textContent = l.title;
 
     els.presentationModal.classList.remove('hidden');

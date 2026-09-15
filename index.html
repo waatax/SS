@@ -27,8 +27,8 @@
 
       <!-- Quarter Switcher -->
       <div class="quarter-switcher" id="quarterSwitcher">
-        <button class="quarter-btn active" data-quarter="2026-Q3">2026 第三季 (以斯帖·啟示錄)</button>
-        <button class="quarter-btn" data-quarter="2026-Q4">2026 第四季 (申命記·腓立比書)</button>
+        <button class="quarter-btn active" data-quarter="2026-Q3"><i class="fa-solid fa-file-powerpoint text-danger"></i> 2026-Q3 PPT (13課·以斯帖/啟示錄)</button>
+        <button class="quarter-btn" data-quarter="2026-Q4"><i class="fa-solid fa-file-powerpoint text-danger"></i> 2026-Q4 PPT (13課·申命記/腓立比書)</button>
       </div>
 
       <!-- Tools & Settings Toolbar -->
@@ -43,6 +43,7 @@
         </div>
 
         <!-- Utility Buttons -->
+        <button id="btnPptCatalogModal" class="tool-btn highlight-gold" title="瀏覽 2026-Q3 與 Q4 全部 26 份 PPT 總覽與快速撥放"><i class="fa-solid fa-folder-open text-gold"></i> 26 課 PPT 總覽目錄</button>
         <button id="timerToggleBtn" class="tool-btn" title="課堂計時器">⏱️ 計時器</button>
         <button id="presentModeBtn" class="tool-btn highlight" title="切換投影演講大螢幕模式">🖥️ 投影模式</button>
         <button id="printBtn" class="tool-btn" title="列印學習單與備課單">🖨️ 列印/匯出</button>
@@ -96,6 +97,14 @@
           <!-- Dynamically populated with interactive word tokens -->
         </div>
         <div class="verse-citation" id="verseCitation">以弗所書 2 章 10 節</div>
+      </div>
+
+      <!-- Hero PPT Play & Action Bar -->
+      <div class="hero-ppt-actions">
+        <button id="heroPlayPptBtn" class="hero-ppt-btn play-btn" type="button" title="立即切換至投影片並播放"><i class="fa-solid fa-play"></i> 立即播放本課 PPT</button>
+        <button id="heroPresentPptBtn" class="hero-ppt-btn present-btn" type="button" title="直接開啟大螢幕全螢幕投影演講模式"><i class="fa-solid fa-desktop"></i> 大螢幕演講放映</button>
+        <a id="heroDownloadPptBtn" class="hero-ppt-btn dl-btn" href="" download title="下載原版 PPTX 檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> 下載原檔 PPTX</a>
+        <span class="hero-ppt-source" id="heroPptSource"><i class="fa-regular fa-folder-open"></i> 來源：2026-Q3 PPT / 繁2026-Q3-第1課.pptx</span>
       </div>
     </section>
 
@@ -237,7 +246,16 @@
           <div class="slide-global-toolbar">
             <div class="toolbar-group">
               <span class="toolbar-title"><i class="fa-solid fa-play-circle text-gold"></i> 原版 PPT 逐頁深探駕駛艙</span>
+              <span class="ppt-file-badge" id="pptFileBadge" title="當前播放的 PPT 來源檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> <span id="pptFileNameText">2026-Q3 PPT / 繁2026-Q3-第1課.pptx</span></span>
               <span class="slide-total-info" id="slideDeckInfo">本課共 15 頁高畫質投影片</span>
+            </div>
+
+            <!-- PPT Switcher & Quick Action Tools -->
+            <div class="slide-ppt-quick-tools">
+              <label for="pptLessonSwitcher" class="ppt-select-label"><i class="fa-solid fa-arrow-right-arrow-left"></i> 切換簡報：</label>
+              <select id="pptLessonSwitcher" class="ppt-lesson-select" title="快速切換 2026-Q3 或 Q4 任意一課 PPT"></select>
+              <a id="slideDownloadPptxBtn" class="download-pptx-btn" href="" download title="下載本課原版 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載原檔 PPTX</a>
+              <button id="btnToolbarPresent" class="toolbar-present-btn" type="button" title="切換全螢幕大螢幕投影演講 (F 鍵)"><i class="fa-solid fa-desktop"></i> 大螢幕投影</button>
             </div>
 
             <!-- Auto Narration & Auto Advance Tools -->
@@ -1072,6 +1090,7 @@
       <div class="present-meta">
         <span id="presentQuarterBadge">2026-Q3</span>
         <span id="presentLessonBadge">第 1 課</span>
+        <span class="present-file-tag" id="presenterFileTag"><i class="fa-solid fa-file-powerpoint text-danger"></i> <span id="presenterFileName">2026-Q3 PPT / 繁2026-Q3-第1課.pptx</span></span>
         <h2 id="presentTitle">金杖下的灰姑娘</h2>
       </div>
 
@@ -1084,11 +1103,14 @@
       </div>
 
       <div class="present-controls">
-        <button id="presentToggleNotesBtn" class="present-tool-btn" title="開關講員備忘提詞卡 (N 鍵)"><i class="fa-regular fa-comment-dots"></i> <span id="notesToggleText">講員提詞卡</span></button>
+        <button id="presentAutoplayBtn" class="present-tool-btn" type="button" title="切換定時自動換頁放映 (5秒/頁)"><i class="fa-solid fa-play" id="presentAutoplayIcon"></i> <span id="presentAutoplayText">自動播放</span></button>
+        <button id="presentSpeakBtn" class="present-tool-btn" type="button" title="語音朗讀本頁講稿"><i class="fa-solid fa-volume-high" id="presentSpeakIcon"></i> <span id="presentSpeakText">朗讀講稿</span></button>
+        <a id="presenterDlBtn" class="present-tool-btn dl-btn" href="" download title="下載原版 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
+        <button id="presentToggleNotesBtn" class="present-tool-btn" type="button" title="開關講員備忘提詞卡 (N 鍵)"><i class="fa-regular fa-comment-dots"></i> <span id="notesToggleText">講員提詞卡</span></button>
         <span id="presentSlideIndicator" class="present-indicator">1 / 15</span>
-        <button id="presentPrevBtn" class="present-nav-btn"><i class="fa-solid fa-chevron-left"></i> 上一張</button>
-        <button id="presentNextBtn" class="present-nav-btn">下一張 <i class="fa-solid fa-chevron-right"></i></button>
-        <button id="presentExitBtn" class="present-exit-btn" title="退出全螢幕 (Esc)"><i class="fa-solid fa-xmark"></i> 退出投影</button>
+        <button id="presentPrevBtn" class="present-nav-btn" type="button"><i class="fa-solid fa-chevron-left"></i> 上一張</button>
+        <button id="presentNextBtn" class="present-nav-btn" type="button">下一張 <i class="fa-solid fa-chevron-right"></i></button>
+        <button id="presentExitBtn" class="present-exit-btn" type="button" title="退出全螢幕 (Esc)"><i class="fa-solid fa-xmark"></i> 退出投影</button>
       </div>
     </div>
 
@@ -1145,6 +1167,40 @@
 
   <!-- Printable Container (Only visible during print) -->
   <div class="print-container" id="printContainer"></div>
+
+  <!-- PPT Catalog & Quick Launcher Modal (All 26 PPTs of 2026-Q3 & 2026-Q4) -->
+  <div class="ppt-catalog-modal hidden" id="pptCatalogModal">
+    <div class="ppt-modal-backdrop" id="closePptModalBackdrop"></div>
+    <div class="ppt-catalog-container" role="dialog" aria-modal="true" aria-labelledby="pptCatalogHeading">
+      <div class="ppt-catalog-header">
+        <div class="ppt-catalog-title-group">
+          <h2 id="pptCatalogHeading"><i class="fa-solid fa-file-powerpoint text-danger"></i> 2026-Q3 & 2026-Q4 PPT 完整投影片目錄與即刻放映中心</h2>
+          <p class="ppt-catalog-subtitle">完整收錄 26 課原版簡報 · 417 頁高畫質投影片 · 支援線上逐頁放映、自動播放、逐字稿朗讀與原檔下載</p>
+        </div>
+        <button class="ppt-modal-close-btn" id="closePptModalBtn" type="button" title="關閉目錄 (Esc)">✕</button>
+      </div>
+
+      <!-- Catalog Quarter Tabs -->
+      <div class="ppt-catalog-tabs">
+        <button class="ppt-cat-tab active" data-quarter="2026-Q3" id="pptTabQ3" type="button">
+          <i class="fa-solid fa-folder-open"></i> 2026-Q3 PPT (13 課 · 共 210 頁)
+        </button>
+        <button class="ppt-cat-tab" data-quarter="2026-Q4" id="pptTabQ4" type="button">
+          <i class="fa-solid fa-folder-open"></i> 2026-Q4 PPT (13 課 · 共 207 頁)
+        </button>
+      </div>
+
+      <!-- PPT Grid Cards Area -->
+      <div class="ppt-catalog-body" id="pptCatalogBody">
+        <!-- Dynamically rendered via JS -->
+      </div>
+
+      <div class="ppt-catalog-footer">
+        <span><i class="fa-solid fa-lightbulb text-gold"></i> 點擊「▶️ 立即播放」可在本頁開啟互動播放器；點擊「🖥️ 投影模式」可直接進入全螢幕演講模式。</span>
+        <button class="btn btn-outline" id="closePptModalBtn2" type="button">關閉目錄</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="app-footer">

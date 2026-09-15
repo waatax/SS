@@ -1618,3 +1618,38 @@ body.theme-dark .p-raw-tag {
   }
 }
 
+/* PPT File Badge & Download Button in Dedicated Lesson Pages */
+.ppt-file-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.65rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.download-pptx-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.download-pptx-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
