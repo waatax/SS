@@ -1,5 +1,5 @@
 // ==========================================================================
-// SS Teacher's Cockpit - Main Application Controller
+// Sunday School Teaching AidKit 備課資料 - Main Application Controller
 // ==========================================================================
 
 (function() {
@@ -1967,58 +1967,91 @@
     if (!l) return;
 
     if (mode === 'worksheet') {
+      const appItem = (l.life_apps && l.life_apps.length) ? l.life_apps[0] : null;
+      const appTitle = appItem ? appItem.title : '把真理活出來';
+      const appPoints = (appItem && appItem.points && appItem.points.length)
+        ? appItem.points.slice(0, 2).map(p => `<li>${p}</li>`).join('')
+        : '<li>在學校和家中以愛心與誠實待人，做耶穌喜悅的小門徒</li>';
+
       els.printContainer.innerHTML = `
         <div class="print-page">
           <div class="print-header-banner">
             <div>
               <h1>【主日學學生學習單】${l.title}</h1>
-              <p>2026 ${l.quarter} 第${l.lesson_num}課 · 經文：${l.scripture || ''}</p>
+              <p>2026 ${l.quarter} 第${l.lesson_num}課 · 經文進度：${l.scripture || ''}</p>
             </div>
             <div>
-              <p>姓名：___________ 日期：___________</p>
+              <p>學生姓名：___________ 日期：___________</p>
             </div>
           </div>
 
           <div class="print-section">
-            <h3>📖 本週背誦金句</h3>
-            <p style="font-size: 14pt; font-weight: bold; margin: 8px 0;">${l.verse}</p>
-            <p style="text-align: right;">□ 我已經熟背並背給老師聽了！</p>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <h3 style="margin-top:0;">📖 本週核心背誦金句</h3>
+                <p style="font-size: 13pt; font-weight: bold; margin: 6px 0 10px 0; line-height: 1.5; color: #111;">${l.verse}</p>
+                <div style="font-size: 10pt; color: #444; display: flex; gap: 14px;">
+                  <span>□ 我已熟讀經文</span>
+                  <span>□ 我能正確說出出處</span>
+                  <span>□ 我已通過背誦驗收</span>
+                </div>
+              </div>
+              <div style="border: 2px dashed #444; border-radius: 8px; width: 140px; min-height: 64px; text-align: center; padding: 6px; font-size: 9.5pt; flex-shrink: 0; margin-left: 12px;">
+                <div style="color: #666;">🎖️ 金句驗收戳章</div>
+                <div style="margin-top: 14px; font-weight: bold; border-top: 1px solid #ccc; padding-top: 4px;">老師/家長簽章</div>
+              </div>
+            </div>
           </div>
 
           <div class="print-section">
-            <h3>🎯 故事大冒險複習題</h3>
+            <h3>🎯 故事大冒險複習題（低年級挑戰）</h3>
             ${(l.quiz_lower || []).map((q, idx) => `
               <div style="margin-bottom: 12px;">
                 <p><strong>${idx + 1}. ${q.question}</strong></p>
-                <p style="margin-left: 16px;">${q.options.join('   ')}</p>
+                <p style="margin-left: 16px; color: #333;">${q.options.join('   ')}</p>
               </div>
             `).join('')}
           </div>
 
           <div class="print-section">
-            <h3>💬 心靈小問答（高年級思考）</h3>
+            <h3>💬 心靈小問答（高年級深思與討論）</h3>
             ${(l.quiz_upper || []).slice(0, 3).map((q, idx) => `
               <div style="margin-bottom: 12px;">
                 <p><strong>問 ${idx + 1}：${q}</strong></p>
-                <div style="border-bottom: 1px dashed #999; height: 32px; margin-top: 4px;"></div>
+                <div style="border-bottom: 1px dashed #888; height: 28px; margin-top: 4px;"></div>
               </div>
             `).join('')}
           </div>
 
           <div class="print-section">
-            <h3>🌱 本週生活實踐挑戰</h3>
-            <p>本週在學校或家庭，我要像以斯帖/摩西一樣做出一個美好的愛心行動：</p>
-            <div style="border-bottom: 1px dashed #999; height: 28px; margin-top: 6px;"></div>
+            <h3>🌱 本週生活實踐挑戰：${appTitle}</h3>
+            <ul style="margin: 6px 0 10px 22px; font-size: 10.5pt; color: #222; line-height: 1.6;">
+              ${appPoints}
+            </ul>
+            <p style="font-size: 10pt; color: #555; margin: 8px 0 4px 0;">✍️ 本週我在家庭/學校要實踐的具體愛心行動：</p>
+            <div style="border-bottom: 1px dashed #888; height: 26px; margin-top: 4px;"></div>
+            <div style="border-bottom: 1px dashed #888; height: 26px; margin-top: 6px;"></div>
           </div>
 
-          <div class="print-section" style="text-align: center; font-size: 10pt; color: #555;">
-            <p>親愛的家長：請陪伴孩子複習今日金句，並為孩子本週在校園中的見證同心禱告！</p>
+          <div class="print-section" style="display: flex; justify-content: space-between; align-items: center; font-size: 9.5pt; color: #444; background: #fafafa; border: 1px solid #ccc; padding: 8px 14px;">
+            <div>
+              <strong>👨‍👩‍👧‍👦 家長溫馨叮嚀：</strong>歡迎家長每週撥出 5 分鐘陪伴孩子溫習經文，聆聽孩子分享本課心得，一同為校園生活祝福禱告！
+            </div>
+            <div style="white-space: nowrap; margin-left: 16px; border-left: 1px solid #ccc; padding-left: 12px; font-weight: bold;">
+              家長簽名：___________
+            </div>
           </div>
         </div>
       `;
     } else {
       // Teacher Prep
-      const exp = l.expert_insights;
+      const exp = l.expert_insights || {};
+      const pacing = (exp.principal && exp.principal.pacing) ? exp.principal.pacing : [];
+      const quickPrep = (exp.principal && exp.principal.quick_prep) ? exp.principal.quick_prep : [];
+      const pastorFocus = (exp.pastor && exp.pastor.theological_focus) ? exp.pastor.theological_focus : (l.subtitle || '');
+      const christLens = (exp.pastor && exp.pastor.christ_lens) ? exp.pastor.christ_lens : '';
+      const hook = (exp.preacher && exp.preacher.storytelling_hook) ? exp.preacher.storytelling_hook : '';
+
       els.printContainer.innerHTML = `
         <div class="print-page">
           <div class="print-header-banner">
@@ -2032,38 +2065,39 @@
           </div>
 
           <div class="print-section">
-            <h3>⏱️ 50分鐘課堂節奏配比</h3>
+            <h3>⏱️ 50分鐘課堂節奏配比（校長經驗指引）</h3>
             <ul>
-              ${exp.principal.pacing.map(item => `<li><strong>${item.time} (${item.phase})：</strong>${item.focus}</li>`).join('')}
+              ${pacing.map(item => `<li><strong>${item.time} (${item.phase})：</strong>${item.focus}</li>`).join('')}
             </ul>
           </div>
 
           <div class="print-section">
-            <h3>📋 課前備課檢核與物資</h3>
+            <h3>📋 課前 5 分鐘快速檢核與物資清單</h3>
             <ul>
-              ${exp.principal.quick_prep.map(item => `<li>[  ] ${item}</li>`).join('')}
+              ${quickPrep.map(item => `<li>[  ] ${item}</li>`).join('')}
             </ul>
           </div>
 
           <div class="print-section">
             <h3>✝️ 神學核心與基督透鏡</h3>
-            <p><strong>神學焦點：</strong>${exp.pastor.theological_focus}</p>
-            <p><strong>福音連結：</strong>${exp.pastor.christ_lens}</p>
+            <p><strong>神學焦點：</strong>${pastorFocus}</p>
+            ${christLens ? `<p><strong>福音連結：</strong>${christLens}</p>` : ''}
+          </div>
+
+          ${hook ? `
+          <div class="print-section">
+            <h3>🎣 課堂生動破題與開場白 (Hook)</h3>
+            <p>${hook}</p>
+          </div>` : ''}
+
+          <div class="print-section">
+            <h3>📖 聖經故事三大幕大綱</h3>
+            ${(l.story || []).map((act, idx) => `<p><strong>第${idx+1}幕 (${act.title})：</strong>${act.paragraphs ? act.paragraphs[0] : ''}</p>`).join('')}
           </div>
 
           <div class="print-section">
-            <h3>🎣 講員開場白與生動破題</h3>
-            <p>${exp.preacher.storytelling_hook}</p>
-          </div>
-
-          <div class="print-section">
-            <h3>📖 聖經故事大綱</h3>
-            ${(l.story || []).map((act, idx) => `<p><strong>第${idx+1}幕 (${act.title})：</strong>${act.paragraphs[0] || ''}</p>`).join('')}
-          </div>
-
-          <div class="print-section">
-            <h3>🙏 課堂結束禱告文</h3>
-            <p>${l.prayer}</p>
+            <h3>🙏 課堂同心結束禱告文</h3>
+            <p>${l.prayer || '感謝主帶領今天的課堂，奉耶穌的名求，阿們！'}</p>
           </div>
         </div>
       `;
@@ -2090,12 +2124,15 @@
       let score = 0;
       let matchedIn = '';
 
-      if (lesson.title.toLowerCase().includes(q)) { score += 10; matchedIn = '課名'; }
-      else if (lesson.subtitle.toLowerCase().includes(q)) { score += 8; matchedIn = '副標題'; }
-      else if (lesson.scripture.toLowerCase().includes(q)) { score += 7; matchedIn = '經文'; }
-      else if (lesson.verse.toLowerCase().includes(q)) { score += 6; matchedIn = '金句'; }
-      else if (lesson.hymn && lesson.hymn.title.toLowerCase().includes(q)) { score += 5; matchedIn = '詩歌'; }
-      else if (JSON.stringify(lesson.story).toLowerCase().includes(q)) { score += 3; matchedIn = '故事內容'; }
+      if (lesson.title.toLowerCase().includes(q)) { score += 12; matchedIn = '課名'; }
+      else if (lesson.subtitle.toLowerCase().includes(q)) { score += 9; matchedIn = '主題焦點'; }
+      else if (lesson.scripture.toLowerCase().includes(q)) { score += 8; matchedIn = '聖經經文'; }
+      else if (lesson.verse.toLowerCase().includes(q)) { score += 7; matchedIn = '背誦金句'; }
+      else if (lesson.hymn && lesson.hymn.title.toLowerCase().includes(q)) { score += 6; matchedIn = '詩歌敬拜'; }
+      else if (JSON.stringify(lesson.life_apps || []).toLowerCase().includes(q) || JSON.stringify(lesson.life_lessons || []).toLowerCase().includes(q)) { score += 5; matchedIn = '生活實踐挑戰'; }
+      else if (JSON.stringify(lesson.games || []).toLowerCase().includes(q)) { score += 5; matchedIn = '破冰遊戲'; }
+      else if (JSON.stringify(lesson.crafts || []).toLowerCase().includes(q)) { score += 5; matchedIn = '手工 DIY'; }
+      else if (JSON.stringify(lesson.story || []).toLowerCase().includes(q)) { score += 3; matchedIn = '聖經故事內容'; }
 
       if (score > 0) {
         matches.push({ lesson, score, matchedIn });

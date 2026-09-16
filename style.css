@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SS Teacher's Cockpit - Japanese Elegant Sacred Design System (和風現代·極致舒適)
+   Sunday School Teaching AidKit 備課資料 - Japanese Elegant Sacred Design System (和風現代·極致舒適)
    ========================================================================== */
 
 :root {
@@ -1643,17 +1643,20 @@ body.theme-dark .print-opt-btn strong {
   }
 
   .print-section {
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+    margin-bottom: 16px;
+    border: 1.5px solid #444;
     padding: 12px 16px;
     border-radius: 6px;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .print-section h3 {
-    font-size: 14pt;
-    border-bottom: 1px solid #ddd;
+    font-size: 13pt;
+    border-bottom: 1.5px solid #555;
     padding-bottom: 4px;
     margin-bottom: 8px;
+    color: #000;
   }
 }
 
