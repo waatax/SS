@@ -214,22 +214,44 @@
   // Initialize
   function init() {
     if (!window.CURRICULUM_DATA || !window.CURRICULUM_DATA.length) {
-      console.error('Curriculum data not loaded!');
+      console.warn('Curriculum data not loaded yet, retrying in 50ms...');
+      setTimeout(init, 50);
       return;
     }
 
-    // Check URL Hash for initial lesson (e.g. #2026-q3-01)
-    parseHash();
+    try {
+      // Check URL Hash for initial lesson (e.g. #2026-q3-01)
+      parseHash();
+    } catch (e) {
+      console.warn('Error parsing hash:', e);
+    }
 
-    // Event Listeners
-    setupEventListeners();
+    try {
+      // Event Listeners
+      setupEventListeners();
+    } catch (e) {
+      console.error('Error in setupEventListeners:', e);
+    }
 
-    // Populate PPT Lesson Switcher Dropdown
-    populatePptLessonSwitcher();
+    try {
+      // Populate PPT Lesson Switcher Dropdown
+      populatePptLessonSwitcher();
+    } catch (e) {
+      console.warn('Error populating switcher:', e);
+    }
 
-    // Render Initial Lesson
-    renderLessonRail();
-    loadCurrentLesson();
+    try {
+      // Render Initial Lesson
+      renderLessonRail();
+    } catch (e) {
+      console.warn('Error rendering rail:', e);
+    }
+
+    try {
+      loadCurrentLesson();
+    } catch (e) {
+      console.error('Error loading current lesson:', e);
+    }
   }
 
   function parseHash() {
@@ -741,73 +763,79 @@
     state.currentLesson = lesson;
 
     // 1. Hero
-    els.heroQuarter.textContent = lesson.quarter;
-    els.heroNum.textContent = `第 ${lesson.lesson_num} 課`;
-    els.heroScripture.textContent = lesson.scripture || '聖經經文信息';
-    els.heroTitle.textContent = lesson.title;
-    els.heroSubtitle.textContent = lesson.subtitle || lesson.quarter_title;
+    try {
+      if (els.heroQuarter) els.heroQuarter.textContent = lesson.quarter;
+      if (els.heroNum) els.heroNum.textContent = `第 ${lesson.lesson_num} 課`;
+      if (els.heroScripture) els.heroScripture.textContent = lesson.scripture || '聖經經文信息';
+      if (els.heroTitle) els.heroTitle.textContent = lesson.title;
+      if (els.heroSubtitle) els.heroSubtitle.textContent = lesson.subtitle || lesson.quarter_title;
 
-    // PPT Source & Download Links Update
-    const pptInfo = getPptFileInfo(lesson.quarter, lesson.lesson_num);
-    if (els.heroDownloadPptBtn) {
-      els.heroDownloadPptBtn.href = pptInfo.downloadUrl;
-      els.heroDownloadPptBtn.setAttribute('download', pptInfo.fileName);
-    }
-    if (els.heroPptSource) {
-      els.heroPptSource.innerHTML = `<i class="fa-regular fa-folder-open"></i> 檔案：${pptInfo.displayPath}`;
-    }
-    if (els.pptFileNameText) {
-      els.pptFileNameText.textContent = pptInfo.displayPath;
-    }
-    if (els.slideDownloadPptxBtn) {
-      els.slideDownloadPptxBtn.href = pptInfo.downloadUrl;
-      els.slideDownloadPptxBtn.setAttribute('download', pptInfo.fileName);
-    }
-    if (els.pptLessonSwitcher) {
-      els.pptLessonSwitcher.value = lesson.id;
-    }
-    if (els.presenterFileName) {
-      els.presenterFileName.textContent = pptInfo.displayPath;
-    }
-    if (els.presenterDlBtn) {
-      els.presenterDlBtn.href = pptInfo.downloadUrl;
-      els.presenterDlBtn.setAttribute('download', pptInfo.fileName);
+      // PPT Source & Download Links Update
+      const pptInfo = getPptFileInfo(lesson.quarter, lesson.lesson_num);
+      if (els.heroDownloadPptBtn) {
+        els.heroDownloadPptBtn.href = pptInfo.downloadUrl;
+        els.heroDownloadPptBtn.setAttribute('download', pptInfo.fileName);
+      }
+      if (els.heroPptSource) {
+        els.heroPptSource.innerHTML = `<i class="fa-regular fa-folder-open"></i> 檔案：${pptInfo.displayPath}`;
+      }
+      if (els.pptFileNameText) {
+        els.pptFileNameText.textContent = pptInfo.displayPath;
+      }
+      if (els.slideDownloadPptxBtn) {
+        els.slideDownloadPptxBtn.href = pptInfo.downloadUrl;
+        els.slideDownloadPptxBtn.setAttribute('download', pptInfo.fileName);
+      }
+      if (els.pptLessonSwitcher) {
+        els.pptLessonSwitcher.value = lesson.id;
+      }
+      if (els.presenterFileName) {
+        els.presenterFileName.textContent = pptInfo.displayPath;
+      }
+      if (els.presenterDlBtn) {
+        els.presenterDlBtn.href = pptInfo.downloadUrl;
+        els.presenterDlBtn.setAttribute('download', pptInfo.fileName);
+      }
+    } catch (e) {
+      console.warn('Error in hero populate:', e);
     }
 
     // 2. Verse Gym
-    renderVerseGym();
+    try { renderVerseGym(); } catch (e) { console.warn('Error in renderVerseGym:', e); }
 
     // 3. Expert Team
-    renderExpertTeam(lesson.expert_insights);
+    try { renderExpertTeam(lesson.expert_insights); } catch (e) { console.warn('Error in renderExpertTeam:', e); }
 
     // 4. Story Acts
-    renderStoryActs(lesson.story);
+    try { renderStoryActs(lesson.story); } catch (e) { console.warn('Error in renderStoryActs:', e); }
 
     // 5. Hymns & Games
-    renderHymnsAndGames(lesson.hymn, lesson.games);
+    try { renderHymnsAndGames(lesson.hymn, lesson.games); } catch (e) { console.warn('Error in renderHymnsAndGames:', e); }
 
     // 6. Truths & Applications
-    renderTruthsAndApps(lesson.life_lessons, lesson.life_apps, lesson.conclusion);
+    try { renderTruthsAndApps(lesson.life_lessons, lesson.life_apps, lesson.conclusion); } catch (e) { console.warn('Error in renderTruthsAndApps:', e); }
 
     // 7. Crafts
-    renderCrafts(lesson.crafts);
+    try { renderCrafts(lesson.crafts); } catch (e) { console.warn('Error in renderCrafts:', e); }
 
     // 8. Quizzes
-    renderQuizzes(lesson.quiz_lower, lesson.quiz_upper);
+    try { renderQuizzes(lesson.quiz_lower, lesson.quiz_upper); } catch (e) { console.warn('Error in renderQuizzes:', e); }
 
     // 9. Prayer
-    els.prayerDisplay.textContent = lesson.prayer || '親愛的天父，感謝你透過本課的話語教導我們。奉主耶穌的名求，阿們！';
+    try {
+      if (els.prayerDisplay) els.prayerDisplay.textContent = lesson.prayer || '親愛的天父，感謝你透過本課的話語教導我們。奉主耶穌的名求，阿們！';
+    } catch (e) { console.warn('Error setting prayer:', e); }
 
     // 10. Load Teacher Notes
-    loadTeacherNotes();
+    try { loadTeacherNotes(); } catch (e) { console.warn('Error in loadTeacherNotes:', e); }
 
     // 11. Render Slide Deck Presentation Cockpit (BlessEq architecture)
     state.slideIndex = 1;
-    stopSpeechNarration();
-    stopSlideshowAutoplay();
-    renderSlideDeck();
+    try { stopSpeechNarration(); } catch (e) {}
+    try { stopSlideshowAutoplay(); } catch (e) {}
+    try { renderSlideDeck(); } catch (e) { console.error('Error in renderSlideDeck:', e); }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
   }
 
   // Render Memory Verse Gym
@@ -1220,15 +1248,27 @@
   }
 
   function loadTeacherNotes() {
-    const saved = localStorage.getItem(getNoteKey()) || '';
-    els.teacherNotesInput.value = saved;
-    els.saveStatusMsg.textContent = saved ? '已從本機載入' : '尚未有筆記';
+    try {
+      const saved = (typeof localStorage !== 'undefined' && localStorage) ? localStorage.getItem(getNoteKey()) || '' : '';
+      if (els.teacherNotesInput) els.teacherNotesInput.value = saved;
+      if (els.saveStatusMsg) els.saveStatusMsg.textContent = saved ? '已從本機載入' : '尚未有筆記';
+    } catch (e) {
+      console.warn('localStorage read unavailable:', e);
+      if (els.saveStatusMsg) els.saveStatusMsg.textContent = '本機筆記暫不可用';
+    }
   }
 
   function saveTeacherNotes() {
-    const val = els.teacherNotesInput.value;
-    localStorage.setItem(getNoteKey(), val);
-    els.saveStatusMsg.textContent = '已自動儲存於 ' + new Date().toLocaleTimeString();
+    try {
+      const val = els.teacherNotesInput ? els.teacherNotesInput.value : '';
+      if (typeof localStorage !== 'undefined' && localStorage) {
+        localStorage.setItem(getNoteKey(), val);
+      }
+      if (els.saveStatusMsg) els.saveStatusMsg.textContent = '已自動儲存於 ' + new Date().toLocaleTimeString();
+    } catch (e) {
+      console.warn('localStorage write unavailable:', e);
+      if (els.saveStatusMsg) els.saveStatusMsg.textContent = '本機存儲無法寫入';
+    }
   }
 
   // Timer Implementation
@@ -1296,10 +1336,28 @@
     if (!state.currentLesson) return [];
     const lessonId = state.currentLesson.id || `${state.quarter.toLowerCase()}-${String(state.lessonNum).padStart(2, '0')}`;
     const slidesData = window.SLIDES_DATA || window.SS_SLIDES_DATA;
-    if (slidesData && slidesData[lessonId]) {
-      return slidesData[lessonId].slides || [];
+    if (slidesData && slidesData[lessonId] && slidesData[lessonId].slides && slidesData[lessonId].slides.length) {
+      return slidesData[lessonId].slides;
     }
-    return [];
+
+    // Defensive fallback: construct standard slide items pointing directly to images on disk
+    const count = 15;
+    const fallbacks = [];
+    for (let i = 1; i <= count; i++) {
+      const pad = String(i).padStart(2, '0');
+      fallbacks.push({
+        slideIndex: i,
+        badge: `投影片 #${i}`,
+        image: `assets/lessons/${lessonId}/slide_${pad}.jpg`,
+        alt: `${state.currentLesson.title || '投影片'} - 第 ${i} 頁`,
+        title: `${state.currentLesson.title || '投影片'} (第 ${i} 頁)`,
+        timing: '⏱️ 建議停留：2-3 分鐘',
+        teacherScript: '請引導孩子們觀看投影片，分享上帝的恩典與真理話語。',
+        studentPrompt: '提問孩子們對於這頁內容的想法與生活感受。',
+        rawText: state.currentLesson.subtitle || state.currentLesson.title || ''
+      });
+    }
+    return fallbacks;
   }
 
   function renderSlideDeck() {
@@ -1437,12 +1495,16 @@
     }
 
     // Preload adjacent slides
-    [idx - 1, idx + 1, idx + 2].forEach(i => {
-      if (i >= 1 && i <= slides.length && slides[i - 1] && slides[i - 1].image) {
-        const pImg = new Image();
-        pImg.src = slides[i - 1].image;
+    try {
+      if (typeof Image !== 'undefined') {
+        [idx - 1, idx + 1, idx + 2].forEach(i => {
+          if (i >= 1 && i <= slides.length && slides[i - 1] && slides[i - 1].image) {
+            const pImg = new Image();
+            pImg.src = slides[i - 1].image;
+          }
+        });
       }
-    });
+    } catch (e) {}
   }
 
   function nextSlide() {
@@ -2083,5 +2145,9 @@
   }
 
   // Run
-  document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();

@@ -2114,6 +2114,13 @@ body.theme-dark .toolbar-title {
   -webkit-user-drag: none;
 }
 
+.slide-main-img:not([src]),
+.slide-main-img[src=""],
+.presenter-img:not([src]),
+.presenter-img[src=""] {
+  display: none !important;
+}
+
 /* Slide Stage Loading Spinner */
 .slide-stage-loader {
   position: absolute;
