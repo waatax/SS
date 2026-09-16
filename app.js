@@ -13,7 +13,7 @@
     verseMode: 'full',
     fontSize: 16,
     isDark: false,
-    activeTab: 'tab-expert',
+    activeTab: 'tab-slides',
     // Timer
     timerSeconds: 300,
     timerTotal: 300,
@@ -135,10 +135,12 @@
     mTotalSlide: document.getElementById('mTotalSlide'),
     mAudioIcon: document.getElementById('mAudioIcon'),
     slideStageMain: document.getElementById('slideStageMain'),
+    slideStageLoader: document.getElementById('slideStageLoader'),
     slideMainImg: document.getElementById('slideMainImg'),
     slideTextFallback: document.getElementById('slideTextFallback'),
     fallbackTitle: document.getElementById('fallbackTitle'),
     fallbackSnippet: document.getElementById('fallbackSnippet'),
+    fallbackRetryBtn: document.getElementById('fallbackRetryBtn'),
     overlayPrevBtn: document.getElementById('overlayPrevBtn'),
     overlayNextBtn: document.getElementById('overlayNextBtn'),
     slideAutoplayProgress: document.getElementById('slideAutoplayProgress'),
@@ -418,6 +420,10 @@
 
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === targetId));
+
+      if (targetId === 'tab-slides') {
+        renderSlideDeck();
+      }
     });
 
     // Live Search
@@ -515,6 +521,11 @@
     if (els.btnGridView) els.btnGridView.addEventListener('click', toggleGridView);
     if (els.btnTheaterMode) els.btnTheaterMode.addEventListener('click', toggleTheaterMode);
     if (els.btnSlideFullscreen) els.btnSlideFullscreen.addEventListener('click', openPresentationMode);
+    if (els.fallbackRetryBtn) {
+      els.fallbackRetryBtn.addEventListener('click', () => {
+        setSlide(state.slideIndex || 1, 'none');
+      });
+    }
 
     // Mobile Slide Bar Buttons
     if (els.mBtnSlidePrev) els.mBtnSlidePrev.addEventListener('click', prevSlide);
@@ -1358,11 +1369,31 @@
       else if (direction === 'prev') img.classList.add('enter-left');
 
       if (slide.image) {
+        if (els.slideStageLoader) els.slideStageLoader.style.display = 'flex';
         img.style.display = 'block';
         if (els.slideTextFallback) els.slideTextFallback.style.display = 'none';
+
+        img.onload = () => {
+          if (els.slideStageLoader) els.slideStageLoader.style.display = 'none';
+        };
+        img.onerror = () => {
+          if (els.slideStageLoader) els.slideStageLoader.style.display = 'none';
+          img.style.display = 'none';
+          if (els.slideTextFallback) {
+            els.slideTextFallback.style.display = 'block';
+            if (els.fallbackTitle) els.fallbackTitle.textContent = slide.title || `投影片 #${idx}`;
+            if (els.fallbackSnippet) els.fallbackSnippet.textContent = slide.rawText || '投影片圖片讀取稍候中，此處為重點經文與課堂要點';
+          }
+        };
+
         img.src = slide.image;
         img.alt = slide.alt || slide.title || `投影片 #${idx}`;
+
+        if (img.complete && img.naturalWidth > 0) {
+          if (els.slideStageLoader) els.slideStageLoader.style.display = 'none';
+        }
       } else {
+        if (els.slideStageLoader) els.slideStageLoader.style.display = 'none';
         img.style.display = 'none';
         if (els.slideTextFallback) {
           els.slideTextFallback.style.display = 'block';
@@ -1439,16 +1470,23 @@
       thumb.dataset.idx = idx;
       thumb.title = `第 ${idx} 頁：${slide.title || ''}`;
 
+      const fallbackSpan = document.createElement('div');
+      fallbackSpan.style.cssText = 'display:none;align-items:center;justify-content:center;height:100%;font-size:0.65rem;color:#fbbf24;text-align:center;padding:2px;background:#27272a;';
+      fallbackSpan.textContent = '重點頁';
+
       if (slide.image) {
         const img = document.createElement('img');
         img.src = slide.image;
         img.alt = '';
         img.loading = 'lazy';
+        img.onerror = () => {
+          img.style.display = 'none';
+          fallbackSpan.style.display = 'flex';
+        };
         thumb.appendChild(img);
+        thumb.appendChild(fallbackSpan);
       } else {
-        const fallbackSpan = document.createElement('div');
-        fallbackSpan.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;font-size:0.65rem;color:#fbbf24;text-align:center;padding:2px;background:#27272a;';
-        fallbackSpan.textContent = '重點頁';
+        fallbackSpan.style.display = 'flex';
         thumb.appendChild(fallbackSpan);
       }
 
@@ -1472,7 +1510,11 @@
       const isActive = parseInt(t.dataset.idx, 10) === activeIdx;
       t.classList.toggle('active', isActive);
       if (isActive) {
-        t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        requestAnimationFrame(() => {
+          try {
+            t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          } catch(e) {}
+        });
       }
     });
   }
@@ -1774,6 +1816,14 @@
     if (slide.image) {
       if (els.presenterImg) {
         els.presenterImg.style.display = 'block';
+        els.presenterImg.onerror = () => {
+          els.presenterImg.style.display = 'none';
+          if (els.presenterTextFallback) {
+            els.presenterTextFallback.style.display = 'block';
+            if (els.presenterFallbackTitle) els.presenterFallbackTitle.textContent = slide.title || `投影片 #${idx}`;
+            if (els.presenterFallbackText) els.presenterFallbackText.textContent = slide.rawText || '投影片圖片讀取中，此處為重點經文與課堂要點';
+          }
+        };
         els.presenterImg.src = slide.image;
         els.presenterImg.alt = slide.title || `投影片 #${idx}`;
       }

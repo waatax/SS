@@ -168,12 +168,12 @@
     modeBar.className = 'slide-view-mode-bar';
     modeBar.innerHTML = `
       <div class="player-toolbar-group">
-        <span class="player-toolbar-title"><i class="fa-solid fa-play-circle text-gold"></i> 原版 PPT 逐頁深探駕駛艙</span>
-        <span class="ppt-file-badge" title="原版簡報來源檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> ${pptInfo.displayPath}</span>
+        <span class="player-toolbar-title"><i class="fa-solid fa-play-circle text-gold"></i> PPT 投影片深探駕駛艙</span>
+        <span class="ppt-file-badge" title="簡報來源檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> ${pptInfo.displayPath}</span>
         <span class="p-timing-badge">全套共 ${slides.length} 頁高畫質投影片</span>
       </div>
       <div class="mode-toggle-group">
-        <a class="download-pptx-btn" href="${pptInfo.downloadUrl}" download title="下載本課原版 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載原檔 PPTX</a>
+        <a class="download-pptx-btn" href="${pptInfo.downloadUrl}" download title="下載本課 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
         <button class="mode-btn active" id="btnModePlayer" type="button"><i class="fa-solid fa-gamepad"></i> 投影片播放模式</button>
         <button class="mode-btn" id="btnModeList" type="button"><i class="fa-solid fa-list-ul"></i> 卡片對照清單</button>
       </div>
@@ -339,7 +339,7 @@
           <button id="lTimerResetBtn" class="player-btn-icon" style="border:none;background:transparent;color:#fff;" title="重設"><i class="fa-solid fa-rotate-right"></i></button>
         </div>
         <div class="l-present-controls">
-          <a class="player-btn-action" href="${pptInfo.downloadUrl}" download style="background:rgba(239,68,68,0.25);color:#fca5a5;border-color:rgba(239,68,68,0.4);" title="下載原版 PPTX"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
+          <a class="player-btn-action" href="${pptInfo.downloadUrl}" download style="background:rgba(239,68,68,0.25);color:#fca5a5;border-color:rgba(239,68,68,0.4);" title="下載本課 PPTX"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
           <button class="player-btn-action" id="lToggleNotesBtn" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.2);"><i class="fa-regular fa-comment-dots"></i> 講員提詞卡 (N)</button>
           <span style="font-family:monospace;font-size:1.05rem;color:#fbbf24;font-weight:700;padding:0 0.5rem;" id="lSlideNumIndicator">1 / ${slides.length}</span>
           <button class="player-btn-action" id="lBtnPrev"><i class="fa-solid fa-chevron-left"></i> 上一張</button>
@@ -545,21 +545,37 @@
 
       if (slide.image) {
         pMainImg.style.display = 'block';
-        pTextFallback.style.display = 'none';
+        if (pTextFallback) pTextFallback.style.display = 'none';
+        pMainImg.onerror = () => {
+          pMainImg.style.display = 'none';
+          if (pTextFallback) {
+            pTextFallback.style.display = 'block';
+            if (pFallbackTitle) pFallbackTitle.textContent = slide.title || `投影片 #${idx}`;
+            if (pFallbackBody) pFallbackBody.textContent = slide.rawText || '本頁為課堂重要真理提要';
+          }
+        };
         pMainImg.src = slide.image;
-        pMainImg.alt = slide.alt || slide.title;
+        pMainImg.alt = slide.alt || slide.title || `投影片 #${idx}`;
       } else {
         pMainImg.style.display = 'none';
-        pTextFallback.style.display = 'block';
-        pFallbackTitle.textContent = slide.title || `投影片 #${idx}`;
-        pFallbackBody.textContent = slide.rawText || '本頁為課堂重要真理提要';
+        if (pTextFallback) {
+          pTextFallback.style.display = 'block';
+          if (pFallbackTitle) pFallbackTitle.textContent = slide.title || `投影片 #${idx}`;
+          if (pFallbackBody) pFallbackBody.textContent = slide.rawText || '本頁為課堂重要真理提要';
+        }
       }
 
       // Sync Thumbnails
       pThumbnailsStrip.querySelectorAll('.player-thumb-item').forEach(t => {
         const isActive = parseInt(t.dataset.idx, 10) === idx;
         t.classList.toggle('active', isActive);
-        if (isActive) t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        if (isActive) {
+          requestAnimationFrame(() => {
+            try {
+              t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            } catch(e) {}
+          });
+        }
       });
 
       // Sync Grid
@@ -750,6 +766,12 @@
       if (slide.image) {
         lPresentImg.style.display = 'block';
         lPresentFallback.style.display = 'none';
+        lPresentImg.onerror = () => {
+          lPresentImg.style.display = 'none';
+          lPresentFallback.style.display = 'block';
+          lFallbackTitle.textContent = slide.title || `投影片 #${idx}`;
+          lFallbackBody.textContent = slide.rawText || '';
+        };
         lPresentImg.src = slide.image;
       } else {
         lPresentImg.style.display = 'none';

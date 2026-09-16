@@ -103,15 +103,15 @@
       <div class="hero-ppt-actions">
         <button id="heroPlayPptBtn" class="hero-ppt-btn play-btn" type="button" title="立即切換至投影片並播放"><i class="fa-solid fa-play"></i> 立即播放本課 PPT</button>
         <button id="heroPresentPptBtn" class="hero-ppt-btn present-btn" type="button" title="直接開啟大螢幕全螢幕投影演講模式"><i class="fa-solid fa-desktop"></i> 大螢幕演講放映</button>
-        <a id="heroDownloadPptBtn" class="hero-ppt-btn dl-btn" href="" download title="下載原版 PPTX 檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> 下載原檔 PPTX</a>
+        <a id="heroDownloadPptBtn" class="hero-ppt-btn dl-btn" href="" download title="下載本課 PPTX 檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> 下載本課 PPTX</a>
         <span class="hero-ppt-source" id="heroPptSource"><i class="fa-regular fa-folder-open"></i> 來源：2026-Q3 PPT / 繁2026-Q3-第1課.pptx</span>
       </div>
     </section>
 
     <!-- Module Navigation Tabs -->
     <nav class="module-tabs" id="moduleTabs">
-      <button class="tab-btn active" data-target="tab-expert">🌟 專家團隊錦囊</button>
-      <button class="tab-btn highlight-tab" data-target="tab-slides"><i class="fa-solid fa-desktop"></i> 🖥️ 原版 PPT 逐頁深探</button>
+      <button class="tab-btn highlight-tab active" data-target="tab-slides"><i class="fa-solid fa-desktop"></i> 🖥️ PPT 投影片逐頁深探</button>
+      <button class="tab-btn" data-target="tab-expert">🌟 專家團隊錦囊</button>
       <button class="tab-btn" data-target="tab-story">📖 沉浸式聖經故事</button>
       <button class="tab-btn" data-target="tab-games-songs">🎵 詩歌敬拜 & 🎮 破冰遊戲</button>
       <button class="tab-btn" data-target="tab-truth-app">💡 核心真理 & 🌱 生活應用</button>
@@ -125,7 +125,7 @@
     <div class="tab-content-area" id="tabContentArea">
 
       <!-- 1. Expert Team Insights Tab -->
-      <section class="tab-pane active" id="tab-expert">
+      <section class="tab-pane" id="tab-expert">
         <div class="expert-intro-banner">
           <h3>👥 六大專家團隊深度賦能指導</h3>
           <p>集合資深校長、主日學長大傳道人、資深牧師、現代教育專家、發展心理學家與 UI/UX 專家智慧，為您提供從備課心靈、50分鐘課堂節奏到應急錦囊的全方位支援。</p>
@@ -239,13 +239,13 @@
       </section>
 
       <!-- PPT Slide-by-Slide Cockpit & Deep Review Tab Pane (Inspired by BlessEq) -->
-      <section class="tab-pane" id="tab-slides">
+      <section class="tab-pane active" id="tab-slides">
         <div class="slide-deck-container">
           
           <!-- Top Narration & Autoplay Controls Bar -->
           <div class="slide-global-toolbar">
             <div class="toolbar-group">
-              <span class="toolbar-title"><i class="fa-solid fa-play-circle text-gold"></i> 原版 PPT 逐頁深探駕駛艙</span>
+              <span class="toolbar-title"><i class="fa-solid fa-play-circle text-gold"></i> PPT 投影片深探駕駛艙</span>
               <span class="ppt-file-badge" id="pptFileBadge" title="當前播放的 PPT 來源檔案"><i class="fa-solid fa-file-powerpoint text-danger"></i> <span id="pptFileNameText">2026-Q3 PPT / 繁2026-Q3-第1課.pptx</span></span>
               <span class="slide-total-info" id="slideDeckInfo">本課共 15 頁高畫質投影片</span>
             </div>
@@ -254,7 +254,7 @@
             <div class="slide-ppt-quick-tools">
               <label for="pptLessonSwitcher" class="ppt-select-label"><i class="fa-solid fa-arrow-right-arrow-left"></i> 切換簡報：</label>
               <select id="pptLessonSwitcher" class="ppt-lesson-select" title="快速切換 2026-Q3 或 Q4 任意一課 PPT"></select>
-              <a id="slideDownloadPptxBtn" class="download-pptx-btn" href="" download title="下載本課原版 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載原檔 PPTX</a>
+              <a id="slideDownloadPptxBtn" class="download-pptx-btn" href="" download title="下載本課 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
               <button id="btnToolbarPresent" class="toolbar-present-btn" type="button" title="切換全螢幕大螢幕投影演講 (F 鍵)"><i class="fa-solid fa-desktop"></i> 大螢幕投影</button>
             </div>
 
@@ -334,11 +334,16 @@
 
               <!-- Slide Main Stage -->
               <div class="slide-stage-main" id="slideStageMain" role="region" aria-label="投影片主視覺區">
+                <div class="slide-stage-loader" id="slideStageLoader" style="display:none;">
+                  <div class="stage-spinner"></div>
+                  <span>投影片載入中...</span>
+                </div>
                 <img src="" alt="投影片影像" class="slide-main-img" id="slideMainImg">
                 <div class="slide-text-fallback" id="slideTextFallback" style="display:none;">
-                  <div class="fallback-badge"><i class="fa-solid fa-feather-pointed"></i> 投文字重點頁</div>
+                  <div class="fallback-badge"><i class="fa-solid fa-feather-pointed"></i> 重點文字精華頁</div>
                   <h3 id="fallbackTitle"></h3>
                   <div id="fallbackSnippet" class="fallback-snippet"></div>
+                  <button type="button" class="fallback-retry-btn" id="fallbackRetryBtn"><i class="fa-solid fa-rotate-right"></i> 重新載入圖片</button>
                 </div>
 
                 <!-- Hover Overlay Navigation -->
@@ -1105,7 +1110,7 @@
       <div class="present-controls">
         <button id="presentAutoplayBtn" class="present-tool-btn" type="button" title="切換定時自動換頁放映 (5秒/頁)"><i class="fa-solid fa-play" id="presentAutoplayIcon"></i> <span id="presentAutoplayText">自動播放</span></button>
         <button id="presentSpeakBtn" class="present-tool-btn" type="button" title="語音朗讀本頁講稿"><i class="fa-solid fa-volume-high" id="presentSpeakIcon"></i> <span id="presentSpeakText">朗讀講稿</span></button>
-        <a id="presenterDlBtn" class="present-tool-btn dl-btn" href="" download title="下載原版 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
+        <a id="presenterDlBtn" class="present-tool-btn dl-btn" href="" download title="下載本課 PPTX 檔案"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
         <button id="presentToggleNotesBtn" class="present-tool-btn" type="button" title="開關講員備忘提詞卡 (N 鍵)"><i class="fa-regular fa-comment-dots"></i> <span id="notesToggleText">講員提詞卡</span></button>
         <span id="presentSlideIndicator" class="present-indicator">1 / 15</span>
         <button id="presentPrevBtn" class="present-nav-btn" type="button"><i class="fa-solid fa-chevron-left"></i> 上一張</button>
@@ -1175,7 +1180,7 @@
       <div class="ppt-catalog-header">
         <div class="ppt-catalog-title-group">
           <h2 id="pptCatalogHeading"><i class="fa-solid fa-file-powerpoint text-danger"></i> 2026-Q3 & 2026-Q4 PPT 完整投影片目錄與即刻放映中心</h2>
-          <p class="ppt-catalog-subtitle">完整收錄 26 課原版簡報 · 417 頁高畫質投影片 · 支援線上逐頁放映、自動播放、逐字稿朗讀與原檔下載</p>
+          <p class="ppt-catalog-subtitle">完整收錄 26 課簡報 · 417 頁高畫質投影片 · 支援線上逐頁放映、自動播放、逐字稿朗讀與原檔下載</p>
         </div>
         <button class="ppt-modal-close-btn" id="closePptModalBtn" type="button" title="關閉目錄 (Esc)">✕</button>
       </div>
