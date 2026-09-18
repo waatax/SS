@@ -1172,12 +1172,22 @@
 
     // 2. Upper Grade Open Discussions
     if (upperList && upperList.length) {
-      els.upperQuizList.innerHTML = upperList.map((qText, idx) => `
+      els.upperQuizList.innerHTML = upperList.map((qText, idx) => {
+        let badgeHtml = '';
+        let displayText = qText;
+        if (typeof qText === 'string' && qText.startsWith('【') && qText.includes('】')) {
+          const parts = qText.split('】');
+          const cat = parts[0].replace('【', '');
+          badgeHtml = `<span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 6px;">${cat}</span>`;
+          displayText = parts.slice(1).join('】');
+        }
+        return `
         <div class="discussion-card">
-          <div class="discussion-q">Q${idx + 1}：${qText}</div>
+          <div class="discussion-q">Q${idx + 1}：${badgeHtml}${displayText}</div>
           <div class="teacher-tip">💡 教師引導小訣竅：鼓勵孩子連結個人生活故事，接納任何分享，不給標準答案！</div>
         </div>
-      `).join('');
+      `;
+      }).join('');
     } else {
       els.upperQuizList.innerHTML = '<p class="sub-text">引導高年級學生思考本課金句對個人的意義。</p>';
     }
