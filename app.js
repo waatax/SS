@@ -1156,7 +1156,7 @@
               </button>
             `).join('')}
           </div>
-          <div class="quiz-feedback" id="feedback-${qIdx}">
+          <div class="quiz-feedback" id="feedback-${qIdx}" data-explanation="${encodeURIComponent(q.explanation || '')}">
             ${q.explanation}
           </div>
         </div>
@@ -1198,16 +1198,17 @@
     });
 
     const fb = document.getElementById(`feedback-${qIdx}`);
+    const expl = decodeURIComponent(fb.dataset.explanation || '');
 
     if (isCorrect) {
       btn.classList.add('selected-correct');
       fb.className = 'quiz-feedback show correct';
-      fb.innerHTML = `🎉 <strong>答對了！太棒了！</strong> ${fb.innerHTML}`;
+      fb.innerHTML = `🎉 <strong>答對了！太棒了！</strong><div style="margin-top:6px;font-size:0.92rem;line-height:1.6;">${expl}</div>`;
       playChime(true);
     } else {
       btn.classList.add('selected-wrong');
       fb.className = 'quiz-feedback show wrong';
-      fb.innerHTML = `🤔 <strong>再想想看喔！</strong> 正確答案是 (${targetAns})。`;
+      fb.innerHTML = `🤔 <strong>再想想看喔！</strong> 正確答案是 (${targetAns})。<div style="margin-top:6px;font-size:0.92rem;line-height:1.6;color:#6b7280;"><strong>💡 真理解析：</strong>${expl}</div>`;
       playChime(false);
     }
   }
