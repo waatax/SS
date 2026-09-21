@@ -70,6 +70,7 @@
     <!-- Main Navigation Tabs -->
     <nav class="section-nav-tabs">
       <button class="sec-tab active" data-target="tab-slides">🖥️ PPT 逐頁對齊與講稿 (15 頁)</button>
+      <button class="sec-tab highlight-gold" data-target="tab-ai-diagrams"><i class="fa-solid fa-diagram-project text-gold"></i> 📊 AI 智繪圖表</button>
       <button class="sec-tab" data-target="tab-aux">🎒 五大輔助教材庫</button>
       <button class="sec-tab" data-target="tab-experts">👥 六大專家深層錦囊</button>
       <button class="sec-tab" data-target="tab-hymn-games">🎵 敬拜詩歌 & 破冰</button>
@@ -514,6 +515,83 @@ https://youtu.be/F-7ge8qZdHo?si=k5d8v8mUW_hSnJ7w</div>
           </div>
       </div>
     </section>
+    <!-- AI Visual Diagrams & Infographics Panel -->
+    <section class="tab-panel" id="tab-ai-diagrams">
+      <div class="ai-diagrams-banner">
+        <div class="ai-banner-content">
+          <div class="ai-banner-symbol" id="aiBannerSymbol">
+            <!-- Rendered via JS -->
+          </div>
+          <div>
+            <div class="ai-banner-tag"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> 100% 原創版權 · AI 智繪深度迭代教學視覺庫</div>
+            <h3 id="aiBannerTitle">聖經歷史時空脈絡心智圖與神學架構對比</h3>
+            <p id="aiBannerSubtitle">專為兒童主日學教學設計，融合故事起承轉合脈絡、神學對比概念、50分鐘課堂能量律動與金句真理樹。</p>
+          </div>
+        </div>
+        <div class="ai-banner-actions">
+          <button class="nav-btn" onclick="window.print()" type="button" title="列印本課 AI 智繪圖表與心智圖">🖨️ 列印本課圖表</button>
+        </div>
+      </div>
+
+      <div class="ai-diagrams-grid">
+        <!-- 1. Story Arc & Narrative Mind Map -->
+        <div class="ai-card mindmap-card">
+          <div class="ai-card-header">
+            <div class="ai-card-title-group">
+              <span class="ai-badge-icon"><i class="fa-solid fa-route"></i></span>
+              <div>
+                <h4>一、聖經歷史時空與情節脈絡心智圖 (Story Arc & Mind Map)</h4>
+                <span class="ai-card-sub" id="aiMindmapTheme">故事核心主線</span>
+              </div>
+            </div>
+          </div>
+          <div class="mindmap-roadmap" id="aiMindmapRoadmap"></div>
+        </div>
+
+        <!-- 2. Theological Architecture & Contrast Matrix -->
+        <div class="ai-card theology-card">
+          <div class="ai-card-header">
+            <div class="ai-card-title-group">
+              <span class="ai-badge-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+              <div>
+                <h4>二、核心神學概念架構與屬靈對比矩陣 (Theological Contrast Matrix)</h4>
+                <span class="ai-card-sub">屬世限制恐懼 vs 屬天主權恩典 · 基督中心福音視角</span>
+              </div>
+            </div>
+          </div>
+          <div class="theology-matrix-container" id="aiTheologyContainer"></div>
+        </div>
+
+        <!-- 3. 50-Minute Classroom Flow & Energy Rhythm Infographic -->
+        <div class="ai-card pacing-card">
+          <div class="ai-card-header">
+            <div class="ai-card-title-group">
+              <span class="ai-badge-icon"><i class="fa-solid fa-chart-line"></i></span>
+              <div>
+                <h4>三、課堂 50 分鐘教學黃金節奏與能量律動圖 (Classroom Energy & Pacing Flow)</h4>
+                <span class="ai-card-sub">五階段認知負荷曲線 · 互動能量指引</span>
+              </div>
+            </div>
+          </div>
+          <div class="pacing-timeline-bar" id="aiPacingBar"></div>
+        </div>
+
+        <!-- 4. Memory Verse Visual Word-Tree -->
+        <div class="ai-card verse-tree-card">
+          <div class="ai-card-header">
+            <div class="ai-card-title-group">
+              <span class="ai-badge-icon"><i class="fa-solid fa-tree"></i></span>
+              <div>
+                <h4>四、核心真理金句結構樹 (Memory Verse Visual Word-Tree)</h4>
+                <span class="ai-card-sub">神聖根基 ➔ 真理本體 ➔ 恩典枝幹 ➔ 信心果子</span>
+              </div>
+            </div>
+          </div>
+          <div class="verse-tree-container" id="aiVerseTreeContainer"></div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- 2. Auxiliary Materials Panel -->
     <section class="tab-panel" id="tab-aux">
@@ -824,6 +902,7 @@ https://youtu.be/F-7ge8qZdHo?si=k5d8v8mUW_hSnJ7w</div>
     <button class="nav-btn" id="timerToggle">開始</button>
   </div>
 
+  <script src="../data/ai_diagrams_data.js"></script>
   <script src="lesson.js"></script>
 </body>
 </html>

@@ -14,6 +14,9 @@
       const target = tab.dataset.target;
       tabs.forEach(t => t.classList.toggle('active', t === tab));
       panels.forEach(p => p.classList.toggle('active', p.id === target));
+      if (target === 'tab-ai-diagrams') {
+        renderLessonAiDiagrams();
+      }
     });
   });
 
@@ -89,6 +92,187 @@
       document.body.classList.toggle('theme-dark');
       document.body.classList.toggle('theme-warm');
     });
+  }
+
+  
+  // ==========================================================================
+  // PPT Copyright Protection & WOLSS Password Authentication
+  // ==========================================================================
+
+  const WOLSS_KEY = 'ss_wolss_auth_unlocked';
+  const WOLSS_PASSWORD = 'WOLSS';
+
+  function isPptUnlocked() {
+    try {
+      return localStorage.getItem(WOLSS_KEY) === 'true' || sessionStorage.getItem(WOLSS_KEY) === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function verifyPptPassword(input) {
+    if (!input) return false;
+    return input.trim().toUpperCase() === WOLSS_PASSWORD;
+  }
+
+  function getLessonIdFromUrl() {
+    const filename = window.location.pathname.split('/').pop() || '';
+    const match = filename.match(/(2026-q[34])-(\d+)/i);
+    if (match) {
+      const q = match[1].toLowerCase();
+      const num = String(parseInt(match[2], 10)).padStart(2, '0');
+      return `${q}-${num}`;
+    }
+    return '2026-q3-01';
+  }
+
+  // Setup Header Auth Status Button
+  function setupHeaderAuthBadge(onUnlockCallback) {
+    const navControls = document.querySelector('.nav-controls');
+    if (!navControls || document.getElementById('lessonPptAuthBadge')) return;
+
+    const badge = document.createElement('button');
+    badge.id = 'lessonPptAuthBadge';
+    badge.type = 'button';
+    badge.className = 'ppt-auth-status-btn ' + (isPptUnlocked() ? 'unlocked' : 'locked');
+    updateHeaderBadgeHtml(badge);
+
+    badge.addEventListener('click', (e) => {
+      if (e.target.closest('.relock-link-btn')) {
+        e.stopPropagation();
+        localStorage.removeItem(WOLSS_KEY);
+        sessionStorage.removeItem(WOLSS_KEY);
+        location.reload();
+        return;
+      }
+      if (!isPptUnlocked()) {
+        const slideTab = document.querySelector('[data-target="tab-slides"]');
+        if (slideTab) slideTab.click();
+        const input = document.getElementById('lessonPptPasswordInput');
+        if (input) {
+          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          input.focus();
+        }
+      }
+    });
+
+    navControls.insertBefore(badge, navControls.firstChild);
+  }
+
+  function updateHeaderBadgeHtml(badgeEl) {
+    if (!badgeEl) return;
+    if (isPptUnlocked()) {
+      badgeEl.className = 'ppt-auth-status-btn unlocked';
+      badgeEl.innerHTML = `<i class="fa-solid fa-unlock"></i> <span>PPT 已解鎖</span> <button type="button" class="relock-link-btn" title="重新上鎖">[上鎖]</button>`;
+    } else {
+      badgeEl.className = 'ppt-auth-status-btn locked';
+      badgeEl.innerHTML = `<i class="fa-solid fa-lock"></i> <span>PPT 版權保護中</span>`;
+    }
+  }
+
+  // Render AI Diagrams for dedicated page
+  function renderLessonAiDiagrams() {
+    if (!window.SS_AI_DIAGRAMS_DATA) return;
+    const lid = getLessonIdFromUrl();
+    const data = window.SS_AI_DIAGRAMS_DATA[lid];
+    if (!data) return;
+
+    const bannerSymbol = document.getElementById('aiBannerSymbol');
+    const bannerTitle = document.getElementById('aiBannerTitle');
+    const bannerSubtitle = document.getElementById('aiBannerSubtitle');
+    const mindmapTheme = document.getElementById('aiMindmapTheme');
+    const mindmapRoadmap = document.getElementById('aiMindmapRoadmap');
+    const theologyContainer = document.getElementById('aiTheologyContainer');
+    const pacingBar = document.getElementById('aiPacingBar');
+    const verseTreeContainer = document.getElementById('aiVerseTreeContainer');
+
+    if (bannerSymbol) bannerSymbol.innerHTML = data.svg_icon || '';
+    if (bannerTitle) bannerTitle.textContent = `第 ${data.lesson_num} 課：${data.title} · ${data.symbol_title}`;
+    if (bannerSubtitle) bannerSubtitle.textContent = data.symbol_desc;
+    if (mindmapTheme) mindmapTheme.textContent = data.story_theme;
+
+    if (mindmapRoadmap) {
+      mindmapRoadmap.innerHTML = data.story_nodes.map(node => `
+        <div class="mindmap-node-card" style="border-top: 4px solid ${node.color};">
+          <div class="node-top-bar">
+            <span class="node-step-pill" style="background:${node.color};">階段 ${node.step}</span>
+            <span class="node-phase-tag">${node.phase} · ${node.tag}</span>
+          </div>
+          <h5 class="node-title-text"><i class="fa-solid ${node.icon}" style="color:${node.color};"></i> ${node.title}</h5>
+          <p class="node-desc-text">${node.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    if (theologyContainer) {
+      theologyContainer.innerHTML = `
+        <div class="theology-contrast-grid">
+          <div class="contrast-side-card contrast-left">
+            <div class="contrast-card-header"><i class="fa-solid fa-triangle-exclamation"></i> ${data.contrast_left_title}</div>
+            <ul class="contrast-points-list">
+              ${data.contrast_left_points.map(p => `<li>${p}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="contrast-side-card contrast-right">
+            <div class="contrast-card-header"><i class="fa-solid fa-circle-check"></i> ${data.contrast_right_title}</div>
+            <ul class="contrast-points-list">
+              ${data.contrast_right_points.map(p => `<li>${p}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+        <div class="theology-christ-banner">
+          <i class="fa-solid fa-cross text-danger"></i> <strong>基督中心福音透鏡 (Christ-Centered Reflection)：</strong>
+          ${data.christ_lens}
+        </div>
+        <div class="theology-life-app-banner">
+          <i class="fa-solid fa-seedling text-success"></i> <strong>兒童本週生活實踐挑戰：</strong>
+          ${data.life_app}
+        </div>
+      `;
+    }
+
+    if (pacingBar) {
+      pacingBar.innerHTML = data.pacing_infographic.map(p => `
+        <div class="pacing-phase-card">
+          <div>
+            <span class="pacing-time-badge">${p.time}</span>
+            <div class="pacing-phase-title">${p.phase} · ${p.name}</div>
+            <div class="pacing-goal-text">${p.goal}</div>
+          </div>
+          <div class="energy-meter-box">
+            <div class="energy-meter-label">
+              <span>${p.type}</span>
+              <span>能量 ${p.energy}%</span>
+            </div>
+            <div class="energy-meter-track">
+              <div class="energy-meter-fill" style="width: ${p.energy}%;"></div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    if (verseTreeContainer && data.verse_tree) {
+      const vt = data.verse_tree;
+      verseTreeContainer.innerHTML = `
+        <div class="verse-tree-card-item" style="border-left-color: #b88628;">
+          <span class="verse-tree-badge">🌱 ${vt.root.label}</span>
+          <div class="verse-tree-content">${vt.root.text}</div>
+        </div>
+        <div class="verse-tree-card-item" style="border-left-color: #2563eb;">
+          <span class="verse-tree-badge">🪵 ${vt.trunk.label}</span>
+          <div class="verse-tree-content">${vt.trunk.text}</div>
+        </div>
+        <div class="verse-tree-card-item" style="border-left-color: #16a34a;">
+          <span class="verse-tree-badge">🌿 ${vt.branches.label}</span>
+          <div class="verse-tree-content">${vt.branches.text}</div>
+        </div>
+        <div class="verse-tree-card-item" style="border-left-color: #d97706;">
+          <span class="verse-tree-badge">🍎 ${vt.fruits.label}</span>
+          <div class="verse-tree-content">${vt.fruits.text}</div>
+        </div>
+      `;
+    }
   }
 
   // ==========================================================================

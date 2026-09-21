@@ -41,6 +41,47 @@
 
   // DOM Elements
   const els = {
+    // Auth & Protection Elements
+    pptLockGate: document.getElementById('pptLockGate'),
+    slideDeckContainer: document.getElementById('slideDeckContainer'),
+    pptAuthStatusBtn: document.getElementById('pptAuthStatusBtn'),
+    pptAuthStatusText: document.getElementById('pptAuthStatusText'),
+    pptAuthModal: document.getElementById('pptAuthModal'),
+    closePptAuthModalBtn: document.getElementById('closePptAuthModalBtn'),
+    closePptAuthModalBackdrop: document.getElementById('closePptAuthModalBackdrop'),
+    pptAuthModalForm: document.getElementById('pptAuthModalForm'),
+    modalPptPasswordInput: document.getElementById('modalPptPasswordInput'),
+    modalToggleEyeBtn: document.getElementById('modalToggleEyeBtn'),
+    modalPptAuthError: document.getElementById('modalPptAuthError'),
+    pptInlineAuthForm: document.getElementById('pptInlineAuthForm'),
+    inlinePptPasswordInput: document.getElementById('inlinePptPasswordInput'),
+    inlineToggleEyeBtn: document.getElementById('inlineToggleEyeBtn'),
+    inlinePptAuthError: document.getElementById('inlinePptAuthError'),
+
+    // AI Diagrams Elements
+    tabAiDiagrams: document.getElementById('tab-ai-diagrams'),
+    aiBannerSymbol: document.getElementById('aiBannerSymbol'),
+    aiBannerTitle: document.getElementById('aiBannerTitle'),
+    aiBannerSubtitle: document.getElementById('aiBannerSubtitle'),
+    aiMindmapTheme: document.getElementById('aiMindmapTheme'),
+    aiMindmapRoadmap: document.getElementById('aiMindmapRoadmap'),
+    aiTheologyContainer: document.getElementById('aiTheologyContainer'),
+    aiPacingBar: document.getElementById('aiPacingBar'),
+    aiVerseTreeContainer: document.getElementById('aiVerseTreeContainer'),
+    btnPrintAiDiagrams: document.getElementById('btnPrintAiDiagrams'),
+
+    // Auxiliary Teaching Materials Elements
+    tabAuxLib: document.getElementById('tab-aux-lib'),
+    auxDramaTitle: document.getElementById('auxDramaTitle'),
+    auxDramaBody: document.getElementById('auxDramaBody'),
+    auxFamilyBody: document.getElementById('auxFamilyBody'),
+    auxHebrewTitle: document.getElementById('auxHebrewTitle'),
+    auxHebrewBody: document.getElementById('auxHebrewBody'),
+    auxSopTitle: document.getElementById('auxSopTitle'),
+    auxSopBody: document.getElementById('auxSopBody'),
+    auxFaqTitle: document.getElementById('auxFaqTitle'),
+    auxFaqBody: document.getElementById('auxFaqBody'),
+
     quarterSwitcher: document.getElementById('quarterSwitcher'),
     lessonRail: document.getElementById('lessonRail'),
     searchInput: document.getElementById('searchInput'),
@@ -331,7 +372,334 @@
     }
   }
 
-  function switchToPptTab() {
+  
+  // ==========================================================================
+  // PPT Copyright Protection & WOLSS Password Authentication System
+  // ==========================================================================
+
+  const WOLSS_KEY = 'ss_wolss_auth_unlocked';
+  const WOLSS_CORRECT_PASSWORD = 'WOLSS';
+  let pendingAuthAction = null;
+
+  function isPptUnlocked() {
+    try {
+      return localStorage.getItem(WOLSS_KEY) === 'true' || sessionStorage.getItem(WOLSS_KEY) === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function verifyPptPassword(input) {
+    if (!input) return false;
+    return input.trim().toUpperCase() === WOLSS_CORRECT_PASSWORD;
+  }
+
+  function unlockPptSystem(callback) {
+    try {
+      localStorage.setItem(WOLSS_KEY, 'true');
+      sessionStorage.setItem(WOLSS_KEY, 'true');
+    } catch (e) {}
+
+    updatePptLockUI();
+    closePptAuthModal();
+    showToast('🎉 通行密碼驗證成功！已解鎖 PPT 投影片檢視與播放功能。');
+
+    if (state.activeTab === 'tab-slides') {
+      renderSlideDeck();
+    }
+
+    if (typeof callback === 'function') {
+      callback();
+    } else if (pendingAuthAction) {
+      const act = pendingAuthAction;
+      pendingAuthAction = null;
+      act();
+    }
+  }
+
+  function lockPptSystem() {
+    try {
+      localStorage.removeItem(WOLSS_KEY);
+      sessionStorage.removeItem(WOLSS_KEY);
+    } catch (e) {}
+
+    stopSpeechNarration();
+    stopSlideshowAutoplay();
+    updatePptLockUI();
+    showToast('🔒 已重新鎖定 PPT 投影片內容。');
+  }
+
+  function updatePptLockUI() {
+    const unlocked = isPptUnlocked();
+    document.body.classList.toggle('ppt-unlocked', !!unlocked);
+
+    // 1. Update Header Badge
+    if (els.pptAuthStatusBtn && els.pptAuthStatusText) {
+      if (unlocked) {
+        els.pptAuthStatusBtn.className = 'ppt-auth-status-btn unlocked';
+        els.pptAuthStatusBtn.innerHTML = `<i class="fa-solid fa-unlock"></i> <span>PPT 已解鎖</span> <button type="button" class="relock-link-btn" id="btnRelockPpt" title="重新上鎖">[上鎖]</button>`;
+        const relockBtn = document.getElementById('btnRelockPpt');
+        if (relockBtn) {
+          relockBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lockPptSystem();
+          });
+        }
+      } else {
+        els.pptAuthStatusBtn.className = 'ppt-auth-status-btn locked';
+        els.pptAuthStatusBtn.innerHTML = `<i class="fa-solid fa-lock"></i> <span>PPT 版權保護中</span>`;
+      }
+    }
+
+    // 2. Toggle Slide Deck & Lock Gate
+    if (els.pptLockGate && els.slideDeckContainer) {
+      if (unlocked) {
+        els.pptLockGate.style.display = 'none';
+        els.slideDeckContainer.style.display = 'block';
+      } else {
+        els.pptLockGate.style.display = 'block';
+        els.slideDeckContainer.style.display = 'none';
+      }
+    }
+
+    // 3. Update download buttons
+    const pptInfo = getPptFileInfo(state.quarter, state.lessonNum);
+    if (els.heroDownloadPptBtn) {
+      if (!unlocked) {
+        els.heroDownloadPptBtn.removeAttribute('download');
+      } else {
+        els.heroDownloadPptBtn.setAttribute('download', pptInfo.fileName);
+      }
+    }
+  }
+
+  function openPptAuthModal(actionMsg, actionCallback) {
+    if (isPptUnlocked()) {
+      if (typeof actionCallback === 'function') actionCallback();
+      return;
+    }
+
+    pendingAuthAction = actionCallback || null;
+    if (els.pptAuthModal) {
+      els.pptAuthModal.classList.remove('hidden');
+      if (els.modalPptPasswordInput) {
+        els.modalPptPasswordInput.value = '';
+        setTimeout(() => els.modalPptPasswordInput.focus(), 150);
+      }
+      if (els.modalPptAuthError) {
+        els.modalPptAuthError.classList.add('hidden');
+        els.modalPptAuthError.textContent = '';
+      }
+    }
+  }
+
+  function closePptAuthModal() {
+    if (els.pptAuthModal) {
+      els.pptAuthModal.classList.add('hidden');
+    }
+  }
+
+  // ==========================================================================
+  // AI Visual Diagrams & Infographics Renderer (26 Lessons)
+  // ==========================================================================
+
+  function renderAiDiagramsTab(lessonId) {
+    if (!window.SS_AI_DIAGRAMS_DATA) return;
+    const lId = lessonId || (state.currentLesson ? state.currentLesson.id : '2026-q3-01');
+    const data = window.SS_AI_DIAGRAMS_DATA[lId];
+    if (!data) return;
+
+    // 1. Banner
+    if (els.aiBannerSymbol) {
+      els.aiBannerSymbol.innerHTML = data.svg_icon || '<i class="fa-solid fa-chart-pie text-gold" style="font-size:2rem;"></i>';
+    }
+    if (els.aiBannerTitle) {
+      els.aiBannerTitle.textContent = `第 ${data.lesson_num} 課：${data.title} · ${data.symbol_title}`;
+    }
+    if (els.aiBannerSubtitle) {
+      els.aiBannerSubtitle.textContent = data.symbol_desc;
+    }
+
+    // 2. Story Arc & Narrative Mind Map
+    if (els.aiMindmapTheme) {
+      els.aiMindmapTheme.textContent = data.story_theme;
+    }
+    if (els.aiMindmapRoadmap) {
+      els.aiMindmapRoadmap.innerHTML = data.story_nodes.map(node => `
+        <div class="mindmap-node-card" style="border-top: 4px solid ${node.color};">
+          <div class="node-top-bar">
+            <span class="node-step-pill" style="background:${node.color};">階段 ${node.step}</span>
+            <span class="node-phase-tag">${node.phase} · ${node.tag}</span>
+          </div>
+          <h5 class="node-title-text"><i class="fa-solid ${node.icon}" style="color:${node.color};"></i> ${node.title}</h5>
+          <p class="node-desc-text">${node.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    // 3. Theological Contrast Matrix
+    if (els.aiTheologyContainer) {
+      els.aiTheologyContainer.innerHTML = `
+        <div class="theology-contrast-grid">
+          <div class="contrast-side-card contrast-left">
+            <div class="contrast-card-header"><i class="fa-solid fa-triangle-exclamation"></i> ${data.contrast_left_title}</div>
+            <ul class="contrast-points-list">
+              ${data.contrast_left_points.map(p => `<li>${p}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="contrast-side-card contrast-right">
+            <div class="contrast-card-header"><i class="fa-solid fa-circle-check"></i> ${data.contrast_right_title}</div>
+            <ul class="contrast-points-list">
+              ${data.contrast_right_points.map(p => `<li>${p}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+        <div class="theology-christ-banner">
+          <i class="fa-solid fa-cross text-danger"></i> <strong>基督中心福音透鏡 (Christ-Centered Reflection)：</strong>
+          ${data.christ_lens}
+        </div>
+        <div class="theology-life-app-banner">
+          <i class="fa-solid fa-seedling text-success"></i> <strong>兒童本週生活實踐挑戰：</strong>
+          ${data.life_app}
+        </div>
+      `;
+    }
+
+    // 4. Pacing Infographic
+    if (els.aiPacingBar) {
+      els.aiPacingBar.innerHTML = data.pacing_infographic.map(p => `
+        <div class="pacing-phase-card">
+          <div>
+            <span class="pacing-time-badge">${p.time}</span>
+            <div class="pacing-phase-title">${p.phase} · ${p.name}</div>
+            <div class="pacing-goal-text">${p.goal}</div>
+          </div>
+          <div class="energy-meter-box">
+            <div class="energy-meter-label">
+              <span>${p.type}</span>
+              <span>能量 ${p.energy}%</span>
+            </div>
+            <div class="energy-meter-track">
+              <div class="energy-meter-fill" style="width: ${p.energy}%;"></div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 5. Verse Tree
+    if (els.aiVerseTreeContainer && data.verse_tree) {
+      const vt = data.verse_tree;
+      els.aiVerseTreeContainer.innerHTML = `
+        <div class="verse-tree-card-item" style="border-left-color: #b88628;">
+          <span class="verse-tree-badge">🌱 ${vt.root.label}</span>
+          <div class="verse-tree-content">${vt.root.text}</div>
+        </div>
+        <div class="verse-tree-card-item" style="border-left-color: #2563eb;">
+          <span class="verse-tree-badge">🪵 ${vt.trunk.label}</span>
+          <div class="verse-tree-content">${vt.trunk.text}</div>
+        </div>
+        <div class="verse-tree-card-item" style="border-left-color: #16a34a;">
+          <span class="verse-tree-badge">🌿 ${vt.branches.label}</span>
+          <div class="verse-tree-content">${vt.branches.text}</div>
+        </div>
+        <div class="verse-tree-card-item" style="border-left-color: #d97706;">
+          <span class="verse-tree-badge">🍎 ${vt.fruits.label}</span>
+          <div class="verse-tree-content">${vt.fruits.text}</div>
+        </div>
+      `;
+    }
+  }
+
+  // ==========================================================================
+  // Five Auxiliary Teaching Materials Renderer (Index Page Integration)
+  // ==========================================================================
+
+  function renderAuxiliaryMaterialsTab(lesson) {
+    if (!lesson || !lesson.auxiliary_materials) return;
+    const aux = lesson.auxiliary_materials;
+
+    // 1. Drama Script
+    if (aux.drama_script && els.auxDramaBody) {
+      const d = aux.drama_script;
+      if (els.auxDramaTitle) els.auxDramaTitle.textContent = `《${d.title || lesson.title}》· 登場角色：${(d.characters || []).join('、')}`;
+      els.auxDramaBody.innerHTML = (d.scenes || []).map((sc, idx) => `
+        <div class="drama-scene-box">
+          <div class="drama-scene-title">第 ${idx + 1} 幕：${sc.scene_title || '場景'}</div>
+          ${sc.description ? `<div class="drama-desc">${sc.description}</div>` : ''}
+          <div class="drama-dialogue">${sc.dialogue || ''}</div>
+        </div>
+      `).join('');
+    }
+
+    // 2. Family Connection Card
+    if (aux.family_card && els.auxFamilyBody) {
+      const fc = aux.family_card;
+      els.auxFamilyBody.innerHTML = `
+        <div class="family-section">
+          <div class="family-title"><i class="fa-solid fa-utensils"></i> 餐桌信仰話題（Dining Talk）：</div>
+          <div class="family-content">${fc.dinner_topic || '分享今天主日學最有感觸的一句話。'}</div>
+        </div>
+        <div class="family-section">
+          <div class="family-title"><i class="fa-solid fa-hands-praying"></i> 全家同心晚禱詞（Family Prayer）：</div>
+          <div class="family-content">${fc.family_prayer || '親愛的天父，感謝祢在我們家中作主。'}</div>
+        </div>
+      `;
+    }
+
+    // 3. Hebrew / Greek Micro-Lesson
+    if (aux.hebrew_greek && els.auxHebrewBody) {
+      const hg = aux.hebrew_greek;
+      if (els.auxHebrewTitle) els.auxHebrewTitle.textContent = `${hg.word}（${hg.transliteration}）· ${hg.meaning}`;
+      els.auxHebrewBody.innerHTML = `
+        <div class="hebrew-word-card">
+          <div class="hebrew-original">${hg.word}</div>
+          <div class="hebrew-translit">${hg.language || '原文'}：${hg.transliteration}</div>
+          <div class="hebrew-meaning"><strong>核心字義：</strong>${hg.meaning}</div>
+          <div style="margin-top:8px;font-size:0.86rem;line-height:1.6;color:var(--text-main);">${hg.devotional_note || ''}</div>
+        </div>
+      `;
+    }
+
+    // 4. Classroom SOP
+    if (aux.classroom_sop && els.auxSopBody) {
+      const sop = aux.classroom_sop;
+      if (els.auxSopTitle) els.auxSopTitle.textContent = `針對【${sop.scenario || '課堂秩序'}】之專業應變 SOP`;
+      els.auxSopBody.innerHTML = `
+        <div class="sop-item">
+          <div class="sop-scenario">🚨 突發情境：${sop.scenario || ''}</div>
+          <div class="sop-solution"><strong>應變三部曲：</strong>${sop.action_steps ? sop.action_steps.join(' ➔ ') : sop.solution || ''}</div>
+        </div>
+      `;
+    }
+
+    // 5. Child FAQ
+    if (aux.child_faq && els.auxFaqBody) {
+      const faq = aux.child_faq;
+      if (els.auxFaqTitle) els.auxFaqTitle.textContent = '傳道人深層信仰對話錄';
+      els.auxFaqBody.innerHTML = `
+        <div class="faq-item">
+          <div class="faq-q">❓ 孩子的尖銳提問：${faq.question}</div>
+          <div class="faq-a">💡 傳道人引導回應：${faq.answer}</div>
+        </div>
+      `;
+    }
+  }
+
+    function switchToPptTab() {
+    if (!isPptUnlocked()) {
+      state.activeTab = 'tab-slides';
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.target === 'tab-slides');
+      });
+      document.querySelectorAll('.tab-pane').forEach(p => {
+        p.classList.toggle('active', p.id === 'tab-slides');
+      });
+      updatePptLockUI();
+      const target = document.getElementById('tab-slides');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
     state.activeTab = 'tab-slides';
     document.querySelectorAll('.tab-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.target === 'tab-slides');
@@ -375,9 +743,10 @@
 
       const card = document.createElement('div');
       card.className = 'ppt-cat-card';
+      const isLocked = !isPptUnlocked();
       card.innerHTML = `
-        <div class="ppt-cat-thumb">
-          <img src="${firstSlideImg}" alt="${l.title}" loading="lazy">
+        <div class="ppt-cat-thumb ${isLocked ? 'locked-thumb' : ''}">
+          <img src="${isLocked ? '' : firstSlideImg}" alt="${l.title}" loading="lazy" style="${isLocked ? 'display:none;' : ''}">
           <span class="ppt-cat-badge">第 ${l.lesson_num} 課 · ${count} 頁</span>
         </div>
         <div class="ppt-cat-content">
@@ -390,7 +759,7 @@
           <div class="ppt-cat-actions">
             <button class="ppt-action-btn ppt-btn-play" type="button" title="在此頁播放投影片"><i class="fa-solid fa-play"></i> 立即播放</button>
             <button class="ppt-action-btn ppt-btn-present" type="button" title="全螢幕投影演講模式"><i class="fa-solid fa-desktop"></i> 投影模式</button>
-            <a class="ppt-action-btn ppt-btn-dl" href="${pptInfo.downloadUrl}" download title="下載原檔 PPTX"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
+            <a class="ppt-action-btn ppt-btn-dl" href="${isLocked ? 'javascript:void(0)' : pptInfo.downloadUrl}" ${isLocked ? '' : 'download'} title="下載原檔 PPTX"><i class="fa-solid fa-download"></i> 下載 PPTX</a>
             <a class="ppt-action-btn ppt-btn-page" href="lessons/${l.id}.html" target="_blank" title="開啟獨立專屬教學頁面"><i class="fa-solid fa-arrow-up-right-from-square"></i> 專屬頁</a>
           </div>
         </div>
@@ -399,6 +768,14 @@
       // Button clicks
       const playBtn = card.querySelector('.ppt-btn-play');
       playBtn.addEventListener('click', () => {
+        if (!isPptUnlocked()) {
+          openPptAuthModal('請輸入授權通行密碼「WOLSS」以播放本課 PPT', () => {
+            switchLessonById(l.id);
+            closePptCatalogModal();
+            switchToPptTab();
+          });
+          return;
+        }
         switchLessonById(l.id);
         closePptCatalogModal();
         switchToPptTab();
@@ -406,12 +783,32 @@
 
       const presentBtn = card.querySelector('.ppt-btn-present');
       presentBtn.addEventListener('click', () => {
+        if (!isPptUnlocked()) {
+          openPptAuthModal('請輸入授權通行密碼「WOLSS」以全螢幕投影演講', () => {
+            switchLessonById(l.id);
+            closePptCatalogModal();
+            setTimeout(() => {
+              openPresentationMode();
+            }, 120);
+          });
+          return;
+        }
         switchLessonById(l.id);
         closePptCatalogModal();
         setTimeout(() => {
           openPresentationMode();
         }, 120);
       });
+
+      const dlBtn = card.querySelector('.ppt-btn-dl');
+      if (dlBtn) {
+        dlBtn.addEventListener('click', (e) => {
+          if (!isPptUnlocked()) {
+            e.preventDefault();
+            openPptAuthModal('請輸入授權通行密碼「WOLSS」以下載本課 PPTX 簡報');
+          }
+        });
+      }
 
       els.pptCatalogBody.appendChild(card);
     });
@@ -443,8 +840,16 @@
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === targetId));
 
-      if (targetId === 'tab-slides') {
-        renderSlideDeck();
+            if (targetId === 'tab-slides') {
+        if (!isPptUnlocked()) {
+          updatePptLockUI();
+        } else {
+          renderSlideDeck();
+        }
+      } else if (targetId === 'tab-ai-diagrams') {
+        renderAiDiagramsTab(state.currentLesson ? state.currentLesson.id : '2026-q3-01');
+      } else if (targetId === 'tab-aux-lib') {
+        renderAuxiliaryMaterialsTab(state.currentLesson);
       }
     });
 
@@ -620,6 +1025,99 @@
     if (els.closePptModalBackdrop) els.closePptModalBackdrop.addEventListener('click', closePptCatalogModal);
     if (els.pptTabQ3) els.pptTabQ3.addEventListener('click', () => renderPptCatalogCards('2026-Q3'));
     if (els.pptTabQ4) els.pptTabQ4.addEventListener('click', () => renderPptCatalogCards('2026-Q4'));
+
+    
+    // PPT Password Protection & Auth Handlers
+    if (els.pptAuthStatusBtn) {
+      els.pptAuthStatusBtn.addEventListener('click', () => {
+        if (!isPptUnlocked()) {
+          openPptAuthModal('請輸入通行密碼以解鎖 PPT 內容');
+        }
+      });
+    }
+
+    if (els.closePptAuthModalBtn) els.closePptAuthModalBtn.addEventListener('click', closePptAuthModal);
+    if (els.closePptAuthModalBackdrop) els.closePptAuthModalBackdrop.addEventListener('click', closePptAuthModal);
+
+    // Modal Auth Form
+    if (els.pptAuthModalForm) {
+      els.pptAuthModalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = els.modalPptPasswordInput ? els.modalPptPasswordInput.value : '';
+        if (verifyPptPassword(val)) {
+          unlockPptSystem();
+        } else {
+          if (els.modalPptAuthError) {
+            els.modalPptAuthError.textContent = '❌ 通行密碼錯誤，請輸入授權密碼 WOLSS';
+            els.modalPptAuthError.classList.remove('hidden');
+          }
+        }
+      });
+    }
+
+    if (els.modalToggleEyeBtn && els.modalPptPasswordInput) {
+      els.modalToggleEyeBtn.addEventListener('click', () => {
+        const isPass = els.modalPptPasswordInput.type === 'password';
+        els.modalPptPasswordInput.type = isPass ? 'text' : 'password';
+        els.modalToggleEyeBtn.innerHTML = isPass ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+      });
+    }
+
+    // Inline Auth Form in #tab-slides
+    if (els.pptInlineAuthForm) {
+      els.pptInlineAuthForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = els.inlinePptPasswordInput ? els.inlinePptPasswordInput.value : '';
+        if (verifyPptPassword(val)) {
+          unlockPptSystem();
+        } else {
+          if (els.inlinePptAuthError) {
+            els.inlinePptAuthError.textContent = '❌ 通行密碼錯誤，請輸入授權密碼 WOLSS';
+            els.inlinePptAuthError.classList.remove('hidden');
+          }
+        }
+      });
+    }
+
+    if (els.inlineToggleEyeBtn && els.inlinePptPasswordInput) {
+      els.inlineToggleEyeBtn.addEventListener('click', () => {
+        const isPass = els.inlinePptPasswordInput.type === 'password';
+        els.inlinePptPasswordInput.type = isPass ? 'text' : 'password';
+        els.inlineToggleEyeBtn.innerHTML = isPass ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+      });
+    }
+
+    // Intercept Download Buttons
+    if (els.heroDownloadPptBtn) {
+      els.heroDownloadPptBtn.addEventListener('click', (e) => {
+        if (!isPptUnlocked()) {
+          e.preventDefault();
+          openPptAuthModal('請先輸入通行密碼 WOLSS 以下載本課 PPTX 原檔', () => {
+            const pptInfo = getPptFileInfo(state.quarter, state.lessonNum);
+            window.location.href = pptInfo.downloadUrl;
+          });
+        }
+      });
+    }
+
+    if (els.slideDownloadPptxBtn) {
+      els.slideDownloadPptxBtn.addEventListener('click', (e) => {
+        if (!isPptUnlocked()) {
+          e.preventDefault();
+          openPptAuthModal('請先輸入通行密碼 WOLSS 以下載本課 PPTX 原檔', () => {
+            const pptInfo = getPptFileInfo(state.quarter, state.lessonNum);
+            window.location.href = pptInfo.downloadUrl;
+          });
+        }
+      });
+    }
+
+    // Print AI Diagrams
+    if (els.btnPrintAiDiagrams) {
+      els.btnPrintAiDiagrams.addEventListener('click', () => {
+        window.print();
+      });
+    }
 
     // Presentation Modal Controls
     if (els.presentModeBtn) els.presentModeBtn.addEventListener('click', openPresentationMode);
@@ -826,8 +1324,13 @@
       if (els.prayerDisplay) els.prayerDisplay.textContent = lesson.prayer || '親愛的天父，感謝你透過本課的話語教導我們。奉主耶穌的名求，阿們！';
     } catch (e) { console.warn('Error setting prayer:', e); }
 
-    // 10. Load Teacher Notes
+        // 10. Load Teacher Notes
     try { loadTeacherNotes(); } catch (e) { console.warn('Error in loadTeacherNotes:', e); }
+
+    // 10.1 Render AI Diagrams & Auxiliary Library
+    try { renderAiDiagramsTab(lesson.id); } catch (e) { console.warn('Error in renderAiDiagramsTab:', e); }
+    try { renderAuxiliaryMaterialsTab(lesson); } catch (e) { console.warn('Error in renderAuxiliaryMaterialsTab:', e); }
+    try { updatePptLockUI(); } catch (e) {}
 
     // 11. Render Slide Deck Presentation Cockpit (BlessEq architecture)
     state.slideIndex = 1;
@@ -1372,6 +1875,10 @@
   }
 
   function renderSlideDeck() {
+    if (!isPptUnlocked()) {
+      updatePptLockUI();
+      return;
+    }
     const slides = getCurrentLessonSlides();
     if (!slides || !slides.length) return;
 
@@ -1855,6 +2362,10 @@
 
   // Presenter Fullscreen Cockpit
   function openPresentationMode() {
+    if (!isPptUnlocked()) {
+      openPptAuthModal('請先輸入通行密碼 WOLSS 以啟動大螢幕放映', openPresentationMode);
+      return;
+    }
     const l = state.currentLesson;
     if (!l) return;
     const slides = getCurrentLessonSlides();

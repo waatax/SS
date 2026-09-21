@@ -1,0 +1,3227 @@
+// Sunday School AI Visual Diagrams & Infographics Dataset (26 Lessons Total)
+window.SS_AI_DIAGRAMS_DATA = {
+  "2026-q3-05": {
+    "id": "2026-q3-05",
+    "title": "尼尼微城的奇蹟",
+    "subtitle": "約拿書1-4章",
+    "quarter": "2026-Q3",
+    "lesson_num": 5,
+    "symbol_title": "暴風大魚與蓖麻樹",
+    "symbol_desc": "象徵上帝超越種族疆界、臨到萬國萬邦豐盛憐憫與不輕易發怒的大愛。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-05\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-05)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "不情願的先知與上帝浩大的憐憫",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "逃往他施",
+        "title": "逃避呼召的沉睡先知",
+        "desc": "約拿不欲向仇敵尼尼微傳道，搭船逃跑，遭遇狂風大浪。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#b84d43"
+      },
+      {
+        "step": "承",
+        "phase": "魚腹禱告",
+        "title": "深淵中的呼求與悔改",
+        "desc": "水手掣籤投下約拿，大魚吞下他，約拿在魚腹三日三夜求告神。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "全城悔改",
+        "title": "四十日宣告與君民披麻",
+        "desc": "約拿宣告審判，尼尼微王帶領全城禁食悔改，神見其悔改便施恩不降災。",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "蓖麻啟示",
+        "title": "上帝眷惜不能分辨左手的十二萬人",
+        "desc": "約拿因蓖麻枯萎發怒，神溫柔質問：你豈不憐惜這座充滿無辜孩童的大城嗎？",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#d97706"
+      }
+    ],
+    "contrast_left_title": "狹隘偏見與審判執著",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "神聖普世大愛與救贖憐憫",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "約拿在魚腹三日三夜預表基督為罪人死而埋葬，第三日從死裡復活，向萬國傳揚和平福音。",
+    "life_app": "不隨便給討厭的同學貼標籤，學習用上帝愛與饒恕的眼睛看待每一個人。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "耶和華啊，…我知道你是有恩典、有憐憫的上帝，不輕易發怒，有豐盛的慈愛，並且後悔不降所說的災。 （約拿書4章2節中段）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-06": {
+    "id": "2026-q3-06",
+    "title": "靠靈不靠力",
+    "subtitle": "我的超級聖靈助推器",
+    "quarter": "2026-Q3",
+    "lesson_num": 6,
+    "symbol_title": "七聯金燈臺與兩棵橄欖樹",
+    "symbol_desc": "象徵教會不是靠屬世金錢勢力支撐，而是被聖靈源源不絕的恩典膏油所充滿托住。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-06\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-06)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "聖靈助推器：不是倚靠勢力，乃是倚靠神的靈",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "建殿停滯",
+        "title": "廢墟中的灰心以色列人",
+        "desc": "被擄歸回的百姓面對重重阻撓，聖殿重建停工十六年，人心沮喪疲憊。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "夜間異象",
+        "title": "七燈臺與兩棵豐滿橄欖樹",
+        "desc": "神向先知撒迦利亞顯明異象：油自橄欖樹源源湧入燈臺，永不熄滅！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "大山挪開",
+        "title": "萬軍之耶和華宣告靠靈成事",
+        "desc": "『大山哪，你算什麼？在所羅巴伯面前必成為平地！』靠靈動工，恩典安放頂石。",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "喜樂歡呼",
+        "title": "不藐視這小事日子的榮耀",
+        "desc": "看似微小的起步在聖靈帶領下必大功告成，百姓以感恩與歡呼見證神蹟。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "倚賴肉體才能與世俗資源",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "信靠聖靈大能與神聖供應",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "所羅巴伯安放頂石預表基督成為教會永久的房角石，聖靈今日仍在信徒心中動工成全善工。",
+    "life_app": "面對背書、考試或服事覺得力不從心時，先靜默向聖靈禱告：『聖靈請來幫助我！』",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「萬軍之耶和華說：『不是倚靠勢力，不是倚靠才能，乃是倚靠我的靈方能成事。』」 ——撒迦利亞書4章6節",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-07": {
+    "id": "2026-q3-07",
+    "title": "你是主冠冕上的寶石",
+    "subtitle": "撒迦利亞書9-14章",
+    "quarter": "2026-Q3",
+    "lesson_num": 7,
+    "symbol_title": "謙和之王與發光寶石",
+    "symbol_desc": "象徵和平之君基督的拯救，以及神子民在主冠冕上如同璀璨寶石般蒙珍愛。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-07\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-07)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "和平之君降臨：我們是主冠冕上發光的珍貴寶石",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "錫安呼喊",
+        "title": "謙和君王騎驢駒進城",
+        "desc": "看哪！你的王來到你這裡，他是公義的，謙謙和和騎著驢駒子。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "立約之血",
+        "title": "從無水坑中釋放被囚之人",
+        "desc": "因立約的血，神釋放絕望被囚的百姓，轉回保障成為滿懷盼望的子民！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#b84d43"
+      },
+      {
+        "step": "轉",
+        "phase": "寶石高舉",
+        "title": "像冠冕上的寶石發光照耀",
+        "desc": "耶和華必像牧人拯救自己的羊群，百姓在祂的地上如同冠冕寶石耀眼奪目。",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "豐盛歡慶",
+        "title": "神恩何等大，美善何其盛",
+        "desc": "神親自作堅固的弓與角石，將和平遍傳全地，引導萬國敬拜和睦。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "世俗王權的刀劍征服與自卑標籤",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "基督和平國度的謙和拯救與尊貴身份",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "撒迦利亞書 9:9 精確預言耶穌受難週騎驢進耶路撒冷，以公義和平帶來萬民的拯救。",
+    "life_app": "當感覺自己平庸、不被看重時，大聲對自己宣告：『我在耶穌眼中是主冠冕上的珍寶！』",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：「看哪！你的王來到你這裏，他是公義的，並且施行拯救。」（撒迦利亞書9章9節下）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-08": {
+    "id": "2026-q3-08",
+    "title": "別怕！榮耀之王在此",
+    "subtitle": "啟示錄1-3章",
+    "quarter": "2026-Q3",
+    "lesson_num": 8,
+    "symbol_title": "榮耀人子與七星金燈臺",
+    "symbol_desc": "象徵掌握死亡陰間鑰匙的復活之王，時刻行走在教會中間看顧扶持。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-08\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-08)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "榮耀人子的顯現：掌握生命終極鑰匙的初與終",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "拔摩流放",
+        "title": "孤島患難中的使徒約翰",
+        "desc": "約翰因傳講神的話被放逐至荒涼的拔摩島，教會正處於羅馬殘酷逼迫的寒冬。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "號筒發聲",
+        "title": "看見耀眼如同烈日的人子",
+        "desc": "轉過身來看見七個金燈臺，身穿長袍、眼目如火焰、聲音如眾水澎湃的榮耀基督！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#d97706"
+      },
+      {
+        "step": "轉",
+        "phase": "右手按撫",
+        "title": "別怕！我是初、是終、是復活的",
+        "desc": "約翰撲倒如死人，耶穌用右手按著他說：『不要懼怕！我曾死過，現在又活了！』",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "門外叩門",
+        "title": "一同坐席與得勝的冠冕",
+        "desc": "掌管七星與鑰匙的主向門徒叩門，應許凡開門迎接祂的，必與祂同享天國筵席。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#2563eb"
+      }
+    ],
+    "contrast_left_title": "對未知與苦難環境的恐懼顫抖",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "看見榮耀復活君王掌權的平靜安穩",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "基督握著死亡與陰間的鑰匙，宣告十字架已徹底摧毀死權，信祂的人永不滅亡。",
+    "life_app": "在黑暗獨處或遭遇害怕的事時，深呼吸並默想主耶穌溫暖的右手正按在你肩頭。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「看哪，我站在門外叩門，若有聽見我聲音就開門的，我要進到他那裏去，我與他，他與我一同坐席。」 （啟示錄3章20節）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-09": {
+    "id": "2026-q3-09",
+    "title": "誰有「開門密碼」？天上的祕密書卷",
+    "subtitle": "啟示錄4-9章",
+    "quarter": "2026-Q3",
+    "lesson_num": 9,
+    "symbol_title": "七印密卷與被殺羔羊",
+    "symbol_desc": "象徵唯有藉著順服捨命流血的耶穌基督，才能揭開救贖歷史的奧祕奧祕與天國命運。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-09\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-09)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "被殺的羔羊配得榮耀：揭開宇宙命運的終極封印",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "天門敞開",
+        "title": "寶座與七印嚴封的書卷",
+        "desc": "天上有寶座，坐寶座的手中有內外都寫著字的書卷，用七印嚴密嚴封。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "大聲哭泣",
+        "title": "天上地上無人配展開書卷",
+        "desc": "天使大聲問：『誰配展開這書卷？』找不到一人，約翰因無人配看而大聲哭泣。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#64748b"
+      },
+      {
+        "step": "轉",
+        "phase": "長老安慰",
+        "title": "猶大獅子與被殺站立的羔羊",
+        "desc": "長老說：『別哭！猶大支派的獅子已得勝！』約翰看見寶座中有羔羊，像是被殺過的！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#b84d43"
+      },
+      {
+        "step": "合",
+        "phase": "全天頌讚",
+        "title": "萬物同唱新歌歸給羔羊",
+        "desc": "四活物與二十四位長老俯伏敬拜，億萬天使同聲高唱：『曾被殺的羔羊是配得一切尊榮的！』",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#d97706"
+      }
+    ],
+    "contrast_left_title": "靠人的力量與才智試圖解開未來難題",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "唯有十字架捨命得勝的羔羊配得掌管一切",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "獅子（力量）與羔羊（柔順代贖）在基督身上完美結合，證明真得勝乃是藉著犧牲之愛。",
+    "life_app": "在人際衝突中不靠暴力或嗓門大爭勝，效法羔羊以溫柔、真理和禱告帶來真正的和平。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：「看哪，猶大支派中的獅子，大衛的根，他已得勝，能以展開那書卷，揭開那七印。」（啟示錄5章5節下半）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-10": {
+    "id": "2026-q3-10",
+    "title": "天國見證人",
+    "subtitle": "啟示錄十至十一章",
+    "quarter": "2026-Q3",
+    "lesson_num": 10,
+    "symbol_title": "彩虹天使與小書卷",
+    "symbol_desc": "象徵信徒吃下神的話語雖有代價卻甘甜無比，在幽暗世界中作忠心的真理金燈臺。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-10\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-10)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "世上的燈臺使命：吃下小書卷，勇敢作天國見證人",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "天使降臨",
+        "title": "身披彩虹手持展開小書卷",
+        "desc": "大能天使腳踏海陸，手拿展開的小書卷，宣告上帝奧祕的旨意不再耽延。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "吞吃書卷",
+        "title": "口中甜如蜜，肚子卻發苦",
+        "desc": "約翰接過書卷吃下，口中嘗到真理無比甘甜，但內化傳講時卻需承擔苦難代價。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#d97706"
+      },
+      {
+        "step": "轉",
+        "phase": "兩見證人",
+        "title": "如同點燃的火把與橄欖樹",
+        "desc": "兩位見證人披麻傳道一千二百六十天，被仇敵殺害卻在三天半後被上帝復活接升天！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "國度歸主",
+        "title": "世上的國成我主與基督的國",
+        "desc": "第七位天使吹號，天上有大聲音響起：世上的國成了我主和主基督的國，祂要作王直到永遠！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#b88628"
+      }
+    ],
+    "contrast_left_title": "害怕世俗嘲笑與同儕壓力而隱藏信仰",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "靠主剛強作明光照耀，即使遇挫折也不動搖",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "兩位見證人的死而復活彰顯基督復活的大能，任何抵擋真理的黑暗都無法撲滅生命的見證。",
+    "life_app": "每天早晨讀一句聖經並像吃點心一樣記在心裡，在學校用誠實行為勇敢為耶穌作見證。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：不再有時日了。…你必指著多民、多國、多方、多王再說預言。～啟示錄10章6節下半，11節",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-11": {
+    "id": "2026-q3-11",
+    "title": "錫安山的讚美與金鐮刀的收割",
+    "subtitle": "啟示錄 12–15 章",
+    "quarter": "2026-Q3",
+    "lesson_num": 11,
+    "symbol_title": "金色琴與熟透麥穗鐮刀",
+    "symbol_desc": "象徵末世聖徒對救主終極信靠的新歌讚美，以及天國公義成熟的終極大豐收。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-11\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-11)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "錫安山上的新歌：迎接金鐮刀的公義收割",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "錫安站立",
+        "title": "十四萬四千人額上有名",
+        "desc": "羔羊站在錫安山，蒙救贖的子民額上有父與羔羊的名字，忠心跟隨羔羊。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "琴聲新歌",
+        "title": "如眾水雷鳴的磅礡讚美",
+        "desc": "天上聲音如眾水與大雷，彈琴所唱的新歌唯有從地上買來的人能學，純全無瑕疵。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#d97706"
+      },
+      {
+        "step": "轉",
+        "phase": "金冠坐雲",
+        "title": "手拿鋒利金鐮刀的人子",
+        "desc": "看哪！有一朵白雲，雲上坐著人子，頭戴金冠冕，手裡拿著極鋒利的金色鐮刀！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#b88628"
+      },
+      {
+        "step": "合",
+        "phase": "莊稼熟透",
+        "title": "地上的麥穗歡呼迎來大豐收",
+        "desc": "天使大呼：『伸出鐮刀收割吧！地上的莊稼已經熟透了！』上帝公義與愛結出完美果實。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "隨波逐流被世俗享樂風氣同化",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "作初熟的果子歸給神，專一跟隨羔羊到各處",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "金鐮刀的收割預表基督再來時的大審判與天國大團聚，善惡終有分別，信徒得享公義冠冕。",
+    "life_app": "檢視自己的生活是否有「好果子」（如善良、誠實、體貼），立志成為上帝麥田裡的健康好麥。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：「因為收割的時候已經到了，地上的莊稼已經熟透了。」（啟示錄14章15節下半）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-12": {
+    "id": "2026-q3-12",
+    "title": "永恆的通行證",
+    "subtitle": "他們與羔羊爭戰，羔羊必勝過他們，因為羔羊是萬主之主、萬王之王。同著羔羊的，就是蒙召、被選、有忠心的，也必得勝。 ——啟示錄17章14節",
+    "quarter": "2026-Q3",
+    "lesson_num": 12,
+    "symbol_title": "生命冊與白馬騎士",
+    "symbol_desc": "象徵唯有名字被羔羊鮮血買贖、記錄在生命冊上的子民，才能通過終極審判進入永恆家鄉。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-12\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-12)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "白色大寶座前的省察：名字寫在生命冊上的終極通行證",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "誠信真實",
+        "title": "騎白馬的天國萬王之王",
+        "desc": "天開了！基督騎著白馬降臨，名稱為『神之道』，眼如烈火，統領天軍得勝。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "寶座設立",
+        "title": "天地都逃避的白色大寶座",
+        "desc": "白色大寶座上那位威嚴聖潔，海交出死人，天地都避開，案件在審判前全面敞開。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#64748b"
+      },
+      {
+        "step": "轉",
+        "phase": "冊子展開",
+        "title": "案卷展開與至關重要的生命冊",
+        "desc": "死人照著案卷所寫受審判；另外有一卷展開，就是至關緊要的『羔羊生命冊』！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "永恆平安",
+        "title": "名錄其上者脫離第二次的死",
+        "desc": "凡名字記在生命冊上的，必蒙拯救進入榮耀光明中，永遠與主同在享受福樂。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "以為靠名牌、好成績就能換取永恆價值",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "唯有投靠耶穌基督，得著寫在天上的生命通行證",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "生命冊不是靠善行積分兌換，而是主耶穌在十架上用寶血為我們簽署的永恆約定。",
+    "life_app": "清楚向耶穌承認自己的軟弱與罪，真誠邀請耶穌作生命的主，確信自己的名字已刻在天國冊上。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "他們與羔羊爭戰，羔羊必勝過他們，因為羔羊是萬主之主、萬王之王。同著羔羊的，就是蒙召、被選、有忠心的，也必得勝。 ——啟示錄17章14節",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-13": {
+    "id": "2026-q3-13",
+    "title": "新天新地：上帝與我同住！",
+    "subtitle": "（啟示錄20-22章）",
+    "quarter": "2026-Q3",
+    "lesson_num": 13,
+    "symbol_title": "明亮碧玉聖城與生命泉",
+    "symbol_desc": "象徵上帝與蒙救贖百姓永恆同在、擦乾每一滴眼淚、再無死別創傷的美麗新家鄉。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q3-13\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q3-13)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "不再有眼淚的世界：新天新地，上帝與我們永遠同住",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "舊事已過",
+        "title": "先前的天地海都不再有了",
+        "desc": "看見新天新地，聖城新耶路撒冷由神那裡從天而降，預備好了，如新婦妝飾整齊。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "擦乾眼淚",
+        "title": "上帝要親自與他們同住",
+        "desc": "神要親自擦乾他們一切的眼淚；不再有死亡，也不再有悲哀、哭號、疼痛，因為舊事都過去了！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#16a34a"
+      },
+      {
+        "step": "轉",
+        "phase": "更新萬物",
+        "title": "坐寶座的說：看哪，我將一切更新了！",
+        "desc": "坐寶座的說：『都成了！我是阿拉法，我是俄梅戛！我要將生命泉的水白白賜給口渴的人！』",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "生命永流",
+        "title": "聖城中的生命樹與永遠的王權",
+        "desc": "生命水的水晶河從寶座流出，生命樹每月結十二樣果子，神的僕人要見祂的面，一同作王！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#b88628"
+      }
+    ],
+    "contrast_left_title": "沈溺於屬世終將朽壞破滅的短暫安樂",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "向著永恆沒有哭泣、不再有痛苦的家鄉奔跑",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "啟示錄的結尾正是聖經創世記伊甸園的完美復原與昇華，基督是城中的永恆光輝。",
+    "life_app": "當身邊有人難過哭泣時，遞上一張紙巾或給一個溫暖擁抱，學習像耶穌一樣擦乾他人眼淚。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：「看哪，上帝的帳幕在人間。他要與人同住，他們要作他的子民，上帝要親自與他們同在，作他們的上帝。」（啟示錄21章3節下半節）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-01": {
+    "id": "2026-q4-01",
+    "title": "從曠野走向應許之地",
+    "subtitle": "2026Q4-01",
+    "quarter": "2026-Q4",
+    "lesson_num": 1,
+    "symbol_title": "摩西接力之杖與應許果實",
+    "symbol_desc": "象徵承先啟後的屬靈接棒、告別漂泊徘徊，勇敢邁進神所應許的豐盛產業。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-01\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-01)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "屬靈傳承接力賽：剛強壯膽，從曠野走向應許地",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "曠野回顧",
+        "title": "何烈山起行與四十年漂泊",
+        "desc": "以色列人在加低斯巴尼亞因畏懼巨人而退縮，在曠野漂泊四十年，神依舊眷顧保護。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "交接囑託",
+        "title": "摩西向約書亞按手祝福",
+        "desc": "老僕人摩西忠心站立，向新一代領袖約書亞宣告：『你當剛強壯膽，主必親自與你同去！』",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "放眼迦南",
+        "title": "窺探美好流奶與蜜的美地",
+        "desc": "神命定百姓往前行，渡過約旦河，得著美地為業，不要畏懼前方的巨人和堅固城壘！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "世代更新",
+        "title": "同心起行跨越信仰新篇章",
+        "desc": "新一代百姓昂首起立，背負榮耀約櫃，全體順服邁向神所賜福的嶄新里程碑。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "回顧過去失敗心懷不平，害怕未來挑戰而躊躇不前",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "數算過往恩典剛強壯膽，牽手傳承跟隨神的雲柱火柱",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "約書亞（意為耶和華是拯救）預表耶穌，摩西律法引領人知罪，唯有基督親自帶領我們進入屬天應許之地。",
+    "life_app": "在升年級、換新環境時不害怕，主動結交新朋友，學習把『害怕』化為向神的『禱告』。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「如今我將這地擺在你們面前；你們要進去得這地，就是耶和華向你們列祖亞伯拉罕、以撒、雅各起誓應許賜給他們和他們後裔為業之地。」 📖 申命記 1章8節",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-02": {
+    "id": "2026-q4-02",
+    "title": "讓上帝的話充滿每一天",
+    "subtitle": "「以色列啊，你要聽！耶和華──我們上帝是獨一的主。你要盡心、盡性、盡力愛耶和華──你的上帝。」",
+    "quarter": "2026-Q4",
+    "lesson_num": 2,
+    "symbol_title": "示瑪經文盒與心靈石版",
+    "symbol_desc": "象徵將上帝的話繫在手上作微記、戴在額上作經框、寫在門框上，讓真理浸透生活的每一刻。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-02\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-02)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "以色列啊你要聽（Shema）：讓真理如呼吸般融入日常",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "神聖呼喚",
+        "title": "示瑪宣告：獨一的主耶和華",
+        "desc": "『以色列啊，你要聽！耶和華我們上帝是獨一的主。你要盡心、盡性、盡力愛主你的神。』",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "銘刻心版",
+        "title": "今日所吩咐的話都要記在心上",
+        "desc": "真理不是放在書架上的裝飾品，而是要刻在心版上，成為行事為人的內在指南針。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#d97706"
+      },
+      {
+        "step": "轉",
+        "phase": "隨時談論",
+        "title": "在家、行路、躺下、起來的教導",
+        "desc": "無論坐在家裡、行在路上、躺下、起來都要談論，殷勤教訓兒女，讓全家充滿敬畏氛圍。",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "防範忘恩",
+        "title": "在得著豐盛房屋時不可忘記主",
+        "desc": "當你吃得飽足、住美好房屋時，要格外謹慎，免得忘記領你出埃及作奴之地的耶和華！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#b84d43"
+      }
+    ],
+    "contrast_left_title": "週日做基督徒、週一至週六隨從世俗的雙面生活",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "將神的話語融入起臥行坐，盡心盡性盡力愛主",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "耶穌親自將示瑪申命記 6:5 宣告為聖經中最重要的大誡命（可12:29-30），藉著愛主流露出愛人如己。",
+    "life_app": "在書桌前貼上一句本週金句卡，每天早晨起床和晚上睡前讀一遍，讓神的話伴隨一天生活。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「以色列啊，你要聽！耶和華──我們上帝是獨一的主。你要盡心、盡性、盡力愛耶和華──你的上帝。」 📖 申命記 6章5節",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-03": {
+    "id": "2026-q4-03",
+    "title": "記得上帝的恩典",
+    "subtitle": "申命記七至九章",
+    "quarter": "2026-Q4",
+    "lesson_num": 3,
+    "symbol_title": "四十載未破草鞋與嗎哪石罐",
+    "symbol_desc": "象徵人在曠野困頓中並非倚靠物質存活，而是倚靠耶和華口中所出的一切話；銘記浩大恩澤。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-03\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-03)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "腳上的鞋未曾穿破：數算四十年曠野深恩，絕不忘本",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "試煉之地",
+        "title": "大而可怕的乾渴無水曠野",
+        "desc": "以色列行走在有火蛇、蠍子的曠野，經歷缺乏食物與水源的困境，上帝在考驗其真心。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "日降嗎哪",
+        "title": "叫你知道人活著不是單靠食物",
+        "desc": "神降下嗎哪供養全族，使百姓體會：人活著不是單靠食物，乃是靠耶和華口裡所出的一切話！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "奇蹟衣履",
+        "title": "四十年衣服沒有穿破，腳沒有腫",
+        "desc": "漫長歲月中，百姓的衣服沒有穿破，腳也沒有走腫，神如同慈父管教兒子一樣保護他們。",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "警惕自誇",
+        "title": "莫稱是我力量得這豐盛貨財",
+        "desc": "日後飽足得資財時，不可心裡說『是我手力量得來的』；要記念那賜你力量得財富的神！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#d97706"
+      }
+    ],
+    "contrast_left_title": "得意時沾沾自喜、歸功於自己，失意時埋怨神",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "在一切平淡日常中看見超自然保守，常常感恩謝恩",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "耶穌在曠野受魔鬼試探四十晝夜時，正是引用申命記 8:3 擊退撒旦，宣告信靠神話語勝過麵包。",
+    "life_app": "用餐前不走馬看花，真誠地閉上眼睛為眼前的食物和廚房辛勞預備的家人作感恩禱告。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「你也要記念耶和華──你的上帝在曠野引導你這四十年，是要苦煉你，試驗你，要知道你心內如何，肯守他的誡命不肯。」 （申命記8章2節）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-04": {
+    "id": "2026-q4-04",
+    "title": "慷慨的雙手與豐盛的祝福",
+    "subtitle": "📖 背誦金句：「所以我吩咐你說：『總要向你地上困苦窮乏的弟兄鬆開手』。」",
+    "quarter": "2026-Q4",
+    "lesson_num": 4,
+    "symbol_title": "豁免之手與流溢橄欖油",
+    "symbol_desc": "象徵領受上帝豁免恩典的子民，不緊握自私拳頭，樂於向貧弱弟兄鬆開雙手慷慨給予。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-04\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-04)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "豁免年的鬆開雙手：在給予中經歷更豐盛的天國祝福",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "貧困呼求",
+        "title": "身邊弟兄陷入債務困境",
+        "desc": "社會中難免有貧乏之人，若弟兄借貸無力償還，極易陷入世代貧困的痛苦循環中。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "神聖定例",
+        "title": "第七年豁免債務的憐憫法則",
+        "desc": "上帝設立第七年為豁免年，各債主要把借給鄰舍的債豁免，因為耶和華的豁免年已經宣告！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "慷慨鬆手",
+        "title": "不可硬著心、不可緊閉你的拳頭",
+        "desc": "神吩咐：不可因豁免年將近就生出惡念怠慢窮弟兄；要慇懃向他鬆開手，照他所缺乏的借給他！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "天窗傾福",
+        "title": "在一切所行的事上蒙主賜大福",
+        "desc": "甘心給予的人必不至貧困，耶和華必在你一切手裡所辦的事業上，大大賜福於你！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#d97706"
+      }
+    ],
+    "contrast_left_title": "緊握資源的小氣自私與計較得失",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "深知一切皆為神託付管家，樂意施捨歡樂給予",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "豁免年預表耶穌基督帶來的屬天禧年，祂免了我們的滔天罪債，使我們能白白施恩饒恕他人。",
+    "life_app": "整理自己狀況良好的二手玩具或文具，在教會或學校愛心奉獻箱中分享給有需要的小朋友。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "📖 背誦金句：「所以我吩咐你說：『總要向你地上困苦窮乏的弟兄鬆開手』。」",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-05": {
+    "id": "2026-q4-05",
+    "title": "打開我的耳，聆聽上帝聲",
+    "subtitle": "「耶和華你的上帝要從你們弟兄中間給你興起一位先知，像我，你們要聽從他。」",
+    "quarter": "2026-Q4",
+    "lesson_num": 5,
+    "symbol_title": "受教之耳與先知號角",
+    "symbol_desc": "象徵拒絕占卜迷信的虛妄聲音，全心傾聽上帝藉終極大先知耶穌基督所說的真理聖言。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-05\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-05)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "興起像摩西的先知：分辨萬千噪音，傾聽神聖真理",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "迷信誘惑",
+        "title": "外邦占卜、觀兆、過火之惡俗",
+        "desc": "迦南地充滿算命、占卜、行邪術之風，人們企圖透過靈界捷徑操縱命運，陷於恐懼中。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "敬畏誓約",
+        "title": "在神面前做無可指責的完全人",
+        "desc": "上帝警告百姓：不可學習那些令人憎惡的惡俗，上帝的子民單單屬於主，當全心仰賴真理。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "終極應許",
+        "title": "上帝必興起一位像摩西的先知",
+        "desc": "神宣告：『我必在他們弟兄中間，給他們興起一位先知像你，我要將當說的話傳給他！』",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "受教順服",
+        "title": "你們要聽從他，必得生命引導",
+        "desc": "凡不聽從這位先知奉神名所說之話的，神必親自追討；聽從真理的必享平安與生命路標。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "好奇沉迷於星座、算命、網路謠言等虛妄聲音",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "每天以禱告與聖經校準心靈，定睛基督清楚話語",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "彼得在使徒行傳 3:22 清楚指出：申命記預言『像摩西的大先知』就是耶穌基督，祂是道成肉身的終極真理。",
+    "life_app": "學會『安靜心聆聽』：遇到生氣或困惑時，不急著發脾氣或聽信小道消息，先到安靜處求問主耶穌。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「耶和華你的上帝要從你們弟兄中間給你興起一位先知，像我，你們要聽從他。」",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-06": {
+    "id": "2026-q4-06",
+    "title": "溫柔的守護者",
+    "subtitle": "兒童主日學",
+    "quarter": "2026-Q4",
+    "lesson_num": 6,
+    "symbol_title": "屋頂護欄與母鳥巢穴",
+    "symbol_desc": "象徵上帝細微入微的仁愛法規，教導人在微小細節中尊重生命、體貼弱小、善待大自然。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-06\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-06)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "微小細節處的仁愛：作上帝美善造物的溫柔守護者",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "防患未然",
+        "title": "建造新屋必安設屋頂欄杆",
+        "desc": "摩西律法規定蓋新屋必須設欄杆，免得有人不小心從屋頂掉下；上帝極其看重人命的平安。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "憐恤走獸",
+        "title": "不可將牛與驢同軛耕地",
+        "desc": "牛驢體力懸殊，同軛極其痛苦；不可籠住踹穀之牛的嘴——上帝深切顧念動物的勞苦與感受。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#d97706"
+      },
+      {
+        "step": "轉",
+        "phase": "愛護生態",
+        "title": "取雛留母，尊重生命繁衍律則",
+        "desc": "若在路上遇見鳥巢，不可連母帶雛一併取走；要放過母鳥，使你得福在世長久！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "顧念弱者",
+        "title": "田角遺穗留給寄居與孤兒寡婦",
+        "desc": "收割莊稼不可割盡田角，掉落的葡萄不可撿盡，要留給身邊的窮人與異鄉過客。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#b88628"
+      }
+    ],
+    "contrast_left_title": "對公共安全粗心大意，對動物與環境冷酷殘忍",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "在日常生活瑣事中流露神聖體貼，做忠心的仁愛管家",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "耶穌正是那位「壓傷的蘆葦他不折斷，將殘的燈火他不吹滅」的溫柔牧者，深切顧念每一個受傷心靈。",
+    "life_app": "外出遊玩或在學校時，主動隨手撿起走廊掉落的水壺或垃圾，保護同學不跌倒，細心照顧小動物。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「耶和華啊，人民、牲畜你都救護。」",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-07": {
+    "id": "2026-q4-07",
+    "title": "人生不迷路，愛與生命的約定",
+    "subtitle": "兒童主日學 · 申命記30章",
+    "quarter": "2026-Q4",
+    "lesson_num": 7,
+    "symbol_title": "生命與死亡的分岔路標",
+    "symbol_desc": "象徵上帝陳明在前的生命之道，呼籲人運用自由意志，堅定揀選愛主、順服律法的永生道路。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-07\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-07)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "生死岔路口的抉擇：我將生死禍福陳明，你當揀選生命",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "話語親近",
+        "title": "這誡命離你不遠，就在你口中",
+        "desc": "神的話不是難行的，也不是在天上或海極叫人摘取；這話就在你口中、心裡，使你可以遵行！",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#2563eb"
+      },
+      {
+        "step": "承",
+        "phase": "嚴肅陳明",
+        "title": "生與福、死與禍擺在眼前",
+        "desc": "看哪！我今日將生與福、死與禍陳明在你面前：若愛主行祂的道，就必存活且得蒙大福。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#d97706"
+      },
+      {
+        "step": "轉",
+        "phase": "天地作證",
+        "title": "你要揀選生命，使你與後裔存活",
+        "desc": "摩西呼天喚地作見證：你和你的後裔要揀選生命，且要愛耶和華你的神，聽從祂、專靠祂！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#16a34a"
+      },
+      {
+        "step": "合",
+        "phase": "生命乃主",
+        "title": "祂是你的生命，日子長久的基石",
+        "desc": "因為祂是你的生命，你的日子長久也都在乎祂；在神永恆約定中，腳步永不走偏迷途。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#b88628"
+      }
+    ],
+    "contrast_left_title": "誤以為自由就是隨心所欲、任意妄為，結果陷入泥淖",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "認定在神真理框架內的順服，才是真實釋放與生命之福",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "耶穌宣告：『我就是道路、真理、生命，若不藉著我，沒有人能到父那裡去。』揀選基督就是揀選永恆生命。",
+    "life_app": "面對朋友慫恿做不好的事（如說謊、作弊、偷看手機）時，勇敢在心裡說：『我揀選走耶穌喜悅的生命路！』",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「我將生死禍福陳明在你面前，所以你要揀選生命，使你和你的後裔都得存活。」",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-08": {
+    "id": "2026-q4-08",
+    "title": "一生跟隨，堅守上帝約",
+    "subtitle": "申命記卅一至卅四章",
+    "quarter": "2026-Q4",
+    "lesson_num": 8,
+    "symbol_title": "尼波山之杖與永恆安息",
+    "symbol_desc": "象徵在神全家盡忠的僕人形象，肉眼雖無法進入屬地迦南，卻在屬天永恆中得著最高賞賜。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-08\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-08)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "尼波山巔的忠心交帳：摩西在神全家盡忠的偉大背影",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "歲月無憾",
+        "title": "一百二十歲眼目沒有昏花",
+        "desc": "摩西年一百二十歲，氣力沒有衰敗，但知道自己離世的時候已到，平靜預備歸程。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "宣唱詩歌",
+        "title": "向百姓傳頌永恆的磐石之歌",
+        "desc": "在生命終點，摩西作歌教導以色列全會眾，宣告耶和華是純全無瑕疵的公義磐石！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "遠眺美地",
+        "title": "尼波山頂俯瞰流奶與蜜的迦南",
+        "desc": "登上尼波山頂，神親自引導他縱覽應許地全境；雖未能親履其地，心中卻滿溢神聖平安。",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "神自埋葬",
+        "title": "空前絕後的先知在主懷安息",
+        "desc": "耶和華親自將僕人摩西埋葬；以後以色列中再沒有興起先知像摩西那樣與神面對面相聚。",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "爭競一生功名結果，因未達最後目標而憤憤不平",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "單單在乎忠心盡職，欣然將未竟使命交給上帝與後繼者",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "摩西在神全家作僕人盡忠，而基督卻是作為兒子治理神的家（來3:5-6），成就更美的永遠之約。",
+    "life_app": "不論被分配到值日生掃地還是領唱詩歌，都不偷懶抱怨，學習像摩西一樣「在小事上盡忠到底」。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「摩西為僕人，在上帝的全家誠然盡忠，",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-09": {
+    "id": "2026-q4-09",
+    "title": "眼界大翻轉：尋找真正的寶藏",
+    "subtitle": "背誦金句：「除你以外，在天上我有誰呢？除你以外，在地上我也沒有所愛慕的。」",
+    "quarter": "2026-Q4",
+    "lesson_num": 9,
+    "symbol_title": "聖所金香爐與扶持右手",
+    "symbol_desc": "象徵從嫉妒世俗亨通的泥淖中拔出，進入神的聖所看透永恆結局，認定上帝為心靈至寶。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-09\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-09)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "進入聖所的眼界大翻轉：除祢以外，在天在地我無所愛",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "險些跌倒",
+        "title": "看見狂傲惡人享平安而心懷不平",
+        "desc": "詩人見惡人腰骨強壯、財寶加增，自己終日勞苦反遭災禍，心中酸苦，險些失足滑跌。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#b84d43"
+      },
+      {
+        "step": "承",
+        "phase": "心智困惑",
+        "title": "思索這事怎能如此公義公平",
+        "desc": "百思不得其解，若向外人訴說又怕絆倒神的兒女；內心充滿劇烈困惑與信仰掙扎。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#64748b"
+      },
+      {
+        "step": "轉",
+        "phase": "進入聖所",
+        "title": "豁然開朗看清惡人的終局在滑地",
+        "desc": "等我進了神的聖所，思想他們的結局：祢實在把他們安在滑地，使他們頃刻滅亡！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "至寶歸主",
+        "title": "除祢以外在天有誰？神是我心力量",
+        "desc": "『祢常攙著我的右手。除祢以外，在天我有誰呢？除祢以外，在地上我也沒有所愛慕的！』",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "拿世俗財富、社群按讚數與同儕相比，自怨自艾",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "進入禱告與敬拜的聖所，以屬天永恆座標評斷萬事",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "當耶穌被釘十架看似全然失敗時，卻在至聖所撕裂幔子成就永遠救贖；神是我們永遠的福分。",
+    "life_app": "當羨慕別人家裡很有錢或買新玩具時，安靜跟耶穌說：『主耶穌，有祢住在我的心裡，我最富足！』",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：「除你以外，在天上我有誰呢？除你以外，在地上我也沒有所愛慕的。」",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-10": {
+    "id": "2026-q4-10",
+    "title": "從荒田到恩典的生命冒險",
+    "subtitle": "路得記 1–4 章",
+    "quarter": "2026-Q4",
+    "lesson_num": 10,
+    "symbol_title": "金黃麥穗與贖回者衣襟",
+    "symbol_desc": "象徵外邦拾穗窮女路得的堅定信靠，以及波阿斯至近親屬救贖（Go'el）預表基督捨命大愛。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-10\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-10)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "拾穗荒田裡的奇異恩典：遇見滿有慈愛的親屬救贖者",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "滿滿出去",
+        "title": "拿俄米在摩押地喪夫喪子歸回",
+        "desc": "饑荒中出走摩押，十年後滿滿出去卻空空歸回；路得定意跟隨：『你的神就是我的神！』",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "荒田拾穗",
+        "title": "恰巧來到至近親屬波阿斯的田裡",
+        "desc": "路得清晨在烈日下彎腰拾麥穗，『恰巧』來到大財主波阿斯的田地，波阿斯厚待保護她。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "衣襟遮蓋",
+        "title": "請求至近親屬行贖回的 Hesed",
+        "desc": "夜間麥場上，路得求波阿斯以衣襟遮蓋；波阿斯甘願承擔責任，依法在城門口贖回產業與路得！",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "名列家譜",
+        "title": "生出俄備得，成為大衛王之祖",
+        "desc": "孤苦寡婦蒙救贖，生下俄備得，成為大衛王的祖父，更成為救主耶穌基督肉身家譜的榮耀一員！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "在貧困絕境中埋怨命運，拒絕承擔責任",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "忠心相伴不離不棄，在每一件平凡小事中經歷神的恩典安排",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "波阿斯是親屬贖回者（Go'el），預表基督成為肉身作我們的至近親屬，用重價把我們從罪惡荒田中贖回。",
+    "life_app": "主動關心身邊新轉學或看起來害羞寂寞的同學，像波阿斯對路得一樣，主動對他說一句鼓勵的話。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "📖 背誦金句：「你們要嘗嘗主恩的滋味，便知道他是美善；投靠他的人有福了！」～詩篇 34 篇 8 節",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-11": {
+    "id": "2026-q4-11",
+    "title": "天窗的鑰匙，全然的奉獻",
+    "subtitle": "瑪拉基書三章十節",
+    "quarter": "2026-Q4",
+    "lesson_num": 11,
+    "symbol_title": "敞開天窗與十一初熟果",
+    "symbol_desc": "象徵信徒放下對金錢的自私抓取，以全心的十分之一奉獻尊榮神，經歷天上窗戶敞開的甘霖傾倒。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-11\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-11)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "天窗的黃金鑰匙：以此試試我，是否敞開天窗傾福於你",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "奪取神物",
+        "title": "以色列人在奉獻上的虧欠偷竊",
+        "desc": "百姓問：『我們在何事上奪取了神的物？』神指出：在當納的十分之一和當獻的供物上！",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#b84d43"
+      },
+      {
+        "step": "承",
+        "phase": "荒涼咒詛",
+        "title": "只顧自己房屋，倉廩卻受蝗蟲吞噬",
+        "desc": "百姓把次好的奉獻給神，自己辛苦勞碌卻如裝入破漏囊中，天不下雨，地不出土產。",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#64748b"
+      },
+      {
+        "step": "轉",
+        "phase": "信心挑戰",
+        "title": "萬軍之耶和華說：以此試試我！",
+        "desc": "『你們要將當納的十分之一全然送入倉庫，使我家有糧；以此試試我，是否為你們敞開天窗！』",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "傾福無處",
+        "title": "傾福與你們，甚至無處可容",
+        "desc": "神應許必為敬畏祂的人斥責蝗蟲，保全葡萄不落果，萬國必稱你們為有福的，地必成為喜樂之地！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "把零用錢全都花在滿足自己慾望上，捨不得奉獻給神",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "學習將初熟的十分之一優先奉獻，經歷神豐盛超自然的信實供應",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "基督將自己無瑕疵的生命全然奉獻在十架上作為馨香的祭，使我們在祂裡面得著天上各樣屬靈福氣。",
+    "life_app": "從這週零用錢開始，練習把十分之一放進奉獻袋，用感恩喜樂的心投入教會奉獻箱。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "📖 背誦金句：「萬軍之耶和華說：你們要將當納的十分之一全然送入倉庫，使我家有糧，以此試試我，是否為你們敞開天上的窗戶，傾福與你們，甚至無處可容。」（瑪拉基書 3:10）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-12": {
+    "id": "2026-q4-12",
+    "title": "大喜的信息：救主基督降生了！",
+    "subtitle": "兒童主日學聖誕特輯",
+    "quarter": "2026-Q4",
+    "lesson_num": 12,
+    "symbol_title": "伯利恆之星與馬槽聖嬰",
+    "symbol_desc": "象徵神榮耀真光照亮在死蔭幽谷的世人，天軍天使歡呼宣告關乎萬民的終極大喜福音。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-12\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-12)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "伯利恆曠野的聖誕曙光：大喜的信息是關乎萬民的",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "客店無處",
+        "title": "微小伯利恆客店馬槽中的降生",
+        "desc": "約瑟和馬利亞回鄉報名上冊，客店沒有客房，嬰孩耶穌降生在冰冷簡陋的馬槽裡。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "野地大光",
+        "title": "天使向夜間看守羊群的牧羊人顯現",
+        "desc": "伯利恆野地的牧羊人正在防備野獸，忽然主榮耀的大光四面照耀，天使宣告大喜信息！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "天軍頌讚",
+        "title": "在至高之處榮耀歸神，地上平安歸人",
+        "desc": "忽然有一大隊天軍同天使讚美神說：『在至高之處榮耀歸與神！在地上平安歸與祂所喜悅的人！』",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "尋見傳揚",
+        "title": "牧羊人急忙朝拜，歡喜傳開福音",
+        "desc": "牧羊人進城看見嬰孩包著布臥在馬槽裡，就證實了天使的話，歡喜歸榮耀給神並到處傳揚！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "將聖誕節過成只有吃大餐、買禮物的世俗商場派對",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "看見上帝將至寶獨生子賜給人類的捨己大愛，得著真正的屬天平安",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "天上的榮耀之王降卑生在馬槽，為要使我們這些卑微貧窮的罪人能藉著祂成為神榮耀的兒女。",
+    "life_app": "親手寫一張「耶穌愛你」的聖誕祝福卡片，送給鄰居、管理員阿伯或班上最少朋友的同學。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q4-13": {
+    "id": "2026-q4-13",
+    "title": "喜樂不打烊，我的心靈充電站",
+    "subtitle": "「我靠著那加給我力量的，凡事都能做。」",
+    "quarter": "2026-Q4",
+    "lesson_num": 13,
+    "symbol_title": "鎖鏈中的百合與心靈活泉",
+    "symbol_desc": "象徵即使身處羅馬監獄鎖鏈捆鎖，靈魂仍因聯結基督而湧流出超然不絕的長久喜樂。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"grad_2026-q4-13\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"url(#grad_2026-q4-13)\" stroke-width=\"3\" stroke-dasharray=\"4 2\"/><path d=\"M35 50 L50 35 L65 50 L50 65 Z\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"6\" fill=\"#b45309\"/></svg>",
+    "story_theme": "羅馬監獄裡的喜樂之泉：靠著加給我力量的，凡事都能做",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "身陷囹圄",
+        "title": "羅馬監獄的鎖鏈與患難考驗",
+        "desc": "使徒保羅被囚禁在羅馬監獄中，面對可能的死刑與惡劣環境，但他筆下卻充滿無盡的喜樂。",
+        "tag": "階段起",
+        "icon": "fa-flag",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "秘訣顯露",
+        "title": "無論處卑賤或豐富，我都得了祕訣",
+        "desc": "保羅宣告：我已經學會了，無論在什麼景況都可以知足；我知道怎樣處卑賤，也知道怎樣處豐富！",
+        "tag": "階段承",
+        "icon": "fa-compass",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "超然神能",
+        "title": "我靠著那加給我力量的，凡事都能做！",
+        "desc": "喜樂不是因為順境，而是源自基督常駐心間：『我靠著那加給我力量的，凡事都能做！』",
+        "tag": "階段轉",
+        "icon": "fa-bolt",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "喜樂長存",
+        "title": "應當一無掛慮，靠主常常喜樂",
+        "desc": "應當一無掛慮，只要凡事藉著禱告祈求與感謝，神所賜出人意料的平安必保守心懷意念！",
+        "tag": "階段合",
+        "icon": "fa-star",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "環境順心就笑、稍微不順心就大發脾氣的浮躁心情",
+    "contrast_left_points": [
+      "人在屬世環境中的短視、軟弱與自滿",
+      "面對外在艱難挑戰時的焦慮、膽怯或悖逆",
+      "只看眼前物質得失，忽略了上帝永恆的旨意"
+    ],
+    "contrast_right_title": "深深紮根於基督的無條件愛與同在，擁有奪不走的深層平靜與喜樂",
+    "contrast_right_points": [
+      "上帝在歷史長河中始終堅定動工的神聖主權",
+      "藉著話語、聖靈與基督救贖帶來的屬天指引",
+      "以信心順服跨越阻礙，結出榮神益人的仁愛果實"
+    ],
+    "christ_lens": "保羅的喜樂正是基督十字架榮耀的折射；基督在苦難中為我們成就救恩，成為我們心靈力量的活水源泉。",
+    "life_app": "當今天遇到一件倒楣或不開心的事時，試著先向神說三句謝謝，體會『心靈充電站』的神奇力量！",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「我靠著那加給我力量的，凡事都能做。」",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神永遠的愛與守約施慈愛的不變屬性"
+      },
+      "trunk": {
+        "label": "真理枝幹 (Trunk)",
+        "text": "耶穌基督的十字架救恩與道成肉身成就"
+      },
+      "branches": {
+        "label": "生命枝子 (Branches)",
+        "text": "聖徒在日常生活中因信而有的順服態度"
+      },
+      "fruits": {
+        "label": "信仰果子 (Fruits)",
+        "text": "在家庭、學校散發基督馨香之氣的愛心行動"
+      }
+    }
+  },
+  "2026-q3-01": {
+    "id": "2026-q3-01",
+    "title": "金杖下的灰姑娘",
+    "subtitle": "上帝所預備的逆轉時刻",
+    "quarter": "2026-Q3",
+    "lesson_num": 1,
+    "symbol_title": "黃金權杖與以斯帖王冠",
+    "symbol_desc": "象徵波斯至高君王生死攸關的權限、上帝在幕後的隱藏主權，以及平凡弱者順服承接神聖使命的位分。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><defs><linearGradient id=\"goldG\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"50%\" stop-color=\"#d97706\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#fefce8\" stroke=\"#d97706\" stroke-width=\"2\"/><path d=\"M25 65 L50 25 L75 65 Z\" fill=\"none\" stroke=\"url(#goldG)\" stroke-width=\"3\"/><path d=\"M30 62 L38 48 L50 58 L62 48 L70 62 Z\" fill=\"url(#goldG)\"/><circle cx=\"50\" cy=\"30\" r=\"4\" fill=\"#d97706\"/><circle cx=\"35\" cy=\"40\" r=\"3\" fill=\"#b45309\"/><circle cx=\"65\" cy=\"40\" r=\"3\" fill=\"#b45309\"/><line x1=\"20\" y1=\"78\" x2=\"80\" y2=\"78\" stroke=\"url(#goldG)\" stroke-width=\"4\" stroke-linecap=\"round\"/><circle cx=\"80\" cy=\"78\" r=\"6\" fill=\"#d97706\"/></svg>",
+    "story_theme": "從孤兒灰姑娘到民族救星：神聖主權的奇妙逆轉",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "風暴暗湧",
+        "title": "哈曼的滅族敕令",
+        "desc": "惡相哈曼因末底改不肯下拜，設計讓波斯王蓋印簽署屠殺猶大人的敕令，全族披麻蒙灰哀哭。",
+        "tag": "屬世危機",
+        "icon": "fa-triangle-exclamation",
+        "color": "#b84d43"
+      },
+      {
+        "step": "承",
+        "phase": "內心爭戰",
+        "title": "三十天未蒙召的生死考驗",
+        "desc": "以斯帖面臨波斯嚴酷王法：擅入內院沒見金杖者必死。末底改發出震撼提醒：『焉知你得了王后的位分不是為現今的機會嗎？』",
+        "tag": "信心抉擇",
+        "icon": "fa-scale-unbalanced",
+        "color": "#d97706"
+      },
+      {
+        "step": "轉",
+        "phase": "神聖介入",
+        "title": "三晝夜禁食與金杖伸出",
+        "desc": "以斯帖決志『我若死就死吧』，全城同胞禁食禱告。第三天盛裝走向內院，王心被神軟化，主動伸出黃金權杖！",
+        "tag": "奇蹟逆轉",
+        "icon": "fa-wand-magic-sparkles",
+        "color": "#b88628"
+      },
+      {
+        "step": "合",
+        "phase": "救贖圓滿",
+        "title": "筵席智慧與民族新生",
+        "desc": "透過兩次筵席揭穿哈曼奸計，哈曼被掛在自己為末底改預備的木架上，全族轉悲為喜，普珥日歡慶世代相傳。",
+        "tag": "永恆盼望",
+        "icon": "fa-crown",
+        "color": "#2563eb"
+      }
+    ],
+    "contrast_left_title": "屬世恐懼與人的限制",
+    "contrast_left_points": [
+      "看似無解的宮廷王法：擅入者必死無疑",
+      "無依無靠的孤兒弱女，三十天未蒙召見",
+      "面對強權威脅時最初的猶豫與逃避本能"
+    ],
+    "contrast_right_title": "屬天真理與上帝隱藏主權",
+    "contrast_right_points": [
+      "每一道帝國敕令背後，神早已預備拯救器皿",
+      "王后尊榮不是為了享樂，乃為承接神聖使命",
+      "藉著同心禁食禱告，恐懼被堅韌信心全然融化"
+    ],
+    "christ_lens": "以斯帖冒死為同胞代求，預表了我們的大祭司耶穌基督。基督不是冒著死亡的危險，而是真正為罪人捨命受死，撕裂聖殿幔子，使我們能坦然無懼來到施恩寶座前。",
+    "life_app": "在班級或家庭中，看見弱小同學被孤立或嘲笑時，不再當冷漠的旁觀者，勇敢把握『現今的機會』為他發聲、代求或伸出援手！",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：「我們原是他的工作，在基督耶穌裡造成的，為要叫我們行善，就是上帝所預備叫我們行的。」（以弗所書 2 章 10 節）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "在基督耶穌裡造成的 —— 一切源於恩典的揀選與創造"
+      },
+      "trunk": {
+        "label": "真理本體 (Trunk)",
+        "text": "我們原是祂的傑作 (Poiema) —— 神精心雕琢的藝術品"
+      },
+      "branches": {
+        "label": "恩典枝幹 (Branches)",
+        "text": "為要叫我們行善 —— 承接上帝在創世前為我們預備的命定"
+      },
+      "fruits": {
+        "label": "信心果子 (Fruits)",
+        "text": "把握現今機會：勇於承擔、保護同伴、活出基督樣式"
+      }
+    }
+  },
+  "2026-q3-02": {
+    "id": "2026-q3-02",
+    "title": "永不落幕的感恩信",
+    "subtitle": "以斯帖記5-10章",
+    "quarter": "2026-Q3",
+    "lesson_num": 2,
+    "symbol_title": "普珥籤筒與感恩信卷軸",
+    "symbol_desc": "象徵惡人定下的厄運被神全然粉碎，以及神百姓世世代代立碑數算、永不落幕的感恩紀念。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f0fdf4\" stroke=\"#16a34a\" stroke-width=\"2\"/><rect x=\"25\" y=\"30\" width=\"50\" height=\"40\" rx=\"4\" fill=\"#dcfce7\" stroke=\"#15803d\" stroke-width=\"2\"/><line x1=\"32\" y1=\"42\" x2=\"68\" y2=\"42\" stroke=\"#15803d\" stroke-width=\"2\"/><line x1=\"32\" y1=\"50\" x2=\"68\" y2=\"50\" stroke=\"#15803d\" stroke-width=\"2\"/><line x1=\"32\" y1=\"58\" x2=\"55\" y2=\"58\" stroke=\"#15803d\" stroke-width=\"2\"/><path d=\"M68 20 C68 20, 80 25, 80 40 L80 70 C80 85, 68 80, 68 80\" fill=\"none\" stroke=\"#ca8a04\" stroke-width=\"3\"/><circle cx=\"50\" cy=\"78\" r=\"5\" fill=\"#ca8a04\"/></svg>",
+    "story_theme": "反敗為勝的普珥節：上帝翻轉命運的奇異恩典",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "厄運抽籤",
+        "title": "普珥掣籤定死期",
+        "desc": "哈曼以抽籤（普珥）決定在十二月十三日將猶大人殺滅，看似命運已被注定。",
+        "tag": "絕望深淵",
+        "icon": "fa-dice",
+        "color": "#b84d43"
+      },
+      {
+        "step": "承",
+        "phase": "王心失眠",
+        "title": "失眠之夜的神聖巧合",
+        "desc": "那一夜波斯王恰巧失眠，命人讀歷史書，恰巧讀到末底改曾救王一命卻未得賞賜！",
+        "tag": "神聖護理",
+        "icon": "fa-moon",
+        "color": "#7c3aed"
+      },
+      {
+        "step": "轉",
+        "phase": "高低翻轉",
+        "title": "哈曼為末底改牽馬",
+        "desc": "哈曼原本要向王求賜死末底改，反被迫為末底改穿上朝服、牽馬游街高呼榮耀！",
+        "tag": "公義逆轉",
+        "icon": "fa-arrows-rotate",
+        "color": "#b88628"
+      },
+      {
+        "step": "合",
+        "phase": "感恩常例",
+        "title": "普珥節代代相傳",
+        "desc": "猶大人蒙恩反敗為勝，末底改寫信吩咐各省每年慶祝普珥日，互送禮物、貙濟窮人。",
+        "tag": "數算恩典",
+        "icon": "fa-envelope-open-text",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "惡人陰謀與隨機迷信",
+    "contrast_left_points": [
+      "相信擲骰掣籤能決定他人命運的盲目驕傲",
+      "暗中私築高木架欲除滅仇敵的狠毒詭計",
+      "在短暫得勢時自高自大、欺凌弱小"
+    ],
+    "contrast_right_title": "上帝掌權與終極拯救",
+    "contrast_right_points": [
+      "萬事都在神掌管中，連國王失眠也是神聖護理",
+      "掘坑陷害人的，自己反掉入坑中自食惡果",
+      "神把百姓的哀號變為跳舞，披上讚美衣"
+    ],
+    "christ_lens": "普珥節的救贖預表基督在十字架上的終極反敗為勝。撒旦以為把耶穌釘死在十架上便大獲全勝，豈料十字架反成為粉碎罪惡與死亡權勢的終極勝利！",
+    "life_app": "建立全家「恩典日記」，每週記下三件看似巧合卻充滿神保守的感恩事，學習在困境中先向神獻上讚美。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "我留下平安給你們；我將我的平安賜給你們。我所賜的，不像世人所賜的。你們心裡不要憂愁，也不要膽怯。 （約翰福音14章27節上）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "我留下平安給你們 —— 基督親自成就的不可動搖之和睦"
+      },
+      "trunk": {
+        "label": "真理本體 (Trunk)",
+        "text": "我將我的平安賜給你們 —— 超越世俗物質條件的屬天恩賜"
+      },
+      "branches": {
+        "label": "恩典枝幹 (Branches)",
+        "text": "不像世人所賜的 —— 不因環境順逆而動搖改變的磐石"
+      },
+      "fruits": {
+        "label": "信心果子 (Fruits)",
+        "text": "不要憂愁膽怯：在黑夜中坦然安歇，篤信神必看顧到底"
+      }
+    }
+  },
+  "2026-q3-03": {
+    "id": "2026-q3-03",
+    "title": "上帝的時間表",
+    "subtitle": "萬物都有定時",
+    "quarter": "2026-Q3",
+    "lesson_num": 3,
+    "symbol_title": "天平沙漏與日光循環",
+    "symbol_desc": "象徵上帝創造宇宙定下奇妙季節與萬物定時，教導人在有限時空中安歇於神的完美時間表。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#fef3c7\" stroke=\"#d97706\" stroke-width=\"2\"/><path d=\"M35 30 L65 30 L55 50 L65 70 L35 70 L45 50 Z\" fill=\"#fffbeb\" stroke=\"#b45309\" stroke-width=\"2\"/><line x1=\"30\" y1=\"30\" x2=\"70\" y2=\"30\" stroke=\"#b45309\" stroke-width=\"3\"/><line x1=\"30\" y1=\"70\" x2=\"70\" y2=\"70\" stroke=\"#b45309\" stroke-width=\"3\"/><circle cx=\"50\" cy=\"62\" r=\"4\" fill=\"#d97706\"/><circle cx=\"50\" cy=\"38\" r=\"2\" fill=\"#d97706\"/><path d=\"M50 15 L50 22 M50 78 L50 85 M15 50 L22 50 M78 50 L85 50\" stroke=\"#d97706\" stroke-width=\"2\"/></svg>",
+    "story_theme": "日光之上的安息：在上帝的神聖節奏中各按其時成為美好",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "日光觀察",
+        "title": "智慧所羅門的追尋",
+        "desc": "所羅門王擁有無盡財富與極高智慧，卻觀察到日光之下萬事循環往復，人不能參透其始末。",
+        "tag": "時空反思",
+        "icon": "fa-magnifying-glass",
+        "color": "#475569"
+      },
+      {
+        "step": "承",
+        "phase": "生命律動",
+        "title": "天下萬務皆有定時",
+        "desc": "生有時，死有時；栽種有時，拔出有時；哭有時，笑有時——人生的每個季節都有神的安排。",
+        "tag": "順逆交替",
+        "icon": "fa-clock",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "奧祕揭曉",
+        "title": "各按其時成為美好",
+        "desc": "神造萬物，各按其時成為美好，又將永生安置在世人心裡。人雖不能測透，卻能安然信靠！",
+        "tag": "信心昇華",
+        "icon": "fa-sun",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "喜樂當下",
+        "title": "吃喝勞碌得來為神賜",
+        "desc": "不為明天過度憂慮，在上帝給予的今天感恩吃喝、享受手中勞碌，活出尊神為大的安息。",
+        "tag": "真理安歇",
+        "icon": "fa-heart",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "日光之下焦慮掌控",
+    "contrast_left_points": [
+      "妄想立刻掌控所有結果，稍有延遲便急躁崩潰",
+      "只看眼前挫折與痛苦，誤以為寒冬永遠不會過去",
+      "將自我價值捆綁於短暫的物質追求與同儕比較"
+    ],
+    "contrast_right_title": "日光之上交託安息",
+    "contrast_right_points": [
+      "深信上帝的時間表最完美，在等候中孕育純熟品格",
+      "明白哭泣有時也是洗滌心靈的恩典，笑臉終必重現",
+      "心中有永恆座標，懂得把握當下、珍惜每個相聚"
+    ],
+    "christ_lens": "耶穌基督在「及至時候滿足」時降生世間。祂完全順服父神的時刻表，不走捷徑、不違天時，最終在預定的逾越節為我們甘心受死復活，成就最美好的救贖。",
+    "life_app": "當遇到願望沒有馬上實現（如等待考試成績、才藝練習遇瓶頸）時，不急躁發脾氣，學習向神禱告：『主啊，我信任祢的時間表！』",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "「上帝造萬物，各按其時成為美好。」（傳道書3章11節上半）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "神造萬物 —— 宇宙萬有的至高設計師與維護者"
+      },
+      "trunk": {
+        "label": "真理本體 (Trunk)",
+        "text": "各按其時 —— 拒絕拔苗助長，尊重每一階段的成長步調"
+      },
+      "branches": {
+        "label": "恩典枝幹 (Branches)",
+        "text": "成為美好 (Yapeh) —— 最終編織出超越想像的和諧與榮耀"
+      },
+      "fruits": {
+        "label": "信心果子 (Fruits)",
+        "text": "耐心等候、在逆境中持守盼望、知足常樂"
+      }
+    }
+  },
+  "2026-q3-04": {
+    "id": "2026-q3-04",
+    "title": "智慧國王的祕密",
+    "subtitle": "（傳道書4-12章）",
+    "quarter": "2026-Q3",
+    "lesson_num": 4,
+    "symbol_title": "敬畏之鑰與三股繩索",
+    "symbol_desc": "象徵虛空人生的唯一解藥：敬畏耶和華、遵守誡命；以及屬靈團契三股合成不折的堅韌力量。",
+    "svg_icon": "<svg viewBox=\"0 0 100 100\" class=\"svg-diagram-icon\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#f8fafc\" stroke=\"#475569\" stroke-width=\"2\"/><path d=\"M30 40 Q50 20 70 40 Q50 60 30 40 Z\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"3\"/><path d=\"M35 50 Q50 30 65 50 Q50 70 35 50 Z\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\"/><circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#16a34a\"/><line x1=\"50\" y1=\"58\" x2=\"50\" y2=\"78\" stroke=\"#475569\" stroke-width=\"3\"/><rect x=\"44\" y=\"70\" width=\"12\" height=\"6\" fill=\"#475569\"/></svg>",
+    "story_theme": "智慧王的人生總結：敬畏上帝守誡命乃是本分",
+    "story_nodes": [
+      {
+        "step": "起",
+        "phase": "閱盡繁華",
+        "title": "萬事盡皆虛空捕風",
+        "desc": "所羅門享受過天下最盛大的宴樂、建造最宏偉的宮殿，回頭看卻如捕風一般空虛。",
+        "tag": "屬世空虛",
+        "icon": "fa-wind",
+        "color": "#64748b"
+      },
+      {
+        "step": "承",
+        "phase": "同路同行",
+        "title": "三股繩子不折斷",
+        "desc": "孤單一人跌倒無人攙扶；兩個人總比一個人好，有基督同在的三股繩子最為堅韌！",
+        "tag": "團契力量",
+        "icon": "fa-link",
+        "color": "#2563eb"
+      },
+      {
+        "step": "轉",
+        "phase": "青春提醒",
+        "title": "少年當記念造你的主",
+        "desc": "在衰敗的日子尚未來到前，當趁著年幼記念創造你的主，不要虛度光陰於短暫享樂。",
+        "tag": "及時敬虔",
+        "icon": "fa-hourglass-start",
+        "color": "#d97706"
+      },
+      {
+        "step": "合",
+        "phase": "終極本分",
+        "title": "敬畏神謹守祂的誡命",
+        "desc": "總意就是敬畏上帝、謹守祂的誡命，因為人所做的事，神都必審問，此為人所當盡之本分。",
+        "tag": "智慧磐石",
+        "icon": "fa-shield-halved",
+        "color": "#16a34a"
+      }
+    ],
+    "contrast_left_title": "世俗聰明與虛空追求",
+    "contrast_left_points": [
+      "以為賺得全世界、擁有所有玩具就能得到真正滿足",
+      "單打獨鬥、自私自利，拒絕向他人敞開建立友誼",
+      "揮霍青春時光，等到年老時才悔恨未曾認識真理"
+    ],
+    "contrast_right_title": "屬天智慧與敬畏生命",
+    "contrast_right_points": [
+      "認定上帝是一切恩賜的源頭，以讚美與敬畏填滿心靈",
+      "在教會小組中彼此扶持，用愛心連結成不折的三股繩",
+      "在童年與少年時期就把神的話牢記在心，作行路的光"
+    ],
+    "christ_lens": "所羅門是世上最有智慧的王，但他晚年仍有軟弱；而基督比所羅門更大（太12:42），祂是上帝榮耀智慧的本體，在祂裡面藏著一切豐盛的寶藏。",
+    "life_app": "本週尋找一位主日學禱告夥伴，組成「屬靈三股繩」，每天互相提醒背誦一句聖經，彼此代求。",
+    "pacing_infographic": [
+      {
+        "time": "00-08m",
+        "phase": "破冰啟航",
+        "name": "情境破冰體驗",
+        "energy": 90,
+        "type": "動態身體動覺",
+        "goal": "引導孩子進入本課主題情境，激發好奇心"
+      },
+      {
+        "time": "08-15m",
+        "phase": "感性敬拜",
+        "name": "主題詩歌同唱",
+        "energy": 75,
+        "type": "音樂節奏沈浸",
+        "goal": "打開心靈耳朵，預備敬畏的心領受神的話"
+      },
+      {
+        "time": "15-35m",
+        "phase": "真理深探",
+        "name": "心智圖聖經故事",
+        "energy": 95,
+        "type": "認知思維聚焦",
+        "goal": "透過起承轉合圖表，深化對神聖真理的理解"
+      },
+      {
+        "time": "35-45m",
+        "phase": "互動實踐",
+        "name": "分齡問答與手工",
+        "energy": 85,
+        "type": "社交人際動手",
+        "goal": "低年級趣味互動與高年級深度討論，實踐真理"
+      },
+      {
+        "time": "45-50m",
+        "phase": "同心降溫",
+        "name": "同心禱告與家庭卡",
+        "energy": 60,
+        "type": "個人內省昇華",
+        "goal": "將課堂領受化為禱告，帶回家庭生活中持續實踐"
+      }
+    ],
+    "verse_tree": {
+      "verse_text": "背誦金句：「敬畏上帝，謹守他的誡命，這是人所當盡的本分。」（傳道書12章13節下）",
+      "root": {
+        "label": "神聖根基 (Root)",
+        "text": "敬畏上帝 —— 智慧與知識的唯一純全開端"
+      },
+      "trunk": {
+        "label": "真理本體 (Trunk)",
+        "text": "謹守祂的誡命 —— 領受真理規範，行在安全蒙福的界線內"
+      },
+      "branches": {
+        "label": "恩典枝幹 (Branches)",
+        "text": "這是人所當盡的本分 —— 回歸受造之物的真實定位與榮耀"
+      },
+      "fruits": {
+        "label": "信心果子 (Fruits)",
+        "text": "拒絕虛浮驕傲、結出誠實守信與忠厚待人的果子"
+      }
+    }
+  }
+};

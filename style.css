@@ -3819,3 +3819,1053 @@ body.theme-dark .ppt-catalog-footer {
   }
 }
 
+
+
+/* ==========================================================================
+   PPT Password Lock Gate & Auth Status System ("WOLSS")
+   ========================================================================== */
+
+/* 1. Header Auth Badge */
+.ppt-auth-badge-box {
+  display: flex;
+  align-items: center;
+}
+
+.ppt-auth-status-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.ppt-auth-status-btn.locked {
+  color: #b45309;
+  border-color: #fde68a;
+  background: #fffbeb;
+}
+
+.ppt-auth-status-btn.locked:hover {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  transform: translateY(-1px);
+}
+
+.ppt-auth-status-btn.unlocked {
+  color: #15803d;
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.ppt-auth-status-btn.unlocked:hover {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
+.relock-link-btn {
+  margin-left: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.relock-link-btn:hover {
+  color: var(--danger);
+}
+
+/* 2. PPT Password Lock Gate (In Slide Cockpit) */
+.ppt-lock-gate {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 3rem 2rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.lock-gate-card {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.lock-gate-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+}
+
+.lock-gate-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.lock-gate-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.lock-open-resources-box {
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border-focus);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  margin-bottom: 1.75rem;
+  text-align: left;
+}
+
+.open-box-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.open-box-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.open-link-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.open-link-pill:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.lock-gate-form {
+  margin-top: 1.5rem;
+}
+
+.lock-form-label {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.lock-input-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.lock-input-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-caption);
+  font-size: 0.9rem;
+}
+
+.lock-password-input {
+  width: 100%;
+  padding: 11px 40px 11px 36px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  background: var(--bg-card);
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lock-password-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(184, 134, 40, 0.15);
+}
+
+.btn-toggle-eye {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-caption);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 0.95rem;
+}
+
+.btn-toggle-eye:hover {
+  color: var(--text-main);
+}
+
+.lock-submit-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #ffffff;
+  border: none;
+  padding: 11px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.lock-submit-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(184, 134, 40, 0.25);
+}
+
+.lock-error-feedback, .ppt-auth-err-msg {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  display: inline-block;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+/* 3. Global PPT Auth Modal */
+.ppt-auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.ppt-auth-modal.hidden {
+  display: none !important;
+}
+
+.ppt-auth-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.ppt-auth-modal-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  overflow: hidden;
+  animation: modalPop 0.25s ease-out;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.ppt-auth-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+}
+
+.ppt-auth-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.ppt-auth-modal-header h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.ppt-auth-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.ppt-auth-close-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-caption);
+  padding: 4px 8px;
+}
+
+.ppt-auth-modal-body {
+  padding: 1.5rem;
+}
+
+.ppt-auth-notice-box {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.ppt-open-reminder {
+  margin-top: 6px;
+  color: #15803d;
+  font-size: 0.82rem;
+}
+
+.ppt-auth-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ppt-input-with-icon {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.input-lead-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-caption);
+}
+
+.ppt-modal-input {
+  width: 100%;
+  padding: 10px 38px 10px 34px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  background: var(--bg-card);
+  color: var(--text-main);
+  outline: none;
+}
+
+.ppt-modal-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(184, 134, 40, 0.15);
+}
+
+.btn-submit-unlock {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Locked card in PPT catalog modal */
+.ppt-cat-thumb.locked-thumb {
+  position: relative;
+}
+.ppt-cat-thumb.locked-thumb img {
+  filter: blur(8px);
+  opacity: 0.6;
+}
+.ppt-cat-thumb.locked-thumb::after {
+  content: '🔒 WOLSS 解鎖';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.45);
+  color: #fef08a;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border-radius: 8px;
+}
+
+
+/* ==========================================================================
+   AI Visual Diagrams & Infographics System Styles (#tab-ai-diagrams)
+   ========================================================================== */
+
+.ai-diagrams-banner {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-subtle));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  gap: 1.5rem;
+}
+
+.ai-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ai-banner-symbol {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.svg-diagram-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.ai-banner-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+}
+
+.ai-banner-content h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.ai-banner-content p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.ai-diagrams-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.ai-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease;
+}
+
+.ai-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.ai-card-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.ai-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.ai-card-title-group h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.ai-card-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* 1. Mind Map Roadmap */
+.mindmap-roadmap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  position: relative;
+}
+
+.mindmap-node-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.mindmap-node-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.node-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.node-step-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.node-phase-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.node-title-text {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.node-desc-text {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 2. Theological Contrast Matrix */
+.theology-matrix-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.theology-contrast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.contrast-side-card {
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+}
+
+.contrast-left {
+  background: #fff8f8;
+  border-color: #fecaca;
+}
+
+.contrast-right {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.contrast-card-header {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contrast-left .contrast-card-header { color: #b91c1c; }
+.contrast-right .contrast-card-header { color: #15803d; }
+
+.contrast-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contrast-points-list li {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-main);
+}
+
+.contrast-left .contrast-points-list li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.contrast-right .contrast-points-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.theology-christ-banner {
+  background: linear-gradient(135deg, #fefce8, #fef3c7);
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #92400e;
+}
+
+.theology-christ-banner strong {
+  color: #78350f;
+}
+
+.theology-life-app-banner {
+  background: var(--bg-subtle);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* 3. Pacing Timeline Bar */
+.pacing-timeline-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.pacing-phase-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pacing-time-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.pacing-phase-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.pacing-goal-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.energy-meter-box {
+  margin-top: auto;
+}
+
+.energy-meter-label {
+  font-size: 0.72rem;
+  color: var(--text-caption);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.energy-meter-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.energy-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #f59e0b);
+  border-radius: 3px;
+}
+
+/* 4. Verse Tree Structure */
+.verse-tree-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.verse-tree-card-item {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  border-left: 4px solid var(--primary);
+}
+
+.verse-tree-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.verse-tree-content {
+  font-size: 0.86rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   Auxiliary Materials Library Styles (#tab-aux-lib)
+   ========================================================================== */
+
+.aux-intro-banner {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.aux-intro-banner h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.aux-intro-banner p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.aux-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aux-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.aux-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.aux-icon {
+  font-size: 1.75rem;
+}
+
+.aux-card-header h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.aux-card-header small {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* Drama Script */
+.drama-scene-box {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--primary);
+}
+
+.drama-scene-title {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+
+.drama-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.drama-dialogue {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-main);
+}
+
+/* Family Card */
+.family-section {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+.family-title {
+  font-weight: 700;
+  color: var(--accent-dark);
+  font-size: 0.92rem;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.family-content {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* Hebrew / Greek Micro-Lesson */
+.hebrew-word-card {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  border-left: 4px solid #7c3aed;
+}
+
+.hebrew-original {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #6d28d9;
+  margin-bottom: 4px;
+  font-family: serif;
+}
+
+.hebrew-translit {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.hebrew-meaning {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* SOP */
+.sop-item {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-left: 3px solid #e11d48;
+}
+
+.sop-scenario {
+  font-weight: 700;
+  color: #be123c;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+
+.sop-solution {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* Child FAQ */
+.faq-item {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+.faq-q {
+  font-weight: 700;
+  color: #0369a1;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+
+.faq-a {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  .theology-contrast-grid {
+    grid-template-columns: 1fr;
+  }
+  .ai-diagrams-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lock-input-group {
+    flex-direction: column;
+  }
+  .lock-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* Hardened PPT Lock Rules */
+body:not(.ppt-unlocked) #slideDeckContainer {
+  display: none !important;
+}
+
+body.ppt-unlocked #pptLockGate {
+  display: none !important;
+}
+
+body:not(.ppt-unlocked) #pptLockGate {
+  display: flex !important;
+}
+
+.ppt-cat-thumb.locked-thumb {
+  background: linear-gradient(135deg, #1e293b, #0f172a) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 120px !important;
+  position: relative !important;
+}
+
+.ppt-cat-thumb.locked-thumb img {
+  display: none !important;
+}
+
+.ppt-cat-thumb.locked-thumb::after {
+  content: '🔒 需密碼 WOLSS 解鎖' !important;
+  color: #fef08a !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px !important;
+  text-align: center !important;
+}

@@ -47,6 +47,12 @@
         <button id="timerToggleBtn" class="tool-btn" title="課堂計時器">⏱️ 計時器</button>
         <button id="presentModeBtn" class="tool-btn highlight" title="切換投影演講大螢幕模式">🖥️ 投影模式</button>
         <button id="printBtn" class="tool-btn" title="列印學習單與備課單">🖨️ 列印/匯出</button>
+                <!-- PPT Password Auth Indicator -->
+        <div class="ppt-auth-badge-box" id="pptAuthBadgeBox">
+          <button id="pptAuthStatusBtn" class="ppt-auth-status-btn locked" type="button" title="點擊輸入密碼解鎖 PPT 投影片">
+            <i class="fa-solid fa-lock"></i> <span id="pptAuthStatusText">PPT 版權保護中</span>
+          </button>
+        </div>
         <div class="font-controls">
           <button id="fontDownBtn" class="icon-btn" title="縮小文字">A-</button>
           <button id="fontUpBtn" class="icon-btn" title="放大文字">A+</button>
@@ -109,8 +115,10 @@
     </section>
 
     <!-- Module Navigation Tabs -->
-    <nav class="module-tabs" id="moduleTabs">
-      <button class="tab-btn highlight-tab active" data-target="tab-slides"><i class="fa-solid fa-desktop"></i> 逐頁 PPT</button>
+          <nav class="module-tabs" id="moduleTabs">
+        <button class="tab-btn highlight-tab active" data-target="tab-slides"><i class="fa-solid fa-desktop"></i> 逐頁 PPT</button>
+        <button class="tab-btn highlight-gold" data-target="tab-ai-diagrams"><i class="fa-solid fa-diagram-project text-gold"></i> 📊 AI 智繪圖表</button>
+        <button class="tab-btn" data-target="tab-aux-lib"><i class="fa-solid fa-toolbox text-gold"></i> 🎒 五大輔助教材庫</button>
       <button class="tab-btn" data-target="tab-expert">🌟 專家團隊錦囊</button>
       <button class="tab-btn" data-target="tab-story">📖 沉浸式聖經故事</button>
       <button class="tab-btn" data-target="tab-games-songs">🎵 詩歌敬拜 & 🎮 破冰遊戲</button>
@@ -238,9 +246,44 @@
         </div>
       </section>
 
-      <!-- PPT Slide-by-Slide Cockpit & Deep Review Tab Pane (Inspired by BlessEq) -->
+            <!-- PPT Slide-by-Slide Cockpit & Deep Review Tab Pane (Inspired by BlessEq) -->
       <section class="tab-pane active" id="tab-slides">
-        <div class="slide-deck-container">
+        <!-- PPT Password Lock Gate (Shown when locked) -->
+        <div class="ppt-lock-gate" id="pptLockGate">
+          <div class="lock-gate-card">
+            <div class="lock-gate-badge"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="lock-gate-title">🛡️ 投影片 (PPT) 版權保護管制專區</h3>
+            <p class="lock-gate-desc">
+              本主日學教材之完整投影片圖像（340+幅）及 PPTX 簡報原檔受基督教教育機構智慧財產權保護。<br>
+              為維護版權並防止未授權公開傳播，檢視及播放完整 PPT 投影片需輸入專屬授權通行碼。
+            </p>
+            <div class="lock-open-resources-box">
+              <div class="open-box-title"><i class="fa-solid fa-unlock-keyhole text-success"></i> 完全免費開放之教學資源（無須密碼 · 點擊直接瀏覽）：</div>
+              <div class="open-box-links">
+                <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target="tab-ai-diagrams"]').click()"><i class="fa-solid fa-diagram-project text-gold"></i> 📊 AI 智繪圖表 (故事脈絡/神學架構/50分節奏)</button>
+                <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target="tab-aux-lib"]').click()"><i class="fa-solid fa-toolbox text-gold"></i> 🎒 五大輔助教材庫 (劇本/聯絡卡/原文/SOP/FAQ)</button>
+                <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target="tab-expert"]').click()"><i class="fa-solid fa-users text-gold"></i> 🌟 六大專家團隊錦囊</button>
+                <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target="tab-story"]').click()"><i class="fa-solid fa-book-open text-gold"></i> 📖 沉浸式聖經故事</button>
+              </div>
+            </div>
+            
+            <!-- Auth Input Form -->
+            <form id="pptInlineAuthForm" onsubmit="return false;" class="lock-gate-form">
+              <label for="inlinePptPasswordInput" class="lock-form-label">請輸入專屬通行密碼解鎖 PPT 內容：</label>
+              <div class="lock-input-group">
+                <div class="lock-input-wrap">
+                  <i class="fa-solid fa-key input-prefix-icon"></i>
+                  <input type="password" id="inlinePptPasswordInput" class="lock-password-input" placeholder="請輸入通行碼 (如: WOLSS)" autocomplete="off">
+                  <button type="button" class="btn-toggle-eye" id="inlineToggleEyeBtn" title="顯示/隱藏密碼"><i class="fa-regular fa-eye"></i></button>
+                </div>
+                <button type="submit" id="inlinePptAuthSubmitBtn" class="lock-submit-btn"><i class="fa-solid fa-lock-open"></i> 解鎖查看 PPT</button>
+              </div>
+              <div id="inlinePptAuthError" class="lock-error-feedback hidden"></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="slide-deck-container" id="slideDeckContainer" style="display: none;">
           
           <!-- Top Narration & Autoplay Controls Bar -->
           <div class="slide-global-toolbar">
@@ -338,7 +381,7 @@
                   <div class="stage-spinner"></div>
                   <span>投影片載入中...</span>
                 </div>
-                <img src="assets/lessons/2026-q3-01/slide_01.jpg" alt="投影片畫面" class="slide-main-img" id="slideMainImg" loading="eager">
+                <img src="" alt="投影片畫面" class="slide-main-img" id="slideMainImg" loading="lazy">
                 <div class="slide-text-fallback" id="slideTextFallback" style="display:none;">
                   <div class="fallback-badge"><i class="fa-solid fa-feather-pointed"></i> 重點文字精華頁</div>
                   <h3 id="fallbackTitle"></h3>
@@ -1064,7 +1107,162 @@
       </div>
     </section>
 
-  </main>
+        <!-- AI Visual Diagrams & Infographics Tab Pane -->
+      <section class="tab-pane" id="tab-ai-diagrams">
+        <div class="ai-diagrams-banner">
+          <div class="ai-banner-content">
+            <div class="ai-banner-symbol" id="aiBannerSymbol">
+              <!-- SVG Icon rendered dynamically -->
+            </div>
+            <div>
+              <div class="ai-banner-tag"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> 100% 原創版權 · AI 智繪深度迭代教學視覺庫</div>
+              <h3 id="aiBannerTitle">聖經歷史時空脈絡心智圖與神學架構對比</h3>
+              <p id="aiBannerSubtitle">專為兒童主日學教學設計，融合故事起承轉合脈絡、神學對比概念、50分鐘課堂能量律動與金句真理樹。</p>
+            </div>
+          </div>
+          <div class="ai-banner-actions">
+            <button class="tool-btn" id="btnPrintAiDiagrams" type="button" title="列印本課 AI 智繪圖表與心智圖"><i class="fa-solid fa-print"></i> 列印本課圖表</button>
+          </div>
+        </div>
+
+        <div class="ai-diagrams-grid">
+          <!-- 1. Story Arc & Narrative Mind Map -->
+          <div class="ai-card mindmap-card">
+            <div class="ai-card-header">
+              <div class="ai-card-title-group">
+                <span class="ai-badge-icon"><i class="fa-solid fa-route"></i></span>
+                <div>
+                  <h4>一、聖經歷史時空與情節脈絡心智圖 (Story Arc & Mind Map)</h4>
+                  <span class="ai-card-sub" id="aiMindmapTheme">故事核心主線</span>
+                </div>
+              </div>
+            </div>
+            <div class="mindmap-roadmap" id="aiMindmapRoadmap">
+              <!-- 4 Interactive Connected Steps Generated via JS -->
+            </div>
+          </div>
+
+          <!-- 2. Theological Architecture & Contrast Matrix -->
+          <div class="ai-card theology-card">
+            <div class="ai-card-header">
+              <div class="ai-card-title-group">
+                <span class="ai-badge-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                <div>
+                  <h4>二、核心神學概念架構與屬靈對比矩陣 (Theological Contrast Matrix)</h4>
+                  <span class="ai-card-sub">屬世限制恐懼 vs 屬天主權恩典 · 基督中心福音視角</span>
+                </div>
+              </div>
+            </div>
+            <div class="theology-matrix-container" id="aiTheologyContainer">
+              <!-- Contrast Grid Generated via JS -->
+            </div>
+          </div>
+
+          <!-- 3. 50-Minute Classroom Flow & Energy Rhythm Infographic -->
+          <div class="ai-card pacing-card">
+            <div class="ai-card-header">
+              <div class="ai-card-title-group">
+                <span class="ai-badge-icon"><i class="fa-solid fa-chart-line"></i></span>
+                <div>
+                  <h4>三、課堂 50 分鐘教學黃金節奏與能量律動圖 (Classroom Energy & Pacing Flow)</h4>
+                  <span class="ai-card-sub">五階段認知負荷曲線 · 互動能量指引</span>
+                </div>
+              </div>
+            </div>
+            <div class="pacing-timeline-bar" id="aiPacingBar">
+              <!-- 5 Pacing Steps Generated via JS -->
+            </div>
+          </div>
+
+          <!-- 4. Memory Verse Visual Word-Tree -->
+          <div class="ai-card verse-tree-card">
+            <div class="ai-card-header">
+              <div class="ai-card-title-group">
+                <span class="ai-badge-icon"><i class="fa-solid fa-tree"></i></span>
+                <div>
+                  <h4>四、核心真理金句結構樹 (Memory Verse Visual Word-Tree)</h4>
+                  <span class="ai-card-sub">神聖根基 ➔ 真理本體 ➔ 恩典枝幹 ➔ 信心果子</span>
+                </div>
+              </div>
+            </div>
+            <div class="verse-tree-container" id="aiVerseTreeContainer">
+              <!-- Verse Tree Structure Generated via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Five Auxiliary Teaching Materials Tab Pane -->
+      <section class="tab-pane" id="tab-aux-lib">
+        <div class="aux-intro-banner">
+          <h3>🎒 五大多元輔助教材庫 (100% 開放自由備課)</h3>
+          <p>本教材庫收錄角色扮演短劇、家庭共讀聯絡卡、希伯來/希臘原文關鍵字微課堂、課堂突發脫序應變 SOP 與傳道人解惑對話錄，全面支援主日學備課。</p>
+        </div>
+
+        <div class="aux-grid" id="auxGridContainer">
+          <!-- 1. Drama Script -->
+          <div class="aux-card aux-drama-card" id="auxDramaCard">
+            <div class="aux-card-header">
+              <span class="aux-icon">🎭</span>
+              <div>
+                <h4>聖經角色扮演短劇劇本</h4>
+                <small id="auxDramaTitle">課堂 3~5 分鐘實境演練</small>
+              </div>
+            </div>
+            <div id="auxDramaBody"></div>
+          </div>
+
+          <!-- 2. Family Connection Card -->
+          <div class="aux-card aux-family-card" id="auxFamilyCard">
+            <div class="aux-card-header">
+              <span class="aux-icon">🏠</span>
+              <div>
+                <h4>家庭共讀與親子聯絡卡</h4>
+                <small>週日學堂 ➔ 週一至週六家庭信仰生活</small>
+              </div>
+            </div>
+            <div id="auxFamilyBody"></div>
+          </div>
+
+          <!-- 3. Hebrew/Greek Micro-Lesson -->
+          <div class="aux-card aux-hebrew-card" id="auxHebrewCard">
+            <div class="aux-card-header">
+              <span class="aux-icon">📜</span>
+              <div>
+                <h4>聖經原文關鍵字微課堂</h4>
+                <small id="auxHebrewTitle">原文詞根解碼</small>
+              </div>
+            </div>
+            <div id="auxHebrewBody"></div>
+          </div>
+
+          <!-- 4. Classroom SOP -->
+          <div class="aux-card aux-sop-card" id="auxSopCard">
+            <div class="aux-card-header">
+              <span class="aux-icon">🚨</span>
+              <div>
+                <h4>課堂突發脫序應變 SOP</h4>
+                <small id="auxSopTitle">校長親授秩序急救法</small>
+              </div>
+            </div>
+            <div id="auxSopBody"></div>
+          </div>
+
+          <!-- 5. Children's Sharp Questions FAQ -->
+          <div class="aux-card aux-faq-card" id="auxFaqCard">
+            <div class="aux-card-header">
+              <span class="aux-icon">💭</span>
+              <div>
+                <h4>孩子最常問的尖銳問題</h4>
+                <small id="auxFaqTitle">傳道人解惑對話錄</small>
+              </div>
+            </div>
+            <div id="auxFaqBody"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
 
   <!-- Floating Classroom Timer Modal / Panel -->
   <div class="timer-floating-panel hidden" id="timerFloatingPanel">
@@ -1218,8 +1416,41 @@
   <!-- Floating Micro-Toast Notification -->
   <div class="toast-notification" id="toastNotification" role="status" aria-live="polite"></div>
 
+    <!-- Global PPT Auth Modal Dialog -->
+  <div class="ppt-auth-modal hidden" id="pptAuthModal" role="dialog" aria-modal="true" aria-labelledby="pptAuthModalHeading">
+    <div class="ppt-auth-modal-backdrop" id="closePptAuthModalBackdrop"></div>
+    <div class="ppt-auth-modal-card">
+      <div class="ppt-auth-modal-header">
+        <div class="ppt-auth-icon-wrap"><i class="fa-solid fa-shield-halved text-gold"></i></div>
+        <div>
+          <h3 id="pptAuthModalHeading">主日學投影片 (PPT) 版權保護驗證</h3>
+          <p class="ppt-auth-sub">請輸入通行密碼以解鎖投影片檢視、播放與下載功能</p>
+        </div>
+        <button class="ppt-auth-close-btn" id="closePptAuthModalBtn" type="button">✕</button>
+      </div>
+      <div class="ppt-auth-modal-body">
+        <div class="ppt-auth-notice-box">
+          <p><i class="fa-solid fa-circle-info text-primary"></i> <strong>版權告示：</strong>本平台所有 PPT 簡報與投影片圖像版權歸屬基督教教育機構所有。為尊重原創作者權益並恪守合法授權，檢視完整 PPT 需輸入授權通行碼。</p>
+          <p class="ppt-open-reminder"><i class="fa-solid fa-gift text-success"></i> <strong>完全開放：</strong>課程大綱、五大輔助教材庫、六大專家智庫、分齡問答及 <strong>AI 智繪教學圖表</strong> 均完全免費公開，點擊即可直接瀏覽！</p>
+        </div>
+        <form id="pptAuthModalForm" onsubmit="return false;" class="ppt-auth-form">
+          <div class="ppt-auth-input-row">
+            <div class="ppt-input-with-icon">
+              <i class="fa-solid fa-key input-lead-icon"></i>
+              <input type="password" id="modalPptPasswordInput" class="ppt-modal-input" placeholder="請輸入通行密碼 (如: WOLSS)" autocomplete="current-password" required>
+              <button type="button" class="btn-toggle-eye" id="modalToggleEyeBtn" title="顯示/隱藏密碼"><i class="fa-regular fa-eye"></i></button>
+            </div>
+            <button type="submit" id="modalPptAuthSubmitBtn" class="btn-submit-unlock"><i class="fa-solid fa-lock-open"></i> 解鎖查看 PPT</button>
+          </div>
+          <div id="modalPptAuthError" class="ppt-auth-err-msg hidden"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Script Load -->
   <script src="data/curriculum.js"></script>
+  <script src="data/ai_diagrams_data.js"></script>
   <script src="data/slides_data.js"></script>
   <script src="app.js"></script>
 </body>
