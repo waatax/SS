@@ -557,16 +557,141 @@
       </div>
     `;
 
-    // Insert into DOM: modeBar and playerContainer above cards
+    // 0. Build Lesson PPT Lock Gate
+    const lockGate = document.createElement('div');
+    lockGate.id = 'lessonPptLockGate';
+    lockGate.className = 'ppt-lock-gate';
+    lockGate.innerHTML = `
+      <div class="lock-gate-card">
+        <div class="lock-gate-badge"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 class="lock-gate-title">🛡️ 投影片 (PPT) 版權保護管制專區</h3>
+        <p class="lock-gate-desc">
+          本主日學教材之完整投影片圖像（全套共 ${slides.length} 頁）及 PPTX 簡報原檔受基督教教育機構智慧財產權保護。<br>
+          為維護版權並防止未授權公開傳播，檢視及播放完整 PPT 投影片需輸入專屬授權通行密碼。
+        </p>
+        <div class="lock-open-resources-box">
+          <div class="open-box-title"><i class="fa-solid fa-unlock-keyhole text-success"></i> 完全免費開放之教學資源（無須密碼 · 點擊直接瀏覽）：</div>
+          <div class="open-box-links">
+            <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target=\\'tab-ai-diagrams\\']').click()"><i class="fa-solid fa-diagram-project text-gold"></i> 📊 AI 智繪圖表 (故事脈絡/神學架構/50分節奏)</button>
+            <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target=\\'tab-aux\\']').click()"><i class="fa-solid fa-toolbox text-gold"></i> 🎒 五大輔助教材庫 (劇本/聯絡卡/原文/SOP/FAQ)</button>
+            <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target=\\'tab-experts\\']').click()"><i class="fa-solid fa-users text-gold"></i> 🌟 六大專家深層錦囊</button>
+            <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target=\\'tab-hymn-games\\']').click()"><i class="fa-solid fa-music text-gold"></i> 🎵 敬拜詩歌 & 破冰</button>
+            <button type="button" class="open-link-pill" onclick="document.querySelector('[data-target=\\'tab-prayer-review\\']').click()"><i class="fa-solid fa-hands-praying text-gold"></i> 🙏 複習問答與同心禱告</button>
+          </div>
+        </div>
+        
+        <form id="lessonPptAuthForm" onsubmit="return false;" class="lock-gate-form">
+          <label for="lessonPptPasswordInput" class="lock-form-label">請輸入專屬通行密碼解鎖本課 PPT：</label>
+          <div class="lock-input-group">
+            <div class="lock-input-wrap">
+              <input type="password" id="lessonPptPasswordInput" class="lock-password-input" placeholder="請輸入授權通行密碼" autocomplete="off">
+            </div>
+            <button type="submit" id="lessonPptAuthSubmitBtn" class="lock-submit-btn"><i class="fa-solid fa-lock-open"></i> 解鎖查看 PPT</button>
+          </div>
+          <div id="lessonPptAuthError" class="lock-error-feedback" style="display:none;"></div>
+        </form>
+      </div>
+    `;
+
+    // Insert into DOM: lockGate, modeBar and playerContainer above cards
     const introBar = cockpitContainer.querySelector('.cockpit-intro-bar');
     if (introBar) {
       introBar.after(playerContainer);
       introBar.after(modeBar);
+      introBar.before(lockGate);
     } else {
       cockpitContainer.prepend(playerContainer);
       cockpitContainer.prepend(modeBar);
+      cockpitContainer.prepend(lockGate);
     }
     document.body.appendChild(presenterModal);
+
+    function applyLockState(unlocked) {
+      document.body.classList.toggle('ppt-unlocked', !!unlocked);
+      const badge = document.getElementById('lessonPptAuthBadge');
+      if (badge) updateHeaderBadgeHtml(badge);
+
+      if (unlocked) {
+        lockGate.style.display = 'none';
+        modeBar.style.display = 'flex';
+        if (btnModePlayer.classList.contains('active')) {
+          playerContainer.style.display = 'block';
+          cards.forEach(c => c.style.display = 'none');
+        } else {
+          playerContainer.style.display = 'none';
+          cards.forEach(c => c.style.display = 'flex');
+        }
+        if (introBar) introBar.style.display = 'block';
+      } else {
+        lockGate.style.display = 'flex';
+        modeBar.style.display = 'none';
+        playerContainer.style.display = 'none';
+        cards.forEach(c => c.style.display = 'none');
+        if (introBar) introBar.style.display = 'none';
+        stopSpeech();
+        stopSlideshow();
+        if (!presenterModal.classList.contains('hidden')) {
+          closePresenter();
+        }
+      }
+    }
+
+    // Header Auth Status Badge & Relock Hook
+    setupHeaderAuthBadge(() => {
+      applyLockState(false);
+      showLToast('🔒 已重新鎖定 PPT 投影片。', 'fa-lock');
+    });
+
+    // Form submit listener
+    const lessonAuthForm = lockGate.querySelector('#lessonPptAuthForm');
+    const lessonPwdInput = lockGate.querySelector('#lessonPptPasswordInput');
+    const lessonErrDiv = lockGate.querySelector('#lessonPptAuthError');
+
+    if (lessonAuthForm) {
+      lessonAuthForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = lessonPwdInput ? lessonPwdInput.value : '';
+        if (verifyPptPassword(val)) {
+          try {
+            localStorage.setItem(WOLSS_KEY, 'true');
+            sessionStorage.setItem(WOLSS_KEY, 'true');
+          } catch(err) {}
+          applyLockState(true);
+          setSlide(1, 'none');
+          showLToast('🎉 通行密碼驗證成功！已解鎖本課 PPT 投影片。', 'fa-unlock');
+        } else {
+          if (lessonErrDiv) {
+            lessonErrDiv.style.display = 'inline-block';
+            lessonErrDiv.textContent = '❌ 通行密碼錯誤，請重新輸入或聯繫同工';
+          }
+        }
+      });
+    }
+
+    // Protect PPTX Download links
+    const modeDlBtn = modeBar.querySelector('.download-pptx-btn');
+    if (modeDlBtn) {
+      modeDlBtn.addEventListener('click', (e) => {
+        if (!isPptUnlocked()) {
+          e.preventDefault();
+          showLToast('🔒 本課 PPTX 簡報受版權保護，請先輸入授權通行密碼！', 'fa-lock');
+          if (lessonPwdInput) {
+            lessonPwdInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            lessonPwdInput.focus();
+          }
+        }
+      });
+    }
+
+    const presDlBtn = presenterModal.querySelector('.l-present-controls a');
+    if (presDlBtn) {
+      presDlBtn.addEventListener('click', (e) => {
+        if (!isPptUnlocked()) {
+          e.preventDefault();
+          showLToast('🔒 本課 PPTX 簡報受版權保護，請先輸入授權通行密碼！', 'fa-lock');
+        }
+      });
+    }
 
     // Default: hide cards, show player
     cards.forEach(c => c.style.display = 'none');
@@ -931,6 +1056,15 @@
 
     // Presenter Modal
     function openPresenter() {
+      if (!isPptUnlocked()) {
+        showLToast('🔒 請先輸入授權通行密碼解鎖 PPT 才能開啟投影！', 'fa-lock');
+        const input = document.getElementById('lessonPptPasswordInput');
+        if (input) {
+          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          input.focus();
+        }
+        return;
+      }
       presenterModal.classList.remove('hidden');
       updatePresenter();
       startPresenterTimer();
@@ -1147,7 +1281,10 @@
       }
     });
 
-    // Initialize first slide
-    setSlide(1, 'none');
+    // Initialize lock state & first slide
+    applyLockState(isPptUnlocked());
+    if (isPptUnlocked()) {
+      setSlide(1, 'none');
+    }
   }
 })();

@@ -769,7 +769,7 @@
       const playBtn = card.querySelector('.ppt-btn-play');
       playBtn.addEventListener('click', () => {
         if (!isPptUnlocked()) {
-          openPptAuthModal('請輸入授權通行密碼「WOLSS」以播放本課 PPT', () => {
+          openPptAuthModal('請輸入授權通行密碼以播放本課 PPT', () => {
             switchLessonById(l.id);
             closePptCatalogModal();
             switchToPptTab();
@@ -784,7 +784,7 @@
       const presentBtn = card.querySelector('.ppt-btn-present');
       presentBtn.addEventListener('click', () => {
         if (!isPptUnlocked()) {
-          openPptAuthModal('請輸入授權通行密碼「WOLSS」以全螢幕投影演講', () => {
+          openPptAuthModal('請輸入授權通行密碼以全螢幕投影演講', () => {
             switchLessonById(l.id);
             closePptCatalogModal();
             setTimeout(() => {
@@ -805,7 +805,7 @@
         dlBtn.addEventListener('click', (e) => {
           if (!isPptUnlocked()) {
             e.preventDefault();
-            openPptAuthModal('請輸入授權通行密碼「WOLSS」以下載本課 PPTX 簡報');
+            openPptAuthModal('請輸入授權通行密碼以下載本課 PPTX 簡報');
           }
         });
       }
@@ -1048,7 +1048,7 @@
           unlockPptSystem();
         } else {
           if (els.modalPptAuthError) {
-            els.modalPptAuthError.textContent = '❌ 通行密碼錯誤，請輸入授權密碼 WOLSS';
+            els.modalPptAuthError.textContent = '❌ 通行密碼錯誤，請重新輸入或聯繫同工';
             els.modalPptAuthError.classList.remove('hidden');
           }
         }
@@ -1072,7 +1072,7 @@
           unlockPptSystem();
         } else {
           if (els.inlinePptAuthError) {
-            els.inlinePptAuthError.textContent = '❌ 通行密碼錯誤，請輸入授權密碼 WOLSS';
+            els.inlinePptAuthError.textContent = '❌ 通行密碼錯誤，請重新輸入或聯繫同工';
             els.inlinePptAuthError.classList.remove('hidden');
           }
         }
@@ -1092,7 +1092,7 @@
       els.heroDownloadPptBtn.addEventListener('click', (e) => {
         if (!isPptUnlocked()) {
           e.preventDefault();
-          openPptAuthModal('請先輸入通行密碼 WOLSS 以下載本課 PPTX 原檔', () => {
+          openPptAuthModal('請先輸入授權通行密碼以下載本課 PPTX 原檔', () => {
             const pptInfo = getPptFileInfo(state.quarter, state.lessonNum);
             window.location.href = pptInfo.downloadUrl;
           });
@@ -1104,7 +1104,7 @@
       els.slideDownloadPptxBtn.addEventListener('click', (e) => {
         if (!isPptUnlocked()) {
           e.preventDefault();
-          openPptAuthModal('請先輸入通行密碼 WOLSS 以下載本課 PPTX 原檔', () => {
+          openPptAuthModal('請先輸入授權通行密碼以下載本課 PPTX 原檔', () => {
             const pptInfo = getPptFileInfo(state.quarter, state.lessonNum);
             window.location.href = pptInfo.downloadUrl;
           });
@@ -2363,7 +2363,7 @@
   // Presenter Fullscreen Cockpit
   function openPresentationMode() {
     if (!isPptUnlocked()) {
-      openPptAuthModal('請先輸入通行密碼 WOLSS 以啟動大螢幕放映', openPresentationMode);
+      openPptAuthModal('請先輸入授權通行密碼以啟動大螢幕放映', openPresentationMode);
       return;
     }
     const l = state.currentLesson;

@@ -4240,7 +4240,7 @@ body.theme-dark .ppt-catalog-footer {
   opacity: 0.6;
 }
 .ppt-cat-thumb.locked-thumb::after {
-  content: '🔒 WOLSS 解鎖';
+  content: '🔒 需授權密碼解鎖';
   position: absolute;
   inset: 0;
   display: flex;
@@ -4859,7 +4859,7 @@ body:not(.ppt-unlocked) #pptLockGate {
 }
 
 .ppt-cat-thumb.locked-thumb::after {
-  content: '🔒 需密碼 WOLSS 解鎖' !important;
+  content: '🔒 需授權密碼解鎖' !important;
   color: #fef08a !important;
   font-size: 0.88rem !important;
   font-weight: 700 !important;
